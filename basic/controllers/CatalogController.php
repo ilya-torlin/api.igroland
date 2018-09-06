@@ -174,7 +174,7 @@ class CatalogController extends ActiveController {
     public function actionGetmy() {
         $me = \Yii::$app->user->identity;
         if ($me->role_id == 1) {
-             $models = \app\models\Catalog::find()->innerjoin(['user','user.id = catalog.user_id'])->where(['user.role_id' => 1])->andWhere(['IS NOT','catalog.user_id', null]);
+             $models = \app\models\Catalog::find()->innerJoin('user','catalog.user_id = user.id')->where(['user.role_id' => 1])->andWhere(['IS NOT','catalog.user_id', null]);
         } else {
             $models = \app\models\Catalog::find()->where(['user_id' => $me->id]);
         }
@@ -291,10 +291,12 @@ class CatalogController extends ActiveController {
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OA\Response(
+     *  @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
+
+
      * )
      */
     public function actionUpdate($id) {

@@ -140,68 +140,7 @@ class CategoryController extends ActiveController {
      * )
      */
     public function actionIndex() {
-        $me = \Yii::$app->user->identity;
-        $params = \Yii::$app->request->get();
-        if (!array_key_exists('lvlFolder', $params) || !isset($params['lvlFolder'])) {
-            $lvlFolder = 0;
-        } else {
-            $lvlFolder = $params['lvlFolder'] + 1;
-        }
-        if (!array_key_exists('id', $params) || empty($params['id'])) {
-            $id = null;
-        } else {
-            $id = $params['id'];
-        }
-
-        if (array_key_exists('hideNotAvl', $params) && ($params['hideNotAvl'] == 'true' || $params['hideNotAvl'] == '1')) {
-            $hideNotAvl = true;
-        } else {
-            $hideNotAvl = false;
-        }
-        if (!array_key_exists('parentId', $params) || empty($params['parentId'])) {
-            $parentFolderId = 0;
-        } else {
-            $parentFolderId = $params['parentId'];
-        }
-
-        $models = \app\models\Category::find()
-                ->innerJoin('catalog', 'catalog.id = category.catalog_id')
-                ->leftJoin('user_catalog', 'catalog.id = user_catalog.catalog_id')
-                ->leftJoin('user', 'user.id = catalog.user_id');
         
-        if ($me->role_id == 1){
-            if (array_key_exists('catalog_id', $params) && !empty($params['catalog_id'])) {
-                $models = $models->where(['or',
-                    ['IS NOT','catalog.supplier_id',null],
-                    ['user.role_id' => 1]
-                ]);
-                
-            } else {
-                $models = $models->where(['IS NOT','catalog.supplier_id',null]);
-            }
-           
-        } else {
-            $models = $models->where(['or',
-                    ['user_catalog.user_id' => $me->id],
-                    ['catalog.avlForAll' => 1],
-                    ['catalog.user_id' => $me->id]
-                ]);
-        }
-                
-        $models=$models->andWhere(['parent_id' => $id])->andWhere(['catalog.isOn' => 1]);
-        
-        $isMyCatalog = 0;
-        if (array_key_exists('catalog_id', $params) && !empty($params['catalog_id'])) {
-            $models = $models->andWhere(['category.catalog_id' => $params['catalog_id']]);
-            $catalog = \app\models\Catalog::find()->where(['id' => $params['catalog_id'], 'user_id' => $me->id])->one();
-            if ($catalog  || $me->role_id) {
-                $isMyCatalog = 1;
-                $models = $models->with(['categoryAttaches', 'categoryAttaches.attachedCategory']);
-                $models = $models->with(['productAttaches', 'productAttaches.attachedProduct']);
-            }
-        }
-
-        $models = $models->andWhere(['deleted' => 0]);
         $models = $models->orderBy('catalog_id ASC, title ASC')->asArray()->all();
         $data = $this->prepareData($models, $lvlFolder, $parentFolderId, $hideNotAvl, $isMyCatalog);
         return JsonOutputHelper::getResult($data);
@@ -273,19 +212,17 @@ class CategoryController extends ActiveController {
 
      * )
      */
-    public function actionSearch() {
+    
+    private function prepareRequest(){
+        $me = \Yii::$app->user->identity;
         $params = \Yii::$app->request->get();
-        if (!isset($params['text'])) {
-            return JsonOutputHelper::getError('Не заполнен поисковый текст');
-        }
-
         if (!array_key_exists('lvlFolder', $params) || !isset($params['lvlFolder'])) {
             $lvlFolder = 0;
         } else {
             $lvlFolder = $params['lvlFolder'] + 1;
         }
         if (!array_key_exists('id', $params) || empty($params['id'])) {
-            $id = false;
+            $id = null;
         } else {
             $id = $params['id'];
         }
@@ -301,20 +238,60 @@ class CategoryController extends ActiveController {
             $parentFolderId = $params['parentId'];
         }
 
-        $models = \app\models\Category::find()->where(['like', 'title', $params['text']]);
-
-        if ($id) {
-            $models = $models->andWhere(['parent_id' => $id]);
+        $models = \app\models\Category::find()
+                ->innerJoin('catalog', 'catalog.id = category.catalog_id')
+                ->leftJoin('user_catalog', 'catalog.id = user_catalog.catalog_id')
+                ->leftJoin('user', 'user.id = catalog.user_id');
+        
+        if ($me->role_id == 1){
+            if (array_key_exists('catalog_id', $params) && !empty($params['catalog_id'])) {
+                $models = $models->where(['or',
+                    ['IS NOT','catalog.supplier_id',null],
+                    ['user.role_id' => 1]
+                ]);
+                
+            } else {
+                $models = $models->where(['IS NOT','catalog.supplier_id',null]);
+            }
+           
+        } else {
+            $models = $models->where(['or',
+                    ['user_catalog.user_id' => $me->id],
+                    ['catalog.avlForAll' => 1],
+                    ['catalog.user_id' => $me->id]
+                ]);
         }
-
+                
+        $models=$models->andWhere(['parent_id' => $id]);
+        
+        $isMyCatalog = 0;
         if (array_key_exists('catalog_id', $params) && !empty($params['catalog_id'])) {
-            $models = $models->andWhere(['catalog_id' => $params['catalog_id']]);
+            $models = $models->andWhere(['category.catalog_id' => $params['catalog_id']]);
+            $catalog = \app\models\Catalog::find()->where(['id' => $params['catalog_id'], 'user_id' => $me->id])->one();
+            if ($catalog  || $me->role_id) {
+                $isMyCatalog = 1;
+                $models = $models->with(['categoryAttaches', 'categoryAttaches.attachedCategory']);
+                $models = $models->with(['productAttaches', 'productAttaches.attachedProduct']);
+            }
+        } else {
+            $models=$models->andWhere(['catalog.isOn' => 1]);
         }
 
-        $models = $models->andWhere(['deleted' => 0])->with(['attachedCategories']);
-        $models = $models->orderBy('catalog_id ASC, title ASC')->limit(1000)->asArray()->all();
-        $data = $this->prepareData($models, $lvlFolder, $parentFolderId, $hideNotAvl);
-        return JsonOutputHelper::getResult($data);
+        $models = $models->andWhere(['deleted' => 0]);
+        
+        return array('models' => $models,'lvlFolder' =>$lvlFolder, 'parentFolderId' =>$parentFolderId, 'hideNotAvl' =>$hideNotAvl, 'isMyCatalog' =>$isMyCatalog);
+    }
+    
+    public function actionSearch() {
+        $params = \Yii::$app->request->get();
+        if (!isset($params['text'])) {
+            return JsonOutputHelper::getError('Не заполнен поисковый текст');
+        }
+
+        $data = $this->prepareRequest();
+        $data['models'] = $models->orderBy('catalog_id ASC, title ASC')->limit(1000)->asArray()->all();
+        $result = $this->prepareData($data['models'], $data['lvlFolder'], $data['parentFolderId'], $data['hideNotAvl']);
+        return JsonOutputHelper::getResult($result);
     }
 
     /**

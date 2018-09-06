@@ -61,8 +61,12 @@ class UserController extends ActiveController {
         foreach ($models as $model){    
             $item = array(  
                'id' =>  $model['id'],
-               'name' =>  $model['email'],
-               'login' => $model['login']
+               'name' =>  $model['name'],
+               'email' =>  $model['email'],
+               'login' => $model['login'],
+               'photo' => $model['photo'],
+               'surname' => $model['surname'],
+               'isActive' => $model['isActive']
             );
            
             array_push($data,  $item);  

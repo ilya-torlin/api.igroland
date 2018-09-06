@@ -78,8 +78,10 @@ class CategoryattachController extends ActiveController {
              return JsonOutputHelper::getError('Категория attached_category_id не найдена');
         }
         
-        $acatalog = \app\models\UserCatalog::find()->where(['catalog_id' => $acategory->catalog_id,'user_id' => $me->id])->one();
-        if (!$acatalog && ($me->role_id != 1) ){
+        //
+        $aucatalog = \app\models\UserCatalog::find()->where(['catalog_id' => $acategory->catalog_id,'user_id' => $me->id])->one();
+        $acatalog = \app\models\Catalog::find()->where(['id' => $acategory->catalog_id])->one();
+        if (!$acatalog->avlForAll && ($acatalog->user_id != $me->id) && !$aucatalog && ($me->role_id != 1) ){
              return JsonOutputHelper::getError('Привязываемая категория не доступна пользователю');
         }
         
