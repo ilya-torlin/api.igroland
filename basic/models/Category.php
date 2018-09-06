@@ -185,10 +185,9 @@ class Category extends \yii\db\ActiveRecord
 
 
         //Выбираем товары вложенные в категории
-        $models = \app\models\Product::find();
-        $models = $models->innerJoin('product_category', 'product.id = product_category.product_id');
-        $models = $models->andWhere(['IN','product_category.category_id' , $categoryIds]);
-        $modelIds = $models->select('product.id')->asArray()->column();       
+        $models = \app\models\ProductCategory::find();
+        $models = $models->andWhere(['IN','category_id' , $categoryIds]);
+        $modelIds = $models->select('product_id')->asArray()->column();       
 
 
         //Выбираем товары attached в категории

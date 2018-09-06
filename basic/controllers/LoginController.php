@@ -1,24 +1,24 @@
 <?php
 
 /**
- * @OAS\OpenApi(
- *     @OAS\Info(
+ * @OA\OpenApi(
+ *     @OA\Info(
  *         version="1.0.0",
  *         title="Igroland Api",
  *         description="",
  *         termsOfService="",
- *         @OAS\Contact(
+ *         @OA\Contact(
  *             email="sosnin@praweb.ru"
  *         )
  *     ),
- *     @OAS\Server(
+ *     @OA\Server(
  *         description="Api host",
  *         url="http://igroland-api.praweb.ru"
  *     )
  * )
  */
   /**
-      @OAS\SecurityScheme(
+      @OA\SecurityScheme(
       securityScheme="bearerAuth",
       type="http",
       scheme="bearer"
@@ -62,23 +62,23 @@ class LoginController extends ActiveController {
     public $defaultAction = 'login';
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/login",
      *     summary="Авторизует пользователя по логину и паролю",
      *     tags={"login"},
      *     description="Метод для авторизации",
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="email",
      *                     description="Email",
      *                     type="string",
      *                 ),
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="password",
      *                     description="Password",
      *                     type="string"
@@ -86,7 +86,7 @@ class LoginController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
@@ -132,28 +132,28 @@ class LoginController extends ActiveController {
 
     
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/login/registration",
      *     summary="Регистрирует пользователя",
      *     tags={"login"},
      *     description="Метод для регистарции",
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="email",
      *                     description="Email",
      *                     type="string",
      *                 ),
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="password",
      *                     description="Пароль, не менее 5 символов",
      *                     type="string"
      *                 ),
-     *                @OAS\Property(
+     *                @OA\Property(
      *                     property="login",
      *                     description="Login",
      *                     type="string",
@@ -161,7 +161,7 @@ class LoginController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
@@ -230,17 +230,17 @@ class LoginController extends ActiveController {
   
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/login/logout",
      *     summary="Заменяет существующий токен доступа на случайный",
      *     tags={"login"},
      *     security={{"bearerAuth":{}}},
      *     description="Метод для отчистки авторизации",
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *  @OAS\Response(
+     *  @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -261,18 +261,18 @@ class LoginController extends ActiveController {
 
     
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/login/restore",
      *     summary="Отправляет на почту письмо восстановления пароля",
      *     tags={"login"},
      *     description="Метод для восстановления пароля",
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="email",
      *                     description="Email",
      *                     type="string",
@@ -280,7 +280,7 @@ class LoginController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
@@ -313,20 +313,20 @@ class LoginController extends ActiveController {
     
     
     /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/login/changepass",
      *     summary="Меняет пароль на ранее запрошенный через восстановление",
      *     tags={"login"},
      *     description="Метод для смены пароля на восстановленный",
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="token",
      *         in="query",            
      *         required=true,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="string",
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),

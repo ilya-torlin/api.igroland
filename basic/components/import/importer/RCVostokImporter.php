@@ -81,6 +81,7 @@ class RCVostokImporter extends BaseImporter implements \app\components\import\Im
             // товары
             $goods = $data->products->product;
             // проходимся по товарам
+            $i = 0;
             foreach ($goods as $gkey => $good) {
                 try {
                     $hit = 0;
@@ -96,6 +97,12 @@ class RCVostokImporter extends BaseImporter implements \app\components\import\Im
                     $brand_id = 0;
                     if (isset($good->brand)) {
                         $brand_id = $this->findBrandByName($good->brand->__toString());
+                    }
+                    
+                    if (!array_key_exists((int) $good->category_id, $currentArrayCC)){
+                        echo 'Не найдена категория товара';
+                        var_dump($good);
+                        continue;
                     }
 
                     $a = [
@@ -125,13 +132,13 @@ class RCVostokImporter extends BaseImporter implements \app\components\import\Im
                         //Пустой артикул
                         continue;
                     }
-                    echo 'Обрабатываем товар: ' . $a['import_title'];
-                    var_dump($a);
-                    die();
+                    echo  $i++.'|';
+                    
 
                     $this->saveProduct($a);
+                    
                 } catch (\Exception $e) {
-                    return $this->getError('Ошибка при сохранении товара ' . $good->name . ' !!' . $value . '!! ' . $e->getMessage() . ' line- ' . $e->getLine());
+                    return $this->getError('Ошибка при сохранении товара ' . $good->name . ' !!!! ' . $e->getMessage() . ' line- ' . $e->getLine());
                 }
             }
 

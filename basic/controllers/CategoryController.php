@@ -80,59 +80,59 @@ class CategoryController extends ActiveController {
     }
 
     /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/category",
      *     summary="Возвращает список категорий",
      *     tags={"category"},
      *     description="Метод для для получения данных пользоватлея",
      *     security={{"bearerAuth":{}}},       
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="catalog_id",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="lvlFolder",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="id",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="parentId",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="hideNotAvl",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="boolean",
      *         )
      *     ), 
      * 
      * 
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -170,10 +170,16 @@ class CategoryController extends ActiveController {
                 ->leftJoin('user', 'user.id = catalog.user_id');
         
         if ($me->role_id == 1){
-           $models = $models->where(['or',
+            if (array_key_exists('catalog_id', $params) && !empty($params['catalog_id'])) {
+                $models = $models->where(['or',
                     ['IS NOT','catalog.supplier_id',null],
                     ['user.role_id' => 1]
                 ]);
+                
+            } else {
+                $models = $models->where(['IS NOT','catalog.supplier_id',null]);
+            }
+           
         } else {
             $models = $models->where(['or',
                     ['user_catalog.user_id' => $me->id],
@@ -202,65 +208,65 @@ class CategoryController extends ActiveController {
     }
 
     /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/category/search",
      *     summary="Возвращает список категорий подходящих по поиску",
      *     tags={"category"},
      *     description="Метод для для получения вложенных категорий",
      *     security={{"bearerAuth":{}}},   
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="text",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="string",
      *         )
      *     ),
-     *      @OAS\Parameter(
+     *      @OA\Parameter(
      *         name="catalog_id",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="lvlFolder",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="id",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="parentId",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="hideNotAvl",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="boolean",
      *         )
      *     ), 
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -312,29 +318,29 @@ class CategoryController extends ActiveController {
     }
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/category",
      *     summary="Создает новую категорию ",
      *     tags={"category"},
      *     security={{"bearerAuth":{}}},
      *     description="Метод для создания пользовательской категории",
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="name",
      *                     description="Name",
      *                     type="string",
      *                 ),  
-     *                @OAS\Property(
+     *                @OA\Property(
      *                     property="parentId",
      *                     description="Parent category id",
      *                     type="integer",
      *                 ),
-     *                @OAS\Property(
+     *                @OA\Property(
      *                     property="catalogId",
      *                     description="Catalog id",
      *                     type="integer",
@@ -342,11 +348,11 @@ class CategoryController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *  @OAS\Response(
+     *  @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -385,25 +391,25 @@ class CategoryController extends ActiveController {
     }
 
     /**
-     * @OAS\Delete(
+     * @OA\Delete(
      *     path="/category/{id}",
      *     summary="Удаляет категорию",
      *     tags={"category"},
      *     description="Метод для удаления категории",
      *     security={{"bearerAuth":{}}}, 
-     * @OAS\Parameter(
+     * @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),  
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -427,25 +433,25 @@ class CategoryController extends ActiveController {
     }
 
     /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/category/{id}",
      *     summary="Возвращает категорию",
      *     tags={"category"},
      *     description="Метод для получения категории",
      *     security={{"bearerAuth":{}}}, 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),  
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),

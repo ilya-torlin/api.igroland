@@ -44,7 +44,7 @@ class OstComImporter extends BaseImporter implements \app\components\import\Impo
          $data = $this->prepareDate($xmlFile);        
          //$newxml = simplexml_load_string($data);
          // категории
-         $categories = $data->shop->categories->category;;
+         $categories = $data->shop->categories->category;
          // $category->catalog_id;  // id каталога
          // $category->supplier_id;   // id производителя
          // $category->parent_id; // id родителя в нашей базе
@@ -142,9 +142,9 @@ class OstComImporter extends BaseImporter implements \app\components\import\Impo
                    "barcode" => "",
                    "code1c" => "",
                    "depth" => "",
-                   "width" => isset($currentAttr['width']) ? $currentAttr['width'] : '',
-                   "height" => isset($currentAttr['height']) ? $currentAttr['height'] : '',
-                   "weight" => isset($currentAttr['weight']) ? $currentAttr['weight'] : '',
+                   "width" => isset($currentAttr['width']) ? (int)$currentAttr['width'] : '',
+                   "height" => isset($currentAttr['height']) ? (int)$currentAttr['height'] : '',
+                   "weight" => isset($currentAttr['weight']) ? (int)$currentAttr['weight'] : '',
                    "unit" => "",
                    "certificate" => "",
                    "description" => (string)$good->description,

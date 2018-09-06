@@ -5,9 +5,15 @@ use yii\console\Controller;
 
 class ImportController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex($id = false)
     {
-        $suppliers= \app\models\Supplier::find()->where(['importIsRun' => 0,'importIsActive' => 1])->all();
+        if (!$id){
+            $suppliers= \app\models\Supplier::find()->where(['importIsRun' => 0,'importIsActive' => 1])->all();
+        } else {
+           $suppliers= \app\models\Supplier::find()->where(['id' => $id])->all(); 
+        }
+        
+       
         foreach ($suppliers as $supplier){
             $minStartDate = date('Y-m-d h:i:s',(strtotime($supplier->importLastFinish) + $supplier->importDelayTime));            
             if (date('Y-m-d h:i:s') > $minStartDate){

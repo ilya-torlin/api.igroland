@@ -40,8 +40,6 @@ class UserController extends ActiveController {
         return JsonOutputHelper::getResult($model);
     }
 
-    
-    
     public function actions() {
         $actions = parent::actions();
         unset($actions['create'], $actions['update'], $actions['index'], $actions['view'], $actions['delete']);
@@ -58,7 +56,6 @@ class UserController extends ActiveController {
         return;
     }
 
-    
      private function prepareDataIndex($models){
         $data = array();
         $idx = 0;
@@ -66,6 +63,7 @@ class UserController extends ActiveController {
             $item = array(  
                'id' =>  $model['id'],
                'name' =>  $model['email'],
+                'login' => $model['login']
             );
            
             array_push($data,  $item);  
@@ -101,11 +99,172 @@ class UserController extends ActiveController {
         $data = $this->prepareDataIndex($users);
         return JsonOutputHelper::getResult($data);
     }
+	/**
+	 * @OAS\Delete(
+	 *     path="/user/{id}",
+	 *     summary="Возвращает данные всех пользователей",
+	 *     tags={"user"},
+	 *     description="Метод для получения данных пользоватлей",
+	 *     security={{"bearerAuth":{}}},
+	 *    @OAS\Parameter(
+	 *         name="id",
+	 *         in="path",
+	 *         required=false,
+	 *         @OAS\Schema(
+	 *             type="integer",
+	 *         )
+	 *     ),
+	 *     @OAS\Response(
+	 *         response=200,
+	 *         description="successful operation"
+	 *     ),
+	 *     @OAS\Response(
+	 *         response=401,
+	 *         description="Необходимо отправить авторизационный токен"
+	 *     ),
 
+	 * )
+	 */
     public function actionDelete($id) {
         $model = \app\models\User::find()->where(['id' => $id])->one();
         $model->delete();
     }
+    /**
+      * @OAS\Post(
+      *     path="/user/{id}/setonoff",
+      *     summary="Блокирует пользователя",
+      *     tags={"user"},
+      *     description="Метод для блокировки пользоватлей",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="value",
+      *                     description="value",
+      *                     type="string",
+      *                 )
+      *             )
+      *         )
+      *     ),
+      *     @OAS\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OAS\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
+
+      * )
+      */
+    public function actionSetonoff($id){
+         $me = \Yii::$app->user->identity;
+         $model = \app\models\User::find()->where(['id' => $id])->one();
+         if(!$model)
+              return JsonOutputHelper::getError('Пользователь не найден');
+         $boolval = filter_var(\Yii::$app->request->post()['value'], FILTER_VALIDATE_BOOLEAN);
+         if ($boolval) {
+              $model->isActive = 1;
+         } else {
+              $model->isActive = 0;
+         }
+    }
+     /**
+      * @OAS\Put(
+      *     path="/user/{id}",
+      *     summary="Обновляет данные пользователя",
+      *     tags={"user"},
+      *     description="Метод для обновления пользоватлей",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="surname",
+      *                     description="surname",
+      *                     type="string",
+      *                 ),
+      *                  @OA\Property(
+      *                     property="name",
+      *                     description="name",
+      *                     type="string",
+      *                 ),
+      *                  @OA\Property(
+      *                     property="patronymic",
+      *                     description="patronymic",
+      *                     type="string",
+      *                 ),
+      *                  @OA\Property(
+      *                     property="login",
+      *                     description="login",
+      *                     type="string",
+      *                 ),
+      *                  @OA\Property(
+      *                     property="email",
+      *                     description="email",
+      *                     type="string",
+      *                 ),
+      *                  @OA\Property(
+      *                     property="phone",
+      *                     description="phone",
+      *                     type="string",
+      *                 ),
+      *                  @OA\Property(
+      *                     property="site",
+      *                     description="site",
+      *                     type="string",
+      *                 ),
+      *             )
+      *         )
+      *     ),
+      *     @OAS\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OAS\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
+
+      * )
+      */
+    public function actionUpdate($id) {
+
+          $params = \Yii::$app->request->post();
+          $user = \Yii::$app->user->identity;
+          $model = \app\models\User::find()->where(['id' => $id])->one();
+
+          if ($user->role_id != 1)
+               throw new \yii\web\ForbiddenHttpException(sprintf('Недостатоно прав для редактирования'));
+
+          $model->setAttributes($params);
+          $model->validate();
+          \Yii::trace(json_encode($model->getErrors()), __METHOD__);
+          $model->save();
+     }
 
     public function actionView($id) {
         $model = \app\models\User::find()->where(['id' => $id])->with(['role','projects'])->one();
@@ -146,34 +305,6 @@ class UserController extends ActiveController {
         $user->accessToken = $user->password;
         $user->save();
         return $user->id;
-    }
-
-    public function actionUpdate($id) {
-
-        $params = \Yii::$app->request->post();
-        $user = \Yii::$app->user->identity;
-        $model = \app\models\User::find()->where(['id' => $id])->one();
-
-        if ($user->role_id != \app\models\UserRole::ROOT)
-            throw new \yii\web\ForbiddenHttpException(sprintf('Нельзя редактировать не руту'));
-
-
-        if (!empty($params['password']) && $model->password != $params['password']) {
-            if (strlen($params['password']) < 5)
-                throw new \yii\web\ForbiddenHttpException(sprintf('ПАроль не может быть короче 5 символов'));
-            $params['password'] = \Yii::$app->getSecurity()->generatePasswordHash($params['password']);
-        }
-        \Yii::trace(json_encode($params), __METHOD__);
-        $model->setAttributes($params);
-        $model->role_id = $params['role']['id'];
-        $model->unlinkAll('projects', true);
-        foreach ($params['projects'] as $project) {
-            $model->link('projects', \app\models\Project::find()->where(['id' => $project['id']])->one());
-        }
-
-        $model->validate();
-        \Yii::trace(json_encode($model->getErrors()), __METHOD__);
-        $model->save();
     }
 
     public function behaviors() {

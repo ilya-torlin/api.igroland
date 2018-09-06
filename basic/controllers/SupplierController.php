@@ -31,18 +31,18 @@ class SupplierController extends ActiveController {
         
     }
  /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/supplier",
      *     summary="Возвращает список поставщиков",
      *     tags={"supplier"},
      *     description="Метод для для получения списка поставщиков",
      *     security={{"bearerAuth":{}}},      
      *    
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),

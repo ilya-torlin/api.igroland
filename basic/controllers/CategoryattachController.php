@@ -22,24 +22,24 @@ class CategoryattachController extends ActiveController {
 
     
       /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/categoryattach",
      *     summary="Создает новую связку категорий",
      *     tags={"categoryAttach"},
      *     security={{"bearerAuth":{}}},
      *     description="Метод для создания связки категорий  category_id - Категория в которую происходит привязывание (из собственного каталога),attached_category_id - Категория которая привязывается ",
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="category_id",
      *                     description="Категория в которую происходит привязывание (из собственного каталога)",
      *                     type="integer",
      *                 ),  
-     *                @OAS\Property(
+     *                @OA\Property(
      *                     property="attached_category_id",
      *                     description="Категория которая привязывается",
      *                     type="integer",
@@ -47,11 +47,11 @@ class CategoryattachController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *  @OAS\Response(
+     *  @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -68,8 +68,8 @@ class CategoryattachController extends ActiveController {
              return JsonOutputHelper::getError('Категория category_id не найдена');
         }
         
-        $catalog = \app\models\Catalog::find()->where(['id' => $category->catalog_id,'user_id' => $me->id])->one();
-        if (!$catalog){
+        $catalog = \app\models\Catalog::find()->where(['id' => $category->catalog_id])->one();
+        if (!$catalog || ($catalog->user_id != $me->id && $me->role_id != 1) ){
              return JsonOutputHelper::getError('Категория  не принадлежит пользователю');
         }
         $catalog->setAndSaveUpdate();
@@ -79,7 +79,7 @@ class CategoryattachController extends ActiveController {
         }
         
         $acatalog = \app\models\UserCatalog::find()->where(['catalog_id' => $acategory->catalog_id,'user_id' => $me->id])->one();
-        if (!$acatalog){
+        if (!$acatalog && ($me->role_id != 1) ){
              return JsonOutputHelper::getError('Привязываемая категория не доступна пользователю');
         }
         
@@ -99,25 +99,25 @@ class CategoryattachController extends ActiveController {
    
 
        /**
-     * @OAS\Delete(
+     * @OA\Delete(
      *     path="/categoryattach/{id}",
      *     summary="Удаляет связку категорий",
      *     tags={"categoryAttach"},
      *     description="Метод для удаления связки категорий",
      *     security={{"bearerAuth":{}}}, 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),  
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),

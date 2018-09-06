@@ -5,22 +5,33 @@ namespace app\models;
 
 use Yii;
 
+//**
 /**
  * This is the model class for table "user".
  *
- * @property integer $id
- * @property integer $role_id
+ * @property int $id
+ * @property int $role_id
  * @property string $login
  * @property string $email
  * @property string $password
- * @property string $newPassword
  * @property string $accessToken
+ * @property string $newPassword
  * @property string $authKey
- * @property integer $active
+ * @property int $isActive
+ * @property string $surname
+ * @property string $name
+ * @property string $patronymic
+ * @property string $site
+ * @property string $phone
+ * @property string $photo
  * @property string $regDate
  * @property string $lastAction
-
- * @property UserRole $role 
+ *
+ * @property Catalog[] $catalogs
+ * @property TradeMarkup[] $tradeMarkups
+ * @property UserRole $role
+ * @property UserCatalog[] $userCatalogs
+ * @property Catalog[] $catalogs0
  */
 
 /**
@@ -43,33 +54,42 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
      * @inheritdoc
      */
     public function rules() {
-        return [
-            [['role_id', 'password', 'accessToken'], 'required'],
-            [[ 'role_id', 'active'], 'integer'],
-            [['regDate', 'lastAction'], 'safe'],
-            [['login',  'email', 'password', 'accessToken', 'authKey', 'newPassword'], 'string', 'max' => 255],
-            [['email'], 'unique'],
-            [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => UserRole::className(), 'targetAttribute' => ['role_id' => 'id']],           
-        ];
+         return [
+              [['role_id', 'password', 'accessToken'], 'required'],
+              [['role_id', 'isActive'], 'integer'],
+              [['regDate', 'lastAction'], 'safe'],
+              [['login', 'email', 'password', 'accessToken', 'newPassword', 'authKey', 'photo'], 'string', 'max' => 255],
+              [['surname', 'name', 'patronymic', 'site'], 'string', 'max' => 100],
+              [['phone'], 'string', 'max' => 12],
+              [['login'], 'unique'],
+              [['email'], 'unique'],
+              [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => UserRole::className(), 'targetAttribute' => ['role_id' => 'id']],
+         ];
     }
 
     /**
      * @inheritdoc
      */
     public function attributeLabels() {
-        return [
-            'id' => 'ID',
-            'role_id' => 'Role ID',
-            'login' => 'Login', 
-            'email' => 'Email',
-            'password' => 'Password',
-            'newPassword' => 'New password',
-            'accessToken' => 'Access Token',
-            'authKey' => 'Auth Key',
-            'active' => 'Active',            
-            'regDate' => 'Reg Date',
-            'lastAction' => 'Last Action',  
-        ];
+         return [
+              'id' => 'ID',
+              'role_id' => 'Role ID',
+              'login' => 'Login',
+              'email' => 'Email',
+              'password' => 'Password',
+              'accessToken' => 'Access Token',
+              'newPassword' => 'New Password',
+              'authKey' => 'Auth Key',
+              'isActive' => 'Is Active',
+              'surname' => 'Surname',
+              'name' => 'Name',
+              'patronymic' => 'Patronymic',
+              'site' => 'Site',
+              'phone' => 'Phone',
+              'photo' => 'Photo',
+              'regDate' => 'Reg Date',
+              'lastAction' => 'Last Action',
+         ];
     }
 
     public function fields() {
@@ -83,8 +103,6 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
         return $fields;
     }
 
-    
-
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -94,7 +112,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
 
    
 
-    public function getAuthKey(): string {
+    public function getAuthKey() {
         //  return $this->authKey;
     }
 
@@ -102,15 +120,15 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
         return $this->id;
     }
 
-    public function validateAuthKey($authKey): bool {
+    public function validateAuthKey($authKey) {
         //  return $this->getAuthKey() === $authKey;
     }
 
-    public static function findIdentity($id): \yii\web\IdentityInterface {
+    public static function findIdentity($id) {
         return static::findOne($id);
     }
 
-    public static function findIdentityByAccessToken($token, $type = null): \yii\web\IdentityInterface {
+    public static function findIdentityByAccessToken($token, $type = null) {
         //return static::findOne(1);
         return static::findOne(['accessToken' => $token]);
     }

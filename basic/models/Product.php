@@ -67,7 +67,7 @@ class Product extends \yii\db\ActiveRecord {
             [['sid', 'supplier_id', 'title'], 'required'],
             [['description', 'certificate'], 'string'],
             [['weight', 'depth', 'width', 'height', 'price', 'price_add', 'supplier_price'], 'number'],
-            [['sid'], 'string', 'max' => 12],
+            [['sid'], 'string', 'max' => 50],
             [['title', 'import_title'], 'string', 'max' => 400],
             [['sku'], 'string', 'max' => 32],
             [['code1c', 'country'], 'string', 'max' => 255],

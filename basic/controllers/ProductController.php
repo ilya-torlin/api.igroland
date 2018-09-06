@@ -63,7 +63,7 @@ class ProductController extends ActiveController {
             'images' => $images,
             'params' => array(
                 (object) array('key' => 'Артикул', 'val' => $model->sku),
-                (object) array('key' => 'Бренд', 'val' => $model->brand->title),
+                (object) array('key' => 'Бренд', 'val' => $model->brand? $model->brand->title:''),
                 (object) array('key' => 'Код 1С', 'val' => $model->code1c),
                 (object) array('key' => 'Штрихкод', 'val' => $model->barcode),
                 (object) array('key' => 'id', 'val' => $model->id),
@@ -84,50 +84,50 @@ class ProductController extends ActiveController {
     }
 
     /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/product",
      *     summary="Возвращает список товаров c фильтрами",
      *     tags={"product"},
      *     description="",
      *     security={{"bearerAuth":{}}}, 
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="category_id",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="hideNotAvl",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="boolean",
      *         )
      *     ), 
      * 
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="limit",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="offset",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -181,25 +181,25 @@ class ProductController extends ActiveController {
     }
 
     /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/product/{id}",
      *     summary="Возвращает  товар ",
      *     tags={"product"},
      *     description="",
      *     security={{"bearerAuth":{}}},       
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),    
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -223,49 +223,49 @@ class ProductController extends ActiveController {
     }
 
     /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/product/search",
      *     summary="Возвращает список  товаров по поиску",
      *     tags={"product"},
      *     description="Метод для для получения товаров по поиску",
      *     security={{"bearerAuth":{}}},   
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="text",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="string",
      *         )
      *     ),
-     *      @OAS\Parameter(
+     *      @OA\Parameter(
      *         name="category_id",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),    
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="limit",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="offset",
      *         in="query",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -321,27 +321,27 @@ class ProductController extends ActiveController {
     }
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/product/{id}/settrademarkup",
      *     summary="Устанавливает индивидуальную наценку на продукт",
      *     tags={"product"},
      *     description="",
      *     security={{"bearerAuth":{}}},     
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),   
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="value",
      *                     description="value",
      *                     type="integer",
@@ -349,7 +349,7 @@ class ProductController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
@@ -374,27 +374,27 @@ class ProductController extends ActiveController {
     }
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/product/{id}/setalternativetitle",
      *     summary="Устанавливает алтернативное имя для продукта (только для Администратора)",
      *     tags={"product"},
      *     description="",
      *     security={{"bearerAuth":{}}},     
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),   
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="title",
      *                     description="title",
      *                     type="string",
@@ -402,7 +402,7 @@ class ProductController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
@@ -424,27 +424,27 @@ class ProductController extends ActiveController {
     }
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/product/{id}/setuseadmingallery",
      *     summary="Устанавливает использовать ли галерею администратора",
      *     tags={"product"},
      *     description="",
      *     security={{"bearerAuth":{}}},     
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),   
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="value",
      *                     description="value",
      *                     type="boolean",
@@ -452,7 +452,7 @@ class ProductController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
@@ -482,27 +482,27 @@ class ProductController extends ActiveController {
     }
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/product/{id}/addgallery",
      *     summary="Загружает администраторскую галерею для товара",
      *     tags={"product"},
      *     description="",
      *     security={{"bearerAuth":{}}},     
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),   
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="multipart/form-data",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                type="object",
-     *                @OAS\Property(
+     *                @OA\Property(
      *                     property="file",
      *                     description="file",
      *                     type="file",
@@ -510,7 +510,7 @@ class ProductController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),

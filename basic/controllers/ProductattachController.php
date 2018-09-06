@@ -22,24 +22,24 @@ class ProductattachController extends ActiveController {
     }
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/productattach",
      *     summary="Создает новую связку товара и категории",
      *     tags={"productAttach"},
      *     security={{"bearerAuth":{}}},
      *     description="Метод для создания связки категорий  category_id - Категория в которую происходит привязывание (из собственного каталога),attached_category_id - Категория которая привязывается ",
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="category_id",
      *                     description="Категория в которую происходит привязывание (из собственного каталога)",
      *                     type="integer",
      *                 ),  
-     *                @OAS\Property(
+     *                @OA\Property(
      *                     property="attached_product_id",
      *                     description="Товар который привязывается",
      *                     type="integer",
@@ -47,11 +47,11 @@ class ProductattachController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *  @OAS\Response(
+     *  @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -94,25 +94,25 @@ class ProductattachController extends ActiveController {
     }
 
     /**
-     * @OAS\Delete(
+     * @OA\Delete(
      *     path="/productattach/{id}",
      *     summary="Удаляет связку категории и товара",
      *     tags={"productAttach"},
      *     description="Метод для удаления связки категории и товара",
      *     security={{"bearerAuth":{}}}, 
-     *    @OAS\Parameter(
+     *    @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),  
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),

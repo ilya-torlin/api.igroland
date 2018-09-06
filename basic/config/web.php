@@ -80,7 +80,9 @@ $config = [
                         'GET me' => 'me',
                         'GET,HEAD <id>' => 'view',                        
                         'POST' => 'save',
+                        'POST <id>/setonoff' => 'setonoff',
                         'GET,HEAD' => 'index',
+                         '<id>/setonoff' => 'options',
                         '<id>' => 'options',
                         '' => 'options',
                     ],
@@ -210,7 +212,7 @@ if (YII_ENV_DEV ) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['188.225.87.23', '::1'],
+        'allowedIPs' => ['92.53.107.26', '::1'],
         'panels' => [
             'db' => [
                 'class' => 'yii\debug\panels\DbPanel',
@@ -231,7 +233,7 @@ if (YII_ENV_DEV ) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['188.225.87.23'],
+        'allowedIPs' => ['92.53.107.26', '::1'],
             // 'allowedIPs' => ['*'],
     ];
 }

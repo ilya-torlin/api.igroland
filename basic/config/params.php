@@ -9,7 +9,8 @@ return [
         "ADMIN" => 'http://igroland-api.praweb.ru' 
     ],
     'path' => [        
-            'saveImagePath' => '/home/admin/web/igroland-api.praweb.ru/public_html/data/images',
+           'saveImagePath' => '/home/admin/web/igroland-api.praweb.ru/public_html/data/images',
+           'tmpPath' => '/home/admin/web/igroland-api.praweb.ru/tmp',
            'saveImageUrl' => '/data/images'
     ],
 ];

@@ -4,16 +4,16 @@ namespace app\components\import\importer;
 
 class BaseImporter implements \app\components\import\ImporterInterface {
 
-    public function calcPrice($product,$basePrice,$price_add){
-       if (isset($product->price_add)){
-           $price_add = $product->price_add;
-       }        
-        $price = $basePrice+($basePrice * ($price_add/100));
+    public function calcPrice($product, $basePrice, $price_add) {
+        if (isset($product->price_add)) {
+            $price_add = $product->price_add;
+        }
+        $price = $basePrice + ($basePrice * ($price_add / 100));
         return $price;
     }
-    
-    public function engine($supplier) {
 
+    public function engine($supplier) {
+        
     }
 
     public function getError($text) {
@@ -31,12 +31,12 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         return $model->id;
     }
 
-      public function findBrandByName($name) {
-         $model = \app\models\Brand::find()->where(['title' => $name])->one();
-         if (!$model)
-             return false;
-         return $model->id;
-      }
+    public function findBrandByName($name) {
+        $model = \app\models\Brand::find()->where(['title' => $name])->one();
+        if (!$model)
+            return false;
+        return $model->id;
+    }
 
     public function findCategoryByExternalId($id, $supplier) {
         $model = \app\models\Category::find()->where(['external_id' => $id, 'catalog_id' => $supplier->id])->one();
@@ -55,7 +55,7 @@ class BaseImporter implements \app\components\import\ImporterInterface {
             $model->title = $a['import_title'];
         }
 
-        if ($model->title == $model->import_title){
+        if ($model->title == $model->import_title) {
             $model->title = $a['import_title'];
             $model->import_title = $a['import_title'];
         }
@@ -63,23 +63,39 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         $model->price = $this->calcPrice($model, $a['supplier_price'], $a['price_add']);
         unset($a['price_add']);
         $model->attributes = $a;
-       
+
 
         $model->updated_at = date('Y-m-d h:i:s');
-        
-        $model->save();
+        if ($model->validate()) {
+            $model->save();
+        } else {
+
+            echo "!!!!!!!!" ;
+            var_dump($model->errors);
+            die();
+        }
+
         $model->validate();
-        
+
 
         $usedImageArray = array();
         foreach ($a['images'] as $image) {
             //$productImage = \app\models\ProductImage::find()->leftJoin('image', 'image.id = product_image.image_id')->where(['product_image.product_id' => $model->id, 'image.path' => $image])->one();
-            $image_params = \app\components\ImageSaveHelper::saveFromUrl($image);
+            $imageNameArr = explode('/', $image);
+            $imageName = array_pop($imageNameArr);
+            if (!$imageName)
+                continue;
             $productImage = \app\models\ProductImage::find()->leftJoin('image', 'image.id = product_image.image_id')
-                                                            ->where(['product_image.product_id' => $model->id])
-                                                            ->andWhere(['like', 'image.path', $image_params['name']])
-                                                            ->one();
+                    ->where(['product_image.product_id' => $model->id])
+                    ->andWhere(['like', 'image.path', $imageName])
+                    ->one();
             if (!$productImage) {
+
+                $image_params = \app\components\ImageSaveHelper::saveFromUrl($image);
+                if (!$image_params)
+                    continue;
+
+
                 $imageObj = new \app\models\Image();
                 $imageObj->path = $image_params['link'];
                 $imageObj->save();
@@ -89,9 +105,13 @@ class BaseImporter implements \app\components\import\ImporterInterface {
                 $productImage->product_id = $model->id;
                 $productImage->image_id = $imageObj->id;
                 $productImage->save();
+                echo "<p>Загружаем картинку -</p>";
+                var_dump($image);
+                //die();
             }
             $usedImageArray[] = $productImage->image_id;
         }
+
 
         \app\models\ProductImage::deleteAll([
             'AND', 'product_id = :attribute_2', [
@@ -103,16 +123,7 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         ]);
 
         $parentIds = array($a['category_id']);
-        $category = \app\models\Category::find()->where(['id' => $a['category_id']])->one();
-        while (isset($category->parent_id)) {
-            $parentIds[] = $category->parent_id;
-            $category = $category->parent;
-        }
-
-
-        //var_dump($parentIds);
-
-        //
+       
         \app\models\ProductCategory::deleteAll([
             'AND', 'product_id = :attribute_2', [
                 'NOT IN', 'category_id',
@@ -121,8 +132,6 @@ class BaseImporter implements \app\components\import\ImporterInterface {
                 ], [
             ':attribute_2' => $model->id
         ]);
-
-
 
 
         foreach ($parentIds as $pid) {
@@ -143,14 +152,23 @@ class BaseImporter implements \app\components\import\ImporterInterface {
     // $category->parent_id; // id родителя в нашей базе
     // $category->external_id;   // id категории старая
     // $category->title;   // название категории
-    public function saveCategory($category){
-      $newCategory = new \app\models\Category();
-      foreach ($category as $property => $value) {
-          if (property_exists($newCategory, $property)) {
-             $newCategory->$property = $value;
-          }
-      }
-      $newCategory->save();
-      return $newCategory->id;
-   }
+    public function saveCategory($category) {
+        $newCategory = \app\models\Category::find()->where(['external_id' => $category['external_id'], 'catalog_id' => $category['supplier_id']])->one();
+        if (!$newCategory){
+            $newCategory = new \app\models\Category();
+        }
+        
+        $newCategory->attributes = $category;
+          if ($newCategory->validate()) {
+            $newCategory->save();
+        } else {
+
+            echo "!!!!!!!!" ;
+            var_dump($newCategory->errors);
+            die();
+        }
+       
+        return $newCategory->id;
+    }
+
 }

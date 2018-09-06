@@ -76,17 +76,17 @@ class CatalogController extends ActiveController {
     }
 
     /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/catalog",
      *     summary="Возвращает список каталогов доступных  для просмотра пользвоателю",
      *     tags={"catalog"},
      *     description="Метод для для получения данных пользоватлея",
      *     security={{"bearerAuth":{}}}, 
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -116,25 +116,25 @@ class CatalogController extends ActiveController {
     }
 
       /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/catalog/{id}",
      *     summary="Возвращает каталог",
      *     tags={"catalog"},
      *     description="Метод для получения каталога",
      *     security={{"bearerAuth":{}}}, 
-       * @OAS\Parameter(
+       * @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),  
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -154,17 +154,17 @@ class CatalogController extends ActiveController {
     }
     
     /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/catalog/my",
      *     summary="Возвращает список каталогов пользователя",
      *     tags={"catalog"},
      *     description="Метод для для получения данных пользоватлея",
      *     security={{"bearerAuth":{}}}, 
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -185,19 +185,19 @@ class CatalogController extends ActiveController {
     }
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/catalog",
      *     summary="Создает новый каталог для текущего пользователя",
      *     tags={"catalog"},
      *     security={{"bearerAuth":{}}},
      *     description="Метод для создания пользовательского каталога",
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="name",
      *                     description="Name",
      *                     type="string",
@@ -205,11 +205,11 @@ class CatalogController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *  @OAS\Response(
+     *  @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -229,53 +229,53 @@ class CatalogController extends ActiveController {
     }
 
     /**
-     * @OAS\Put(
+     * @OA\Put(
      *     path="/catalog/{id}",
      *     summary="Обновляет каталог пользователя",
      *     tags={"catalog"},
      *     security={{"bearerAuth":{}}},
      *     description="Метод для обновления каталога пользователя",
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ), 
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="catalogName",
      *                     description="catalogName",
      *                     type="string",
      *                 ),  
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="description",
      *                     description="description",
      *                     type="string",
      *                 ), 
-     *                @OAS\Property(
+     *                @OA\Property(
      *                     property="isActive",
      *                     description="isActive",
      *                     type="boolean",
      *                 ),
-     *                @OAS\Property(
+     *                @OA\Property(
      *                     property="selectedUsers",
      *                     description="selectedUsers",
      *                     type="array",
-     *                    @OAS\Items(
+     *                    @OA\Items(
      *                      type="object",
-     *                      @OAS\Property(
+     *                      @OA\Property(
      *                         property="name",
      *                         description="name",
      *                         type="string",
      *                       ),  
-     *                       @OAS\Property(
+     *                       @OA\Property(
      *                         property="id",
      *                         description="id",
      *                         type="integer",
@@ -287,11 +287,11 @@ class CatalogController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *  @OAS\Response(
+     *  @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
@@ -365,27 +365,27 @@ class CatalogController extends ActiveController {
     }
 
     /**
-     * @OAS\Post(
+     * @OA\Post(
      *     path="/catalog/{id}/setonoff",
      *     summary="Включает \ выключает каталог",
      *     tags={"catalog"},
      *     description="",
      *     security={{"bearerAuth":{}}},     
-     *     @OAS\Parameter(
+     *     @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),   
-     *     @OAS\RequestBody(
+     *     @OA\RequestBody(
      *         description="Input data format",
-     *         @OAS\MediaType(
+     *         @OA\MediaType(
      *             mediaType="application/x-www-form-urlencoded",
-     *             @OAS\Schema(
+     *             @OA\Schema(
      *                 type="object",
-     *                 @OAS\Property(
+     *                 @OA\Property(
      *                     property="value",
      *                     description="value",
      *                     type="string",
@@ -393,7 +393,7 @@ class CatalogController extends ActiveController {
      *             )
      *         )
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
@@ -419,25 +419,25 @@ class CatalogController extends ActiveController {
     }
     
      /**
-     * @OAS\Delete(
+     * @OA\Delete(
      *     path="/catalog/{id}",
      *     summary="Удаляет каталог",
      *     tags={"catalog"},
      *     description="Метод для удаления каталога",
      *     security={{"bearerAuth":{}}}, 
-       * @OAS\Parameter(
+       * @OA\Parameter(
      *         name="id",
      *         in="path",            
      *         required=false,       
-     *         @OAS\Schema(
+     *         @OA\Schema(
      *             type="integer",
      *         )
      *     ),  
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),

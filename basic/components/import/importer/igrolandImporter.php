@@ -49,9 +49,10 @@ class IgrolandImporter extends BaseImporter implements \app\components\import\Im
                         continue;
                     }
                     
-                      $fileImg = '/images/img_new/'.$item[1].'.jpg';
+                      $fileImg = array('http://analyze-it.su/images/img_new/'.$item[1].'.jpg','http://analyze-it.su/images/img_new/'.$item[1].'.JPG');
                     
-                    $a = [                        
+                    $a = [   
+                        "price_add" => $supplier->price_add,
                         "supplier_id" => $supplier->id,
                         "sid" => $item[1],
                         "sku" => $item[1],
@@ -60,7 +61,7 @@ class IgrolandImporter extends BaseImporter implements \app\components\import\Im
                         "dateupdate" => "",
                         "category_id" => $category_id,
                         "import_title" => str_replace('/', '', $item[2]),
-                        "images" => array($fileImg),
+                        "images" => $fileImg,
                         "amount" => $item[3],
                         "supplier_price" => $item[6],
                         "pack" => $item[7] == 0 ? 1 : $item[7],
@@ -76,6 +77,9 @@ class IgrolandImporter extends BaseImporter implements \app\components\import\Im
                         "description" => "",
                         "hit" => $hit
                     ];
+                    var_dump($a);
+                    die();
+                
 
 
                     if (empty($a["sku"])) {
