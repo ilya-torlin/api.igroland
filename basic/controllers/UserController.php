@@ -31,7 +31,6 @@ class UserController extends ActiveController {
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
-
      * )
      */
     public function actionMe() {
@@ -63,7 +62,7 @@ class UserController extends ActiveController {
             $item = array(  
                'id' =>  $model['id'],
                'name' =>  $model['email'],
-                'login' => $model['login']
+               'login' => $model['login']
             );
            
             array_push($data,  $item);  
@@ -73,21 +72,20 @@ class UserController extends ActiveController {
              
     }
    /**
-     * @OAS\Get(
+     * @OA\Get(
      *     path="/user",
      *     summary="Возвращает данные всех пользователей",
      *     tags={"user"},
      *     description="Метод для для получения данных пользоватлей",
      *     security={{"bearerAuth":{}}},        
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
-     *     @OAS\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
-
      * )
      */
     public function actionIndex() {
@@ -100,25 +98,25 @@ class UserController extends ActiveController {
         return JsonOutputHelper::getResult($data);
     }
 	/**
-	 * @OAS\Delete(
+	 * @OA\Delete(
 	 *     path="/user/{id}",
-	 *     summary="Возвращает данные всех пользователей",
+	 *     summary="Удаляет пользователя по id",
 	 *     tags={"user"},
-	 *     description="Метод для получения данных пользоватлей",
+	 *     description="Метод для удаления пользоватля",
 	 *     security={{"bearerAuth":{}}},
-	 *    @OAS\Parameter(
+	 *    @OA\Parameter(
 	 *         name="id",
 	 *         in="path",
 	 *         required=false,
-	 *         @OAS\Schema(
+	 *         @OA\Schema(
 	 *             type="integer",
 	 *         )
 	 *     ),
-	 *     @OAS\Response(
+	 *     @OA\Response(
 	 *         response=200,
 	 *         description="successful operation"
 	 *     ),
-	 *     @OAS\Response(
+	 *     @OA\Response(
 	 *         response=401,
 	 *         description="Необходимо отправить авторизационный токен"
 	 *     ),
@@ -130,7 +128,7 @@ class UserController extends ActiveController {
         $model->delete();
     }
     /**
-      * @OAS\Post(
+      * @OA\Post(
       *     path="/user/{id}/setonoff",
       *     summary="Блокирует пользователя",
       *     tags={"user"},
@@ -158,11 +156,11 @@ class UserController extends ActiveController {
       *             )
       *         )
       *     ),
-      *     @OAS\Response(
+      *     @OA\Response(
       *         response=200,
       *         description="successful operation"
       *     ),
-      *     @OAS\Response(
+      *     @OA\Response(
       *         response=401,
       *         description="Необходимо отправить авторизационный токен"
       *     ),
@@ -182,7 +180,7 @@ class UserController extends ActiveController {
          }
     }
      /**
-      * @OAS\Put(
+      * @OA\Put(
       *     path="/user/{id}",
       *     summary="Обновляет данные пользователя",
       *     tags={"user"},
@@ -240,15 +238,15 @@ class UserController extends ActiveController {
       *             )
       *         )
       *     ),
-      *     @OAS\Response(
+      *     @OA\Response(
       *         response=200,
       *         description="successful operation"
       *     ),
-      *     @OAS\Response(
+      *     @OA\Response(
       *         response=401,
       *         description="Необходимо отправить авторизационный токен"
-      *     ),
-
+      *     )
+      *
       * )
       */
     public function actionUpdate($id) {

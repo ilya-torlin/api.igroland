@@ -291,12 +291,10 @@ class CatalogController extends ActiveController {
      *         response=200,
      *         description="successful operation"
      *     ),
-     *  @OA\Response(
+     *     @OA\Response(
      *         response=401,
      *         description="Необходимо отправить авторизационный токен"
      *     ),
-
-
      * )
      */
     public function actionUpdate($id) {
