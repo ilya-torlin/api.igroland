@@ -58,16 +58,16 @@ class UserController extends ActiveController {
      private function prepareDataIndex($models){
         $data = array();
         $idx = 0;
-        foreach ($models as $model){    
-            $item = array(  
-               'id' =>  $model['id'],
-               'name' =>  $model['name'],
-               'email' =>  $model['email'],
-               'login' => $model['login'],
-               'photo' => $model['photo'],
-               'surname' => $model['surname'],
-               'isActive' => $model['isActive']
-            );
+        foreach ($models as $model){
+             $item = array(
+                  'id' =>  $model['id'],
+                  'name' =>  $model['name'],
+                  'email' =>  $model['email'],
+                  'login' => $model['login'],
+                  'photo' => $model['photo'],
+                  'surname' => $model['surname'],
+                  'isActive' => $model['isActive']
+             );
            
             array_push($data,  $item);  
             $idx++;            
@@ -128,6 +128,10 @@ class UserController extends ActiveController {
 	 * )
 	 */
     public function actionDelete($id) {
+        $me = \Yii::$app->user->identity;   
+         if ($me->role_id != 1){
+              return JsonOutputHelper::getError('Только пользователям с ролью Супер пользователя доступно получение списка пользователей');   
+         }
         $model = \app\models\User::find()->where(['id' => $id])->one();
         $model->delete();
     }
@@ -173,6 +177,9 @@ class UserController extends ActiveController {
       */
     public function actionSetonoff($id){
          $me = \Yii::$app->user->identity;
+         if ($me->role_id != 1){
+              return JsonOutputHelper::getError('Только пользователям с ролью Супер пользователя доступно получение списка пользователей');   
+         }
          $model = \app\models\User::find()->where(['id' => $id])->one();
          if(!$model)
               return JsonOutputHelper::getError('Пользователь не найден');
