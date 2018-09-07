@@ -140,10 +140,10 @@ class CategoryController extends ActiveController {
      * )
      */
     public function actionIndex() {
-        
-        $models = $models->orderBy('catalog_id ASC, title ASC')->asArray()->all();
-        $data = $this->prepareData($models, $lvlFolder, $parentFolderId, $hideNotAvl, $isMyCatalog);
-        return JsonOutputHelper::getResult($data);
+        $data = $this->prepareRequest();
+        $data['models'] = $data['models']->orderBy('catalog_id ASC, title ASC')->asArray()->all();
+        $result = $this->prepareData($data['models'], $data['lvlFolder'], $data['parentFolderId'], $data['hideNotAvl'], $data['isMyCatalog']);
+        return JsonOutputHelper::getResult($result);
     }
 
     /**
@@ -289,7 +289,7 @@ class CategoryController extends ActiveController {
         }
 
         $data = $this->prepareRequest();
-        $data['models'] = $models->orderBy('catalog_id ASC, title ASC')->limit(1000)->asArray()->all();
+        $data['models'] = $data['models']->where(['like', 'title', $params['text']])->orderBy('catalog_id ASC, title ASC')->limit(1000)->asArray()->all();
         $result = $this->prepareData($data['models'], $data['lvlFolder'], $data['parentFolderId'], $data['hideNotAvl']);
         return JsonOutputHelper::getResult($result);
     }

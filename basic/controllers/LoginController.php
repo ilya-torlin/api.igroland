@@ -217,8 +217,8 @@ class LoginController extends ActiveController {
          $user->newPassword ='';
         $user->accessToken = $user->password;
         $user->login = trim($params['login']);       
-        $user->role_id = \app\models\UserRole::CLIENT;
-        $user->active = 1;
+        $user->role_id = 2;
+        $user->isActive = 1;
         if (!$user->validate()) {
             \Yii::trace(json_encode($user->getErrors()), __METHOD__);
               return JsonOutputHelper::getError(json_encode($user->getErrors()));            
@@ -292,7 +292,7 @@ class LoginController extends ActiveController {
         
         $u = \app\models\User::find()
                 ->where(['email' => $email])
-                ->andWhere(['active' => 1])
+                ->andWhere(['isActive' => 1])
                 ->one();
         if ($u) {
             $newPass = \Yii::$app->getSecurity()->generateRandomString(12);

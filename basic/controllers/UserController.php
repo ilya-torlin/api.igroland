@@ -189,6 +189,7 @@ class UserController extends ActiveController {
          } else {
               $model->isActive = 0;
          }
+         $model->save();
     }
      /**
       * @OA\Put(
