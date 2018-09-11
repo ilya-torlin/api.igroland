@@ -187,7 +187,7 @@ class Category extends \yii\db\ActiveRecord {
     }
 
     public function getChildProducts() {
-        $categoryIds = array($this->id);
+        $categoryIds = array();
         $depth = 0;
         $models = \app\models\Category::find();
         $models = $models->leftJoin('category_attach', 'category_attach.attached_category_id = category.id');
@@ -198,10 +198,13 @@ class Category extends \yii\db\ActiveRecord {
             $categoryIds = array_merge($categoryIds, $newCategoryIds);
             $models = \app\models\Category::find();
             $models = $models->leftJoin('category_attach', 'category_attach.attached_category_id = category.id');
-            $models = $models->where(['IN', 'category_attach.category_id', $newCategoryIds]);
+            $models = $models->where(['IN', 'parent_id', $newCategoryIds]);
+            $models = $models->orWhere(['IN', 'category_attach.category_id', $newCategoryIds]);
             $newCategoryIds = $models->select('category.id')->asArray()->column();
             $depth++;
         }
+        
+        $categoryIds = array_merge($categoryIds, array($this->id));
 
 
         //Выбираем товары вложенные в категории

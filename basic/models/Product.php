@@ -48,19 +48,21 @@ use Yii;
  * @property Image[] $images
  * @property TradeMarkup[] $tradeMarkups
  */
-class Product extends \yii\db\ActiveRecord {
-
+class Product extends \yii\db\ActiveRecord
+{
     /**
      * {@inheritdoc}
      */
-    public static function tableName() {
+    public static function tableName()
+    {
         return 'product';
     }
 
     /**
      * {@inheritdoc}
      */
-    public function rules() {
+    public function rules()
+    {
         return [
             [['timestamp', 'updated_at'], 'safe'],
             [['useAdminGallery', 'sale', 'hit', 'supplier_id', 'brand_id', 'pack', 'min_order', 'quantity', 'fix', 'pre_deleted', 'deleted'], 'integer'],
@@ -81,7 +83,8 @@ class Product extends \yii\db\ActiveRecord {
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels() {
+    public function attributeLabels()
+    {
         return [
             'id' => 'ID',
             'timestamp' => 'Timestamp',
@@ -120,64 +123,71 @@ class Product extends \yii\db\ActiveRecord {
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBrand() {
+    public function getBrand()
+    {
         return $this->hasOne(Brand::className(), ['id' => 'brand_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getSupplier() {
+    public function getSupplier()
+    {
         return $this->hasOne(Supplier::className(), ['id' => 'supplier_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProductAttaches() {
+    public function getProductAttaches()
+    {
         return $this->hasMany(ProductAttach::className(), ['attached_product_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProductCategories() {
+    public function getProductCategories()
+    {
         return $this->hasMany(ProductCategory::className(), ['product_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getCategories() {
+    public function getCategories()
+    {
         return $this->hasMany(Category::className(), ['id' => 'category_id'])->viaTable('product_category', ['product_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getProductImages() {
+    public function getProductImages()
+    {
         return $this->hasMany(ProductImage::className(), ['product_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getImages() {
+    public function getImages()
+    {
         return $this->hasMany(Image::className(), ['id' => 'image_id'])->viaTable('product_image', ['product_id' => 'id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTradeMarkups() {
+    public function getTradeMarkups()
+    {
         return $this->hasMany(TradeMarkup::className(), ['product_id' => 'id']);
     }
-
+    
     /**
      * @return \yii\db\ActiveQuery 
      */
-    public function getTradeMarkup() {
-        return $this->hasOne(TradeMarkup::className(), ['product_id' => 'id'])->where(['user_id' => \Yii::$app->user->identity->id]);
+    public function getTradeMarkup($catalog_id) {
+        return $this->hasOne(TradeMarkup::className(), ['product_id' => 'id'])->where(['catalog_id' => $catalog_id])->one();
     }
-
 }

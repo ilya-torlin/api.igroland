@@ -20,6 +20,7 @@ use Yii;
  * @property int $importIsRun
  * @property int $importIsActive
  * @property int $importDelayTime
+ * @property int $sort
  *
  * @property Catalog[] $catalogs
  * @property Category[] $categories
@@ -44,7 +45,7 @@ class Supplier extends \yii\db\ActiveRecord
             [['timestamp', 'importLastFinish'], 'safe'],
             [['title', 'code', 'inn'], 'required'],
             [['price_add'], 'number'],
-            [['importIsRun', 'importIsActive', 'importDelayTime'], 'integer'],
+            [['importIsRun', 'importIsActive', 'importDelayTime', 'sort'], 'integer'],
             [['title', 'link'], 'string', 'max' => 256],
             [['code'], 'string', 'max' => 15],
             [['inn'], 'string', 'max' => 12],
@@ -72,6 +73,7 @@ class Supplier extends \yii\db\ActiveRecord
             'importIsRun' => 'Import Is Run',
             'importIsActive' => 'Import Is Active',
             'importDelayTime' => 'Import Delay Time',
+            'sort' => 'Sort',
         ];
     }
 
