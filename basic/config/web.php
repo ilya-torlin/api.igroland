@@ -171,7 +171,10 @@ $config = [
                     'pluralize' => false,
                     'patterns' => [  
                         'GET,HEAD' => 'index',
+                        'PUT,PATCH <id>' => 'update',
+                        'POST <id>/setonoff' => 'setonoff',
                         '<id>' => 'options',
+                        '<id>/setonoff' => 'options',
                         '' => 'options',
                     ],
                 ],
