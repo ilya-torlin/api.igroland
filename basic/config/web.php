@@ -138,6 +138,15 @@ $config = [
                     ],
                 ],
                  ['class' => 'yii\rest\UrlRule',
+                    'controller' => 'export',
+                    'pluralize' => false,
+                    'patterns' => [ 
+                        'GET,HEAD <link>' => 'view',  
+                        '<link>' => 'options',
+                        '' => 'options',
+                    ],
+                ],
+                 ['class' => 'yii\rest\UrlRule',
                     'controller' => 'product',
                     'pluralize' => false,
                     'patterns' => [  

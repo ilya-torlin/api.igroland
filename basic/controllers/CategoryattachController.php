@@ -66,8 +66,7 @@ class CategoryattachController extends ActiveController {
         $category = \app\models\Category::find()->where(['id' => $params['category_id']])->one();
         if (!$category){
              return JsonOutputHelper::getError('Категория category_id не найдена');
-        }
-        
+        }        
         $catalog = \app\models\Catalog::find()->where(['id' => $category->catalog_id])->one();
         if (!$catalog || ($catalog->user_id != $me->id && $me->role_id != 1) ){
              return JsonOutputHelper::getError('Категория  не принадлежит пользователю');

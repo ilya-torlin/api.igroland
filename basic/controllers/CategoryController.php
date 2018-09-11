@@ -347,7 +347,7 @@ class CategoryController extends ActiveController {
         }
         $catalog = \app\models\Catalog::find()->where(['id' => $params['catalogId']])->one();
         $catalog->setAndSaveUpdate();
-        if ($catalog->user_id != $me->id) {
+        if ($catalog->user_id != $me->id && $me->role_id != 1) {
             return JsonOutputHelper::getError('Каталог не принадлежит пользователю');
         }
         $category->catalog_id = $params['catalogId'];
@@ -400,8 +400,12 @@ class CategoryController extends ActiveController {
             return JsonOutputHelper::getError('Категория не найдена');
         }
 
-        $catalog = \app\models\Catalog::find()->where(['id' => $category->catalog_id, 'user_id' => $me->id])->one();
+        $catalog = \app\models\Catalog::find()->where(['id' => $category->catalog_id])->one();
         if (!$catalog) {
+            return JsonOutputHelper::getError('Категория  не найдена');
+        }
+        
+        if ($catalog->user_id != $me->id && $me->role_id != 1) {
             return JsonOutputHelper::getError('Категория  не принадлежит пользователю');
         }
         $catalog->setAndSaveUpdate();
@@ -442,8 +446,8 @@ class CategoryController extends ActiveController {
             return JsonOutputHelper::getError('Категория не найдена');
         }
 
-        $catalog = \app\models\Catalog::find()->where(['id' => $category->catalog_id, 'user_id' => $me->id])->one();
-        if (!$catalog) {
+        $catalog = \app\models\Catalog::find()->where(['id' => $category->catalog_id])->one();
+        if ($catalog->user_id != $me->id && $me->role_id != 1) {
             return JsonOutputHelper::getError('Категория  не принадлежит пользователю');
         }
 

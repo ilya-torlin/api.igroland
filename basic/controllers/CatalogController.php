@@ -403,9 +403,9 @@ class CatalogController extends ActiveController {
    
     public function actionSetonoff($id) {
         $me = \Yii::$app->user->identity;
-        $catalog = \app\models\Catalog::find()->where(['user_id' => $me->id, 'id' => $id])->one();
-        if (!$catalog) {
-            return JsonOutputHelper::getError('Каталог не найден или не принадлежит пользователю');
+        $catalog = \app\models\Catalog::find()->where(['id' => $id])->one();
+        if (!$catalog || ($me->role_id != 1 && ($catalog->user_id != $me->id) )){
+             return JsonOutputHelper::getError('Каталог не найден или не принадлежит пользователю');
         }
         $boolval = filter_var(\Yii::$app->request->post()['value'], FILTER_VALIDATE_BOOLEAN);
         if ($boolval) {
@@ -446,10 +446,10 @@ class CatalogController extends ActiveController {
      */
     public function actionDelete($id) {
         $me = \Yii::$app->user->identity;        
-        $catalog = \app\models\Catalog::find()->where(['id' => $id,'user_id' => $me->id])->one();
-        if (!$catalog){
-             return JsonOutputHelper::getError('Каталог  не принадлежит пользователю');
-        }      
+         $catalog = \app\models\Catalog::find()->where(['id' => $id])->one();
+        if (!$catalog || ($me->role_id != 1 && ($catalog->user_id != $me->id) )){
+             return JsonOutputHelper::getError('Каталог не найден или не принадлежит пользователю');
+        }     
         $catalog->delete();
         return JsonOutputHelper::getResult(true);
     }

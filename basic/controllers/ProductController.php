@@ -43,7 +43,7 @@ class ProductController extends ActiveController {
         return $data;
     }
 
-    private function prepareDataDetail($model, $isAdmin = false) {
+    private function prepareDataDetail($model,$catalog_id, $isAdmin = false) {
         $images = array();
         foreach ($model->productImages as $productImage) {
             if ($isAdmin) {
@@ -52,6 +52,8 @@ class ProductController extends ActiveController {
                 $images[] = \Yii::$app->params['imageUrls']["ADMIN"] . $productImage->image->path;
             }
         }
+        
+        $tm = $model->getTradeMarkup($catalog_id);
 
 
         $item = array(
@@ -59,7 +61,7 @@ class ProductController extends ActiveController {
             'name' => $model->title,
             'import_title' => $model->import_title,
             'useAdminGallery' => $model->useAdminGallery,
-            'tradeMarkup' => $model->tradeMarkup,
+            'tradeMarkup' => $tm ? $tm->value:'',
             'images' => $images,
             'params' => array(
                 (object) array('key' => 'Артикул', 'val' => $model->sku),
@@ -186,7 +188,15 @@ class ProductController extends ActiveController {
      *     summary="Возвращает  товар ",
      *     tags={"product"},
      *     description="",
-     *     security={{"bearerAuth":{}}},       
+     *     security={{"bearerAuth":{}}},    
+     *     @OA\Parameter(
+     *         name="catalog_id",
+     *         in="query",            
+     *         required=true,       
+     *         @OA\Schema(
+     *             type="integer",
+     *         )
+     *     ),    
      *     @OA\Parameter(
      *         name="id",
      *         in="path",            
@@ -213,10 +223,22 @@ class ProductController extends ActiveController {
         if (!$model) {
             return JsonOutputHelper::getError('Не найден товар');
         }
+        
+        $params = \Yii::$app->request->get();
+        if (!array_key_exists('catalog_id', $params) || !isset($params['catalog_id'])) {
+            return JsonOutputHelper::getError('Не указан catalog_id');
+        }
+        
+        $catalog = \app\models\Catalog::find()->where(['id' => $params['catalog_id']])->one();
+        if ($catalog->user_id != $me->id && $me->role_id != 1) {
+            return JsonOutputHelper::getError('Каталог не принадлежит пользователю');
+        }
+        
+        
         if ($me->role_id == 1) {
-            $data = $this->prepareDataDetail($model, true);
+            $data = $this->prepareDataDetail($model,$catalog->id, true);
         } else {
-            $data = $this->prepareDataDetail($model);
+            $data = $this->prepareDataDetail($model,$catalog->id);
         }
 
         return JsonOutputHelper::getResult($data);
@@ -326,7 +348,7 @@ class ProductController extends ActiveController {
      *     summary="Устанавливает индивидуальную наценку на продукт",
      *     tags={"product"},
      *     description="",
-     *     security={{"bearerAuth":{}}},     
+     *     security={{"bearerAuth":{}}}, 
      *     @OA\Parameter(
      *         name="id",
      *         in="path",            
@@ -345,6 +367,11 @@ class ProductController extends ActiveController {
      *                     property="value",
      *                     description="value",
      *                     type="integer",
+     *                 ),
+     *                 @OA\Property(
+     *                     property="catalog_id",
+     *                     description="catalog_id",
+     *                     type="integer",
      *                 )
      *             )
      *         )
@@ -362,13 +389,23 @@ class ProductController extends ActiveController {
         if (!$model) {
             return JsonOutputHelper::getError('Не найден товар');
         }
-        $trademarkup = \app\models\TradeMarkup::find()->where(['user_id' => $me->id, 'product_id' => $id])->one();
+         $params = \Yii::$app->request->post();
+        if (!array_key_exists('catalog_id', $params) || !isset($params['catalog_id'])) {
+            return JsonOutputHelper::getError('Не указан catalog_id');
+        }
+        
+        $catalog = \app\models\Catalog::find()->where(['id' => $params['catalog_id']])->one();
+        if ($catalog->user_id != $me->id && $me->role_id != 1) {
+            return JsonOutputHelper::getError('Каталог не принадлежит пользователю');
+        }
+        
+        $trademarkup = \app\models\TradeMarkup::find()->where(['catalog_id' => $catalog->id, 'product_id' => $id])->one();
         if (!$trademarkup) {
             $trademarkup = new \app\models\TradeMarkup();
-            $trademarkup->user_id = $me->id;
+            $trademarkup->catalog_id = $catalog->id;
             $trademarkup->product_id = $id;
         }
-        $trademarkup->value = \Yii::$app->request->post()['value'];
+        $trademarkup->value = $params['value'];
         $trademarkup->save();
         return JsonOutputHelper::getResult(array());
     }
