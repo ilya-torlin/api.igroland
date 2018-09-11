@@ -81,8 +81,16 @@ class UserController extends ActiveController {
      *     summary="Возвращает данные всех пользователей",
      *     tags={"user"},
      *     description="Метод для для получения данных пользоватлей",
-     *     security={{"bearerAuth":{}}},        
-     *     @OA\Response(
+     *     security={{"bearerAuth":{}}},
+    *      @OA\Parameter(
+    *         name="action",
+    *         in="query",
+    *         required=false,
+    *         @OA\Schema(
+    *             type="integer",
+    *         )
+    *     ),
+    *      @OA\Response(
      *         response=200,
      *         description="successful operation"
      *     ),
@@ -97,10 +105,69 @@ class UserController extends ActiveController {
          if ($me->role_id != 1){
               return JsonOutputHelper::getError('Только пользователям с ролью Супер пользователя доступно получение списка пользователей');   
          }
-        $users = \app\models\User::find()->with(['role'])->all();
+         $users = \app\models\User::find();
+//         $boolVal = filter_var(\Yii::$app->request->get()['active'], FILTER_VALIDATE_BOOLEAN);
+//         if (!$boolVal) {
+//              $isActive = 1;
+//              $users = $users->where(['isActive' => $isActive]);
+//         }
+         $users = $users->with(['role'])->all();
         $data = $this->prepareDataIndex($users);
         return JsonOutputHelper::getResult($data);
     }
+     /**
+      * @OA\Get(
+      *     path="/user/search",
+      *     summary="Возвращает данные поиска",
+      *     tags={"user"},
+      *     description="Метод для для получения искомых данных пользоватлей",
+      *     security={{"bearerAuth":{}}},
+      *      @OA\Parameter(
+      *         name="active",
+      *         in="query",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *      @OA\Parameter(
+      *         name="text",
+      *         in="query",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="string",
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
+      * )
+      */
+     public function actionSearch() {
+          $me = \Yii::$app->user->identity;
+          if ($me->role_id != 1){
+               return JsonOutputHelper::getError('Только пользователям с ролью Супер пользователя доступно получение списка пользователей');
+          }
+          $params = \Yii::$app->request->get();
+          if (!isset($params['text'])) {
+               return JsonOutputHelper::getError('Не заполнен поисковый текст');
+          }
+          $users = \app\models\User::find()->where(['like', 'email', $params['text']])->orWhere(['like', 'login', $params['text']]);
+//          $boolVal = filter_var($params['active'], FILTER_VALIDATE_BOOLEAN);
+//          if (!$boolVal) {
+//               $isActive = 1;
+//               $users = $users->andWhere(['isActive' => $isActive]);
+//          }
+          $users = $users->with(['role'])->limit(100)->all();
+          $data = $this->prepareDataIndex($users);
+          return JsonOutputHelper::getResult($data);
+     }
+
 	/**
 	 * @OA\Delete(
 	 *     path="/user/{id}",

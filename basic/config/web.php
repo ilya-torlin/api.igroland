@@ -78,6 +78,7 @@ $config = [
                         'PUT,PATCH <id>' => 'update',
                         'DELETE <id>' => 'delete',
                         'GET me' => 'me',
+                        'GET search' => 'search',
                         'GET,HEAD <id>' => 'view',                        
                         'POST' => 'save',
                         'POST <id>/setonoff' => 'setonoff',
