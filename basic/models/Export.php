@@ -13,6 +13,7 @@ use Yii;
  * @property string $link
  * @property string $optPriceAdd
  * @property string $roznPriceAdd
+ * @property string $name
  *
  * @property Catalog $catalog
  * @property User $user
@@ -36,7 +37,7 @@ class Export extends \yii\db\ActiveRecord
             [['user_id', 'catalog_id', 'link'], 'required'],
             [['user_id', 'catalog_id'], 'integer'],
             [['optPriceAdd', 'roznPriceAdd'], 'number'],
-            [['link'], 'string', 'max' => 50],
+            [['link','name'], 'string', 'max' => 50],
             [['link'], 'unique'],
             [['catalog_id'], 'exist', 'skipOnError' => true, 'targetClass' => Catalog::className(), 'targetAttribute' => ['catalog_id' => 'id']],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
@@ -55,6 +56,7 @@ class Export extends \yii\db\ActiveRecord
             'link' => 'Link',
             'optPriceAdd' => 'Opt Price Add',
             'roznPriceAdd' => 'Rozn Price Add',
+             'name' => 'Name',
         ];
     }
 
