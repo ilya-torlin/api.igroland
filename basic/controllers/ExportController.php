@@ -121,12 +121,12 @@ class ExportController extends ActiveController {
      *     description="Метод для получения xml каталога",
      *    @OA\Parameter(
      *         name="link",
-     *         in="path",            
-     *         required=false,       
+     *         in="path",
+     *         required=false,
      *         @OA\Schema(
      *             type="string",
      *         )
-     *     ),  
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="successful operation"
@@ -176,10 +176,18 @@ class ExportController extends ActiveController {
     }
      /**
       * @OA\Get(
-      *     path="/export",
-      *     summary="Возвращает список приложений",
+      *     path="/export/{id}/view",
+      *     summary="Возвращает информацию приложения",
       *     tags={"export"},
-      *     description="Метод для получения списка каталога",
+      *     description="Метод для получения информации приложения",
+      *      @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
       *     @OA\Response(
       *         response=200,
       *         description="successful operation"
@@ -191,7 +199,7 @@ class ExportController extends ActiveController {
 
       * )
       */
-     public function actionViewExport($id){
+     public function actionViewexport($id){
           $exportApp = \app\models\Export::find()->where(['id' => $id])->one();
           $model = $this->prepareViewData($exportApp);
           return JsonOutputHelper::getResult($model);
@@ -218,6 +226,49 @@ class ExportController extends ActiveController {
           $model = $this->prepareIndexData($exportApps);
           return JsonOutputHelper::getResult($model);
     }
+     /**
+      * @OA\Post(
+      *     path="/export/search",
+      *     summary="Возвращает данные поиска",
+      *     tags={"export"},
+      *     description="Метод для для получения искомых данных приложений",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="text",
+      *                     description="text",
+      *                     type="string",
+      *                 )
+      *             )
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
+      * )
+      */
+     public function actionSearch() {
+          $me = \Yii::$app->user->identity;
+          $params = \Yii::$app->request->post();
+          if (!isset($params['text'])) {
+               return JsonOutputHelper::getError('Не заполнен поисковый текст');
+          }
+          $apps = \app\models\Export::find()->where(['like', 'name', $params['text']]);
+          $apps = $apps->limit(1000)->all();
+          $data = $this->prepareIndexData($apps);
+          return JsonOutputHelper::getResult($data);
+     }
+
      /**
       * @OA\Post(
       *     path="/export/{id}/setonoff",
@@ -328,6 +379,8 @@ class ExportController extends ActiveController {
                $model->user_id = $me->id;
                $model->catalog_id = intval($params['catalog']);
                $model->save();
+               $model->name = 'Приложение#'.$model->id;
+               $model->save();
           } else {
                return JsonOutputHelper::getError('Пока можно создать только тип файл');
           }
@@ -409,7 +462,7 @@ class ExportController extends ActiveController {
       *                     property="catalog_id",
       *                     description="catalog_id",
       *                     type="integer",
-      *                 )
+      *                 ),
       *             )
       *         )
       *     ),
@@ -421,7 +474,6 @@ class ExportController extends ActiveController {
       *         response=401,
       *         description="Необходимо отправить авторизационный токен"
       *     )
-      *
       * )
       */
      public function actionUpdate($id) {
