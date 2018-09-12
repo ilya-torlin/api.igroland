@@ -14,6 +14,7 @@ use Yii;
  * @property string $optPriceAdd
  * @property string $roznPriceAdd
  * @property string $name
+ * @property int $blocked
  *
  * @property Catalog $catalog
  * @property User $user
@@ -35,7 +36,7 @@ class Export extends \yii\db\ActiveRecord
     {
         return [
             [['user_id', 'catalog_id', 'link'], 'required'],
-            [['user_id', 'catalog_id'], 'integer'],
+            [['user_id', 'catalog_id', 'blocked'], 'integer'],
             [['optPriceAdd', 'roznPriceAdd'], 'number'],
             [['link','name'], 'string', 'max' => 50],
             [['link'], 'unique'],
@@ -56,7 +57,8 @@ class Export extends \yii\db\ActiveRecord
             'link' => 'Link',
             'optPriceAdd' => 'Opt Price Add',
             'roznPriceAdd' => 'Rozn Price Add',
-             'name' => 'Name',
+            'name' => 'Name',
+            'blocked' => 'Blocked',
         ];
     }
 

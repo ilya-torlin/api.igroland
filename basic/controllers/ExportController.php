@@ -24,6 +24,20 @@ class ExportController extends ActiveController {
         
     }
 
+    public function prepareIndexData($list){
+         $arrayList = [];
+         foreach($list as $item){
+              $arrayList[] = array(
+                   'id' => $item['id'],
+                   'name' => $item['name'],
+                   'link' => $item['link'],
+                   'blocked' =>  $item['blocked'],
+              );
+         }
+
+         return $arrayList;
+    }
+
     public function actions() {
         $actions = parent::actions();
         unset($actions['delete'], $actions['create'], $actions['update'], $actions['index'], $actions['view']);
@@ -150,15 +164,81 @@ class ExportController extends ActiveController {
         return JsonOutputHelper::getResult($data['catalogFolders'][0]);
     }
 
+     /**
+      * @OA\Get(
+      *     path="/export",
+      *     summary="Возвращает список приложений",
+      *     tags={"export"},
+      *     description="Метод для получения списка каталога",
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
+
+      * )
+      */
     public function actionIndex(){
-         //$me = \Yii::$app->user->identity;
-         //if ($me->role_id != 1){
-         //     return JsonOutputHelper::getError('Только пользователям с ролью Супер пользователя доступно получение списка пользователей');
-         //}
-
-         $exportApps = \app\models\Export::find()->limit(100)->all();
-
+          $exportApps = \app\models\Export::find()->limit(100)->all();
+          $model = $this->prepareIndexData($exportApps);
+          return JsonOutputHelper::getResult($model);
     }
+     /**
+      * @OA\Post(
+      *     path="/export/{id}/setonoff",
+      *     summary="Блокирует приложение",
+      *     tags={"export"},
+      *     description="Метод для блокировки приложение",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="value",
+      *                     description="value",
+      *                     type="string",
+      *                 )
+      *             )
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
+
+      * )
+      */
+     public function actionSetonoff($id){
+
+          $model = \app\models\Export::find()->where(['id' => $id])->one();
+          if(!$model)
+               return JsonOutputHelper::getError('Приложение не найдено');
+          $boolval = filter_var(\Yii::$app->request->post()['value'], FILTER_VALIDATE_BOOLEAN);
+          if ($boolval) {
+               $model->blocked = 1;
+          } else {
+               $model->blocked = 0;
+          }
+          $model->save();
+     }
 
     public function behaviors() {
 

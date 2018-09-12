@@ -142,8 +142,11 @@ $config = [
                     'controller' => 'export',
                     'pluralize' => false,
                     'patterns' => [ 
-                        'GET,HEAD <link>' => 'view',  
+                        'GET,HEAD <link>' => 'view',
+                        'GET,HEAD' => 'index',
+                        'POST <id>/setonoff' => 'setonoff',
                         '<link>' => 'options',
+                        '<id>/setonoff' => 'options',
                         '' => 'options',
                     ],
                 ],
