@@ -14,6 +14,7 @@ use Yii;
  * @property int $supplier_id
  * @property int $catalog_id
  * @property int $external_id
+ * @property string $external_1c_id 		 		
  * @property int $internal_id
  * @property int $pre_deleted
  * @property int $deleted
@@ -48,7 +49,7 @@ class Category extends \yii\db\ActiveRecord {
             [['parent_id', 'supplier_id', 'catalog_id', 'external_id', 'internal_id', 'pre_deleted', 'deleted'], 'integer'],
             [['title'], 'required'],
             [['title'], 'string', 'max' => 128],
-            [['supplier_id', 'external_id'], 'unique', 'targetAttribute' => ['supplier_id', 'external_id']],
+            [['external_1c_id'], 'string', 'max' => 255],             
             [['catalog_id'], 'exist', 'skipOnError' => true, 'targetClass' => Catalog::className(), 'targetAttribute' => ['catalog_id' => 'id']],
             [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['parent_id' => 'id']],
             [['supplier_id'], 'exist', 'skipOnError' => true, 'targetClass' => Supplier::className(), 'targetAttribute' => ['supplier_id' => 'id']],
@@ -67,6 +68,7 @@ class Category extends \yii\db\ActiveRecord {
             'supplier_id' => 'Supplier ID',
             'catalog_id' => 'Catalog ID',
             'external_id' => 'External ID',
+            'external_1c_id' => 'External 1c ID', 
             'internal_id' => 'Internal ID',
             'pre_deleted' => 'Pre Deleted',
             'deleted' => 'Deleted',
