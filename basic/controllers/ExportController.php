@@ -120,9 +120,7 @@ class ExportController extends ActiveController {
         if (!$this->export) {
             return JsonOutputHelper::getError('Экспорт не найден');
         }
-        
-        
-        
+
         $tm = \app\models\TradeMarkup::find()->where(['catalog_id' =>  $this->export->catalog_id])->select(['product_id','value'])->asArray()->all();
         foreach ($tm as $item){
            $this->tmarray[$item['product_id']] =  $item['value'];
@@ -133,16 +131,9 @@ class ExportController extends ActiveController {
             $this->getInnerCategories($category);
         }
 
-
-
-
-
         return $this->result;
         $products = array();
         $categories = array();
-
-
-
 
         $category = \app\models\Category::find()->where(['id' => $id])->with(['attachedCategories'])->one();
         if (!$category) {
@@ -157,6 +148,16 @@ class ExportController extends ActiveController {
         $models = array($category);
         $data = $this->prepareData($models, 0, 0, false, true);
         return JsonOutputHelper::getResult($data['catalogFolders'][0]);
+    }
+
+    public function actionIndex(){
+         //$me = \Yii::$app->user->identity;
+         //if ($me->role_id != 1){
+         //     return JsonOutputHelper::getError('Только пользователям с ролью Супер пользователя доступно получение списка пользователей');
+         //}
+
+         $exportApps = \app\models\Export::find()->limit(100)->all();
+
     }
 
     public function behaviors() {

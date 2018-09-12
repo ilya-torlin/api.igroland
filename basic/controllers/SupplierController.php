@@ -53,7 +53,7 @@ class SupplierController extends ActiveController {
 
      * )
      */
-    public function actionIndex() {
+     public function actionIndex() {
         $me = \Yii::$app->user->identity;
            if ($me->role_id != 1){
                  return JsonOutputHelper::getError('Доступно только для пользовтеля с ролью администратора');
@@ -62,7 +62,6 @@ class SupplierController extends ActiveController {
         $data = $this->prepareData($models);
         return JsonOutputHelper::getResult($data);
     }
-
      /**
       * @OA\Put(
       *     path="/supplier/{id}",
