@@ -167,6 +167,7 @@ class UserController extends ActiveController {
           $data = $this->prepareDataIndex($users);
           return JsonOutputHelper::getResult($data);
      }
+
 	/**
 	 * @OA\Delete(
 	 *     path="/user/{id}",
