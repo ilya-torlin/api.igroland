@@ -38,6 +38,17 @@ class ExportController extends ActiveController {
          return $arrayList;
     }
 
+    public function prepareViewData($item){
+         return $array = array(
+              'id' => $item['id'],
+              'name' => $item['name'],
+              'link' => $item['link'],
+              'blocked' =>  $item['blocked'],
+              'optPriceAdd' => $item['optPriceAdd'],
+              'roznPriceAdd' => $item['optPriceAdd'],
+         );
+    }
+
     public function actions() {
         $actions = parent::actions();
         unset($actions['delete'], $actions['create'], $actions['update'], $actions['index'], $actions['view']);
@@ -163,7 +174,28 @@ class ExportController extends ActiveController {
         $data = $this->prepareData($models, 0, 0, false, true);
         return JsonOutputHelper::getResult($data['catalogFolders'][0]);
     }
+     /**
+      * @OA\Get(
+      *     path="/export",
+      *     summary="Возвращает список приложений",
+      *     tags={"export"},
+      *     description="Метод для получения списка каталога",
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
 
+      * )
+      */
+     public function actionViewExport($id){
+          $exportApp = \app\models\Export::find()->where(['id' => $id])->one();
+          $model = $this->prepareViewData($exportApp);
+          return JsonOutputHelper::getResult($model);
+     }
      /**
       * @OA\Get(
       *     path="/export",
@@ -237,6 +269,173 @@ class ExportController extends ActiveController {
           } else {
                $model->blocked = 0;
           }
+          $model->save();
+     }
+
+     public function generateStringLine(){
+          return uniqid() . uniqid();
+     }
+     /**
+      * @OA\Post(
+      *     path="/export",
+      *     summary="Создаем приложение",
+      *     tags={"export"},
+      *     description="Метод для создания приложение",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="type",
+      *                     description="type",
+      *                     type="integer",
+      *                 ),
+      *                 @OA\Property(
+      *                     property="catalog",
+      *                     description="catalog",
+      *                     type="integer",
+      *                 ),
+      *             )
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
+      * )
+      */
+     public function actionAdd(){
+          $me = \Yii::$app->user->identity;
+          $params = \Yii::$app->request->post();
+          if (!isset($params['type']))
+               return JsonOutputHelper::getError('Тип приложения не указан');
+          if (!isset($params['catalog']))
+               return JsonOutputHelper::getError('Каталог не указан');
+
+          $model = new \app\models\Export();
+
+          $typeValue = intval($params['type']);
+
+          if ($typeValue === 2) {
+               $model->link = $this->generateStringLine();
+               $model->user_id = $me->id;
+               $model->catalog_id = intval($params['catalog']);
+               $model->save();
+          } else {
+               return JsonOutputHelper::getError('Пока можно создать только тип файл');
+          }
+
+          return JsonOutputHelper::getResult(array( 'added_id' => $model->id));
+     }
+     /**
+      * @OA\Delete(
+      *     path="/export/{id}",
+      *     summary="Удаляет приложение по id",
+      *     tags={"export"},
+      *     description="Метод для удаления приложения",
+      *     security={{"bearerAuth":{}}},
+      *    @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
+
+      * )
+      */
+     public function actionDelete($id) {
+          $user = \Yii::$app->user->identity;
+          $model = \app\models\Export::find()->where(['id' => $id])->one();
+
+          if ($user->id != $model->user_id )
+               throw new \yii\web\ForbiddenHttpException(sprintf('Недостатоно прав для удаления'));
+
+          $model->delete();
+     }
+     /**
+      * @OA\Put(
+      *     path="/export/{id}",
+      *     summary="Обновляет данные приложения",
+      *     tags={"export"},
+      *     description="Метод для обновления приложения",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="name",
+      *                     description="name",
+      *                     type="string",
+      *                 ),
+      *                  @OA\Property(
+      *                     property="optPriceAdd",
+      *                     description="optPriceAdd",
+      *                     type="string",
+      *                 ),
+      *                  @OA\Property(
+      *                     property="roznPriceAdd",
+      *                     description="roznPriceAdd",
+      *                     type="string",
+      *                 ),
+      *                  @OA\Property(
+      *                     property="catalog_id",
+      *                     description="catalog_id",
+      *                     type="integer",
+      *                 )
+      *             )
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     )
+      *
+      * )
+      */
+     public function actionUpdate($id) {
+
+          $params = \Yii::$app->request->post();
+          $user = \Yii::$app->user->identity;
+          $model = \app\models\Export::find()->where(['id' => $id])->one();
+
+          if ($user->id != $model->user_id )
+               throw new \yii\web\ForbiddenHttpException(sprintf('Недостатоно прав для редактирования'));
+
+          $model->setAttributes($params);
+          $model->validate();
+          \Yii::trace(json_encode($model->getErrors()), __METHOD__);
           $model->save();
      }
 
