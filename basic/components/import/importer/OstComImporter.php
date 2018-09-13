@@ -78,7 +78,10 @@ class OstComImporter extends BaseImporter implements \app\components\import\Impo
          // товары
          $goods = isset($data->xml_catalog)?$data->xml_catalog->shop->offers->offer:$data->shop->offers->offer;
          // проходимся по товарам
+         $count = 0;
+         $saved = 0;
          foreach ($goods as $gkey => $good) {
+             $count++;
             try {
                $hit = 0;
                $attr = $good->attributes();
@@ -157,14 +160,14 @@ class OstComImporter extends BaseImporter implements \app\components\import\Impo
                }
                echo 'Обрабатываем товар: ' . $a['import_title'];
               
-               $this->saveProduct($a);
+                $saved+=$this->saveProduct($a);
 
             } catch (\Exception $e) {
                return $this->getError('Ошибка при сохранении товара ' . $good->name . ' !!'. $value .'!! ' . $e->getMessage().' line- '.$e->getLine());
             }
          }
 
-         return $this->getResult($data->xml_catalog->shop);
+         return 'Найдено товаров ' . $count . ' сохранено ' . $saved;
       } catch (\Exception $e) {
          return $this->getError('Ошибка при чтении файла импорта ' . $e->getMessage());
       }

@@ -61,6 +61,9 @@ class RCVostokImporter extends BaseImporter implements \app\components\import\Im
                     $newCategory['external_id'] = $category->id->__toString();
                     if (isset($category->parent)) {
                         $parent_id = $this->findCategoryByExternalId($category->parent->__toString(), $supplier);
+                        if (!$parent_id){
+                            $parent_id = null;
+                        }
                         $newCategory['parent_id'] = $parent_id;
                     } else {
                         $newCategory['parent_id'] = null;
@@ -82,7 +85,10 @@ class RCVostokImporter extends BaseImporter implements \app\components\import\Im
             $goods = $data->products->product;
             // проходимся по товарам
             $i = 0;
+            $count = 0;
+            $saved = 0;
             foreach ($goods as $gkey => $good) {
+                $count++;
                 try {
                     $hit = 0;
 
@@ -135,14 +141,14 @@ class RCVostokImporter extends BaseImporter implements \app\components\import\Im
                     echo  $i++.'|';
                     
 
-                    $this->saveProduct($a);
+                    $saved+=$this->saveProduct($a);
                     
                 } catch (\Exception $e) {
                     return $this->getError('Ошибка при сохранении товара ' . $good->name . ' !!!! ' . $e->getMessage() . ' line- ' . $e->getLine());
                 }
             }
 
-            return $this->getResult($data->xml_catalog->shop);
+          return 'Найдено товаров ' . $count . ' сохранено ' . $saved;
         } catch (\Exception $e) {
             return $this->getError('Ошибка при чтении файла импорта ' . $e->getMessage());
         }

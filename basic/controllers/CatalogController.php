@@ -6,6 +6,7 @@ use yii\data\ActiveDataProvider;
 use yii\rest\ActiveController;
 use app\filters\auth\HttpBearerAuth;
 use app\components\JsonOutputHelper;
+use app\components\ImageSaveHelper;
 
 /**
  * MVC controller that handles "category/*" urls.
@@ -183,6 +184,67 @@ class CatalogController extends ActiveController {
         $data = $this->prepareData($models);
         return JsonOutputHelper::getResult($data);
     }
+
+     /**
+      * @OA\Post(
+      *     path="/catalog/{id}/saveimage",
+      *     summary="Загружает администраторскую галерею для товара",
+      *     tags={"catalog"},
+      *     description="",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="multipart/form-data",
+      *             @OA\Schema(
+      *                type="object",
+      *                @OA\Property(
+      *                     property="file",
+      *                     description="file",
+      *                     type="file",
+      *                 ),
+ *                     @OA\Property(
+      *                     property="id",
+      *                     description="id",
+      *                     type="string",
+      *                 ),
+      *             )
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+
+      * )
+      */
+     public function actionSaveimage($id) {
+          $params = \Yii::$app->request->post();
+          // получаем переданные файлы
+          $files = \yii\web\UploadedFile::getInstancesByName($params['id']);
+          foreach ($files as $file) {
+               $data = ImageSaveHelper::saveFromFile($file);
+               if (!$data)
+                    return JsonOutputHelper::getError('Ошибка при обработке файлов');;
+
+               $newImage = new \app\models\Image;
+               $newImage->path = $data['link'];
+               $newImage->save();
+
+               $catalog = \app\models\Catalog::findOne($id);
+               $catalog->image_id = $newImage->id;
+               $catalog->save();
+          }
+          return JsonOutputHelper::getResult(array( 'image' => \Yii::$app->params['imageUrls']["ADMIN"] . $data['link']));
+     }
 
     /**
      * @OA\Post(

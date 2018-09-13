@@ -18,6 +18,7 @@ use Yii;
  * @property string $newPassword
  * @property string $authKey
  * @property int $isActive
+ * @property int $image_id
  * @property string $surname
  * @property string $name
  * @property string $patronymic
@@ -56,7 +57,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
     public function rules() {
          return [
               [['role_id', 'password', 'accessToken'], 'required'],
-              [['role_id', 'isActive'], 'integer'],
+              [['role_id', 'isActive', 'image_id'], 'integer'],
               [['regDate', 'lastAction'], 'safe'],
               [['login', 'email', 'password', 'accessToken', 'newPassword', 'authKey', 'photo'], 'string', 'max' => 255],
               [['surname', 'name', 'patronymic', 'site'], 'string', 'max' => 100],
@@ -89,6 +90,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
               'photo' => 'Photo',
               'regDate' => 'Reg Date',
               'lastAction' => 'Last Action',
+              'image_id' => 'Image Id'
          ];
     }
 
@@ -99,6 +101,9 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
         $fields['role'] = function ($model) {
             return $model->role->toArray();
         };
+         $fields['image'] = function ($model) {
+              return $model->image->toArray();
+         };
 
         return $fields;
     }
@@ -110,9 +115,18 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
         return $this->hasOne(UserRole::className(), ['id' => 'role_id']);
     }
 
-   
+     /**
+      * @return \yii\db\ActiveQuery
+      */
+     public function getImage()
+     {
+          return $this->hasOne(Image::className(), ['id' => 'image_id']);
+     }
 
-    public function getAuthKey() {
+
+
+
+     public function getAuthKey() {
         //  return $this->authKey;
     }
 

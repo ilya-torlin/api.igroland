@@ -6,6 +6,7 @@ use yii\data\ActiveDataProvider;
 use yii\rest\ActiveController;
 use app\filters\auth\HttpBearerAuth;
 use app\components\JsonOutputHelper;
+use app\components\ImageSaveHelper;
 /**
  * MVC controller that handles "users/*" urls.
  */
@@ -34,8 +35,10 @@ class UserController extends ActiveController {
      * )
      */
     public function actionMe() {
-        $me = \Yii::$app->user->identity;         
-        $model = $me->toArray();  
+        $me = \Yii::$app->user->identity;
+        //$image = \app\models\Image::find()->where(['id' => $me->image_id]);
+        $model = $me->toArray();
+        //$model['photo'] = $image->path;
         return JsonOutputHelper::getResult($model);
     }
 
@@ -44,18 +47,73 @@ class UserController extends ActiveController {
         unset($actions['create'], $actions['update'], $actions['index'], $actions['view'], $actions['delete']);
         return $actions;
     }
+    /**
+      * @OA\Post(
+      *     path="/user/{id}/saveimage",
+      *     summary="Загружает администраторскую галерею для товара",
+      *     tags={"user"},
+      *     description="",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="multipart/form-data",
+      *             @OA\Schema(
+      *                type="object",
+      *                @OA\Property(
+      *                     property="file",
+      *                     description="file",
+      *                     type="file",
+      *                 ),
+     *                 @OA\Property(
+     *                     property="id",
+     *                     description="id",
+     *                     type="string",
+     *                 ),
+      *             )
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
 
+      * )
+      */
     public function actionSaveimage($id) {
-        $file = \yii\web\UploadedFile::getInstanceByName('file');
-        $filename = '/userPhoto/' . uniqid() . '.' . $file->getExtension();
-        $file->saveAs($this->defaultPath . $filename);
-        $user = \app\models\User::findOne($id);
-        $user->photo = $filename;
-        $user->save();
-        return;
+         $me = \Yii::$app->user->identity;
+         if ($me->id != $id) {
+              return JsonOutputHelper::getError('Доступно только для себя');
+         }
+
+         $params = \Yii::$app->request->post();
+         // получаем переданные файлы
+         $files = \yii\web\UploadedFile::getInstancesByName($params['id']);
+         foreach ($files as $file) {
+              $data = ImageSaveHelper::saveFromFile($file);
+              if (!$data)
+                   return JsonOutputHelper::getError('Ошибка при обработке файлов');;
+
+              $newImage = new \app\models\Image;
+              $newImage->path = $data['link'];
+              $newImage->save();
+
+              $user = \app\models\User::findOne($id);
+              $user->image_id = $newImage->id;
+              $user->save();
+         }
+          return JsonOutputHelper::getResult(array( 'image' => \Yii::$app->params['imageUrls']["ADMIN"] . $data['link']));
     }
 
-     private function prepareDataIndex($models){
+    private function prepareDataIndex($models){
         $data = array();
         $idx = 0;
         foreach ($models as $model){
@@ -75,7 +133,7 @@ class UserController extends ActiveController {
         return $data;
              
     }
-   /**
+     /**
      * @OA\Get(
      *     path="/user",
      *     summary="Возвращает данные всех пользователей",
@@ -148,7 +206,7 @@ class UserController extends ActiveController {
       *     ),
       * )
       */
-     public function actionSearch() {
+    public function actionSearch() {
           $me = \Yii::$app->user->identity;
           if ($me->role_id != 1){
                return JsonOutputHelper::getError('Только пользователям с ролью Супер пользователя доступно получение списка пользователей');
@@ -167,7 +225,6 @@ class UserController extends ActiveController {
           $data = $this->prepareDataIndex($users);
           return JsonOutputHelper::getResult($data);
      }
-
 	/**
 	 * @OA\Delete(
 	 *     path="/user/{id}",
@@ -344,11 +401,8 @@ class UserController extends ActiveController {
      }
 
     public function actionView($id) {
-        $model = \app\models\User::find()->where(['id' => $id])->with(['role','projects'])->one();
-        $projects =  $model->getProjects()->asArray()->all();
-         
+        $model = \app\models\User::find()->where(['id' => $id])->with(['role'])->one();
         $model = $model->toArray();
-        $model['projects'] = $projects;
         return $model;
     }
 

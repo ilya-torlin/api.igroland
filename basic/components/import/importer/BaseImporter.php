@@ -28,6 +28,9 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         $model = \app\models\Category::find()->where(['title' => $name, 'catalog_id' => $supplier->id])->one();
         if (!$model)
             return false;
+        $model->pre_deleted = 0;
+        $model->deleted = 0;
+        $model->save();
         return $model->id;
     }
 
@@ -35,6 +38,7 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         $model = \app\models\Brand::find()->where(['title' => $name])->one();
         if (!$model)
             return false;
+
         return $model->id;
     }
 
@@ -42,17 +46,37 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         $model = \app\models\Category::find()->where(['external_id' => $id, 'catalog_id' => $supplier->id])->one();
         if (!$model)
             return false;
+        $model->pre_deleted = 0;
+        $model->deleted = 0;
+        $model->save();
+        return $model->id;
+    }
+     public function findCategoryByExternal1cId($id, $supplier) {
+        $model = \app\models\Category::find()->where(['external_1c_id' => $id, 'catalog_id' => $supplier->id])->one();
+        if (!$model)
+            return false;
+        $model->pre_deleted = 0;
+        $model->deleted = 0;
+        $model->save();
         return $model->id;
     }
 
     public function saveProduct($a) {
+        $result = 0;
 
         ini_set('display_errors', 'On');
         error_reporting(E_ALL);
         $model = \app\models\Product::find()->where(['sid' => $a['sid'], 'supplier_id' => $a['supplier_id']])->one();
+        
         if (!$model) {
             $model = new \app\models\Product();
             $model->title = $a['import_title'];
+        } else {
+            if ($model->pre_deleted == 0) {
+            var_dump($a);
+            echo 'Товар уже обновляли';
+            die();
+        }
         }
 
         if ($model->title == $model->import_title) {
@@ -63,24 +87,28 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         $model->price = $this->calcPrice($model, $a['supplier_price'], $a['price_add']);
         unset($a['price_add']);
         $model->attributes = $a;
-
+        $model->pre_deleted = 0;
+        $model->deleted = 0;
 
         $model->updated_at = date('Y-m-d h:i:s');
         if ($model->validate()) {
-            $model->save();
+            if (!$model->save()) {
+                var_dump($a);
+                echo 'Товар не удалось сохранить';
+                die();
+            }
+            $result = 1;
         } else {
-
-            echo "!!!!!!!!" ;
+            echo "!!!!!!!!";
             var_dump($model->errors);
             die();
         }
 
-        $model->validate();
+
 
 
         $usedImageArray = array();
         foreach ($a['images'] as $image) {
-            //$productImage = \app\models\ProductImage::find()->leftJoin('image', 'image.id = product_image.image_id')->where(['product_image.product_id' => $model->id, 'image.path' => $image])->one();
             $imageNameArr = explode('/', $image);
             $imageName = array_pop($imageNameArr);
             if (!$imageName)
@@ -89,9 +117,10 @@ class BaseImporter implements \app\components\import\ImporterInterface {
                     ->where(['product_image.product_id' => $model->id])
                     ->andWhere(['like', 'image.path', $imageName])
                     ->one();
-            if (!$productImage) {
 
-                $image_params = \app\components\ImageSaveHelper::saveFromUrl($image);
+            if (!$productImage) {
+                
+                $image_params = \app\components\ImageSaveHelper::saveFromAutoDetect($image);
                 if (!$image_params)
                     continue;
 
@@ -105,10 +134,10 @@ class BaseImporter implements \app\components\import\ImporterInterface {
                 $productImage->product_id = $model->id;
                 $productImage->image_id = $imageObj->id;
                 $productImage->save();
-                echo "<p>Загружаем картинку -</p>";
-                var_dump($image);
+                //var_dump($image);
                 //die();
             }
+
             $usedImageArray[] = $productImage->image_id;
         }
 
@@ -122,8 +151,13 @@ class BaseImporter implements \app\components\import\ImporterInterface {
             ':attribute_2' => $model->id
         ]);
 
-        $parentIds = array($a['category_id']);
+        if (isset($a['category_ids'])){
+             $parentIds = $a['category_ids'];
+        } else {
+             $parentIds = array($a['category_id']);
+        }
        
+
         \app\models\ProductCategory::deleteAll([
             'AND', 'product_id = :attribute_2', [
                 'NOT IN', 'category_id',
@@ -145,6 +179,7 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         }
         //var_dump($model->id);
         //die();
+        return $result;
     }
 
     // $category->catalog_id;  // id каталога
@@ -153,21 +188,26 @@ class BaseImporter implements \app\components\import\ImporterInterface {
     // $category->external_id;   // id категории старая
     // $category->title;   // название категории
     public function saveCategory($category) {
-        $newCategory = \app\models\Category::find()->where(['external_id' => $category['external_id'], 'catalog_id' => $category['supplier_id']])->one();
-        if (!$newCategory){
+        if (array_key_exists('external_id', $category)){
+             $newCategory = \app\models\Category::find()->where(['external_id' => $category['external_id'], 'catalog_id' => $category['supplier_id']])->one();
+        } elseif (array_key_exists('external_1c_id', $category)){ 
+            $newCategory = \app\models\Category::find()->where(['external_1c_id' => $category['external_1c_id'], 'catalog_id' => $category['supplier_id']])->one();
+        }
+       
+        if (!$newCategory) {
             $newCategory = new \app\models\Category();
         }
-        
+
         $newCategory->attributes = $category;
-          if ($newCategory->validate()) {
+        if ($newCategory->validate()) {
             $newCategory->save();
         } else {
-
-            echo "!!!!!!!!" ;
+            var_dump($category);
+            echo "!!!!!!!!";
             var_dump($newCategory->errors);
             die();
         }
-       
+
         return $newCategory->id;
     }
 

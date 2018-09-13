@@ -233,7 +233,8 @@ class ExportController extends ActiveController {
       * )
       */
     public function actionIndex(){
-          $exportApps = \app\models\Export::find()->limit(100)->all();
+          $user = \Yii::$app->user->identity;
+          $exportApps = \app\models\Export::find()->where(['user_id' => $user->id])->limit(100)->all();
           $model = $this->prepareIndexData($exportApps);
           return JsonOutputHelper::getResult($model);
     }
@@ -337,7 +338,38 @@ class ExportController extends ActiveController {
      public function generateStringLine(){
           return uniqid() . uniqid();
      }
+     /**
+      * @OA\Post(
+      *     path="/export/generate",
+      *     summary="Генерирует новый ключ приложения",
+      *     tags={"export"},
+      *     description="Метод для генерации нового ключа приложения",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="id",
+      *                     description="id",
+      *                     type="integer",
+      *                 )
+      *             )
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
 
+      * )
+      */
      public function actionGeneratenewlink(){
           $user = \Yii::$app->user->identity;
           $params = \Yii::$app->request->post();
