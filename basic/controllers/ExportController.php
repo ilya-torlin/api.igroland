@@ -45,7 +45,8 @@ class ExportController extends ActiveController {
               'link' => $item['link'],
               'blocked' =>  $item['blocked'],
               'optPriceAdd' => $item['optPriceAdd'],
-              'roznPriceAdd' => $item['optPriceAdd'],
+              'roznPriceAdd' => $item['roznPriceAdd'],
+              'catalog' => array('id' => $item['catalog']['id'], 'name' => $item['catalog']['name'])
          );
     }
 
@@ -175,17 +176,23 @@ class ExportController extends ActiveController {
         return JsonOutputHelper::getResult($data['catalogFolders'][0]);
     }
      /**
-      * @OA\Get(
-      *     path="/export/{id}/view",
+      * @OA\Post(
+      *     path="/export/view",
       *     summary="Возвращает информацию приложения",
       *     tags={"export"},
       *     description="Метод для получения информации приложения",
-      *      @OA\Parameter(
-      *         name="id",
-      *         in="path",
-      *         required=false,
-      *         @OA\Schema(
-      *             type="integer",
+      *      @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="id",
+      *                     description="id",
+      *                     type="integer",
+      *                 )
+      *             )
       *         )
       *     ),
       *     @OA\Response(
@@ -199,8 +206,12 @@ class ExportController extends ActiveController {
 
       * )
       */
-     public function actionViewexport($id){
-          $exportApp = \app\models\Export::find()->where(['id' => $id])->one();
+     public function actionViewexport(){
+          $params = \Yii::$app->request->post();
+          if (!isset($params['id'])) {
+               return JsonOutputHelper::getError('Не задан идентификатор приложения');
+          }
+          $exportApp = \app\models\Export::find()->with('catalog')->where(['id' => $params['id']])->asArray()->one();
           $model = $this->prepareViewData($exportApp);
           return JsonOutputHelper::getResult($model);
      }
@@ -326,6 +337,25 @@ class ExportController extends ActiveController {
      public function generateStringLine(){
           return uniqid() . uniqid();
      }
+
+     public function actionGeneratenewlink(){
+          $user = \Yii::$app->user->identity;
+          $params = \Yii::$app->request->post();
+          if (!isset($params['id']))
+               return JsonOutputHelper::getError('Не указан id приложения');
+
+          $model = \app\models\Export::find()->where(['id' => $params['id']])->one();
+
+          if ($user->id != $model->user_id )
+               throw new \yii\web\ForbiddenHttpException(sprintf('Недостатоно прав для редактирования'));
+
+          $model->link = $this->generateStringLine();
+          $model->save();
+
+          return JsonOutputHelper::getResult(array( 'link' => $model->link));
+
+     }
+
      /**
       * @OA\Post(
       *     path="/export",
@@ -477,9 +507,14 @@ class ExportController extends ActiveController {
       * )
       */
      public function actionUpdate($id) {
-
-          $params = \Yii::$app->request->post();
           $user = \Yii::$app->user->identity;
+          $params = \Yii::$app->request->post();
+
+          if (!isset($params['name']))
+               return JsonOutputHelper::getError('Имя не передано');
+          if (!isset($params['catalog_id']))
+               return JsonOutputHelper::getError('Каталог не указан');
+
           $model = \app\models\Export::find()->where(['id' => $id])->one();
 
           if ($user->id != $model->user_id )
@@ -489,6 +524,7 @@ class ExportController extends ActiveController {
           $model->validate();
           \Yii::trace(json_encode($model->getErrors()), __METHOD__);
           $model->save();
+          return JsonOutputHelper::getResult('');
      }
 
     public function behaviors() {
