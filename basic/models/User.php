@@ -102,7 +102,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
             return $model->role->toArray();
         };
          $fields['image'] = function ($model) {
-              return $model->image->toArray();
+              if (isset($model->image))
+               return $model->image->toArray();
          };
 
         return $fields;
