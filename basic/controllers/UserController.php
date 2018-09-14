@@ -122,7 +122,7 @@ class UserController extends ActiveController {
                   'name' =>  $model['name'],
                   'email' =>  $model['email'],
                   'login' => $model['login'],
-                  'photo' => $model['photo'],
+                  'photo' => $model['image']['path'],
                   'surname' => $model['surname'],
                   'isActive' => $model['isActive']
              );
@@ -169,7 +169,7 @@ class UserController extends ActiveController {
 //              $isActive = 1;
 //              $users = $users->where(['isActive' => $isActive]);
 //         }
-         $users = $users->with(['role'])->all();
+         $users = $users->with(['role','image'])->asArray()->all();
         $data = $this->prepareDataIndex($users);
         return JsonOutputHelper::getResult($data);
     }
