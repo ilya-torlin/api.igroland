@@ -129,10 +129,11 @@ class ProductattachController extends ActiveController {
             return JsonOutputHelper::getError('Категория category_id из связки не найдена');
         }
 
-        $catalog = \app\models\Catalog::find()->where(['id' => $category->catalog_id, 'user_id' => $me->id])->one();
-        if (!$catalog) {
-            return JsonOutputHelper::getError('Категория  не принадлежит пользователю');
+        $catalog = \app\models\Catalog::find()->where(['id' => $category->catalog_id])->one();
+        if (!$catalog || ($catalog->user_id != $me->id && $me->role_id != 1) ){
+             return JsonOutputHelper::getError('Категория  не принадлежит пользователю');
         }
+        
         $catalog->setAndSaveUpdate();
         $productAttach->delete();
         return JsonOutputHelper::getResult(true);

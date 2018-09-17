@@ -71,7 +71,7 @@ class Product extends \yii\db\ActiveRecord
             [['weight', 'depth', 'width', 'height', 'price', 'price_add', 'supplier_price'], 'number'],
             [['sid'], 'string', 'max' => 50],
             [['title', 'import_title'], 'string', 'max' => 400],
-            [['sku'], 'string', 'max' => 32],
+            [['sku'], 'string', 'max' => 255],
             [['code1c', 'country'], 'string', 'max' => 255],
             [['barcode', 'unit'], 'string', 'max' => 20],
             [['sid', 'supplier_id'], 'unique', 'targetAttribute' => ['sid', 'supplier_id']],

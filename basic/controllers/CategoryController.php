@@ -14,25 +14,26 @@ class CategoryController extends ActiveController {
 
     public $modelClass = 'app\models\Category';
 
-    private function prepareData($models, $lvlFolder = 0, $parent_folder_id = 0, $hideNotAvl = false, $isMyCatalog = false) {
+    private function prepareData($models, $lvlFolder = 0, $parent_folder_id = 0, $hideNotAvl = false, $isMyCatalog = false,$categoryIds = []) {
         $data = array('catalogFoldersKeyArr' => array(), 'catalogFolders' => array());
         $idx = 0;
 
         foreach ($models as $model) {
             $category = \app\models\Category::find()->where(['id' => $model['id']])->one();
-            
+
             $goodsCount = $category->getInnerProducts();
             if ($hideNotAvl) {
                 $goodsCount = $goodsCount->andWhere(['>', 'quantity', 0]);
-            } 
+            }
             $goodsCount = $goodsCount->count();
 
 
-            
-            
+
+
 
 
             $count = \app\models\Category::find()->where(['parent_id' => $model['id']])->count();
+           
             $item = array(
                 'folderId' => $model['id'],
                 'name' => $model['title'],
@@ -43,17 +44,17 @@ class CategoryController extends ActiveController {
                 'catalog_id' => $model['catalog_id'],
                 'isOpen' => false,
                 'hasFolders' => $count > 0,
-                'hideFolder' => false,
+                'hideFolder' => in_array((string)$model['id'], $categoryIds),
                 'childCount' => 0,
                 'wasOpened' => false,
-                'wasDeleted' => false,                
+                'wasDeleted' => false,
                 // 'key' => $parent_folder_id.'_'.$idx, 
                 'key' => $parent_folder_id . '_' . $idx . '_' . $model['id'],
             );
-            
+
             if ($isMyCatalog) {
                 $attachedCategories = array();
-                 $attachedProducts = array();
+                $attachedProducts = array();
                 foreach ($model['categoryAttaches'] as $ca) {
                     $attachedCategories[] = array('id' => $ca['id'], 'attached_category_id' => $ca['attached_category_id'], 'attached_category_title' => $ca['attachedCategory']['title']);
                 }
@@ -126,8 +127,14 @@ class CategoryController extends ActiveController {
      *             type="boolean",
      *         )
      *     ), 
-     * 
-     * 
+     *    @OA\Parameter(
+     *         name="userCatalogId",
+     *         in="query",            
+     *         required=false,       
+     *         @OA\Schema(
+     *             type="integer",
+     *         )
+     *     ), 
      *     @OA\Response(
      *         response=200,
      *         description="successful operation"
@@ -142,7 +149,17 @@ class CategoryController extends ActiveController {
     public function actionIndex() {
         $data = $this->prepareRequest();
         $data['models'] = $data['models']->orderBy('catalog_id ASC, title ASC')->asArray()->all();
-        $result = $this->prepareData($data['models'], $data['lvlFolder'], $data['parentFolderId'], $data['hideNotAvl'], $data['isMyCatalog']);
+         $params = \Yii::$app->request->get();
+         $categoryIds = [];
+        if (array_key_exists('userCatalogId', $params) && !empty($params['userCatalogId'])) {
+            $models = \app\models\Category::find();
+            $models = $models->innerJoin('category_attach', 'category_attach.attached_category_id = category.id');
+            $models = $models->innerJoin('category as maincat', 'maincat.id = category_attach.category_id');
+            $models = $models->where(['=', 'maincat.catalog_id', $params['userCatalogId']]);
+            $categoryIds = $models->select('category.id')->asArray()->column();
+        }
+        
+        $result = $this->prepareData($data['models'], $data['lvlFolder'], $data['parentFolderId'], $data['hideNotAvl'], $data['isMyCatalog'],$categoryIds);
         return JsonOutputHelper::getResult($result);
     }
 
@@ -212,8 +229,7 @@ class CategoryController extends ActiveController {
 
      * )
      */
-    
-    private function prepareRequest(){
+    private function prepareRequest() {
         $me = \Yii::$app->user->identity;
         $params = \Yii::$app->request->get();
         if (!array_key_exists('lvlFolder', $params) || !isset($params['lvlFolder'])) {
@@ -242,46 +258,44 @@ class CategoryController extends ActiveController {
                 ->innerJoin('catalog', 'catalog.id = category.catalog_id')
                 ->leftJoin('user_catalog', 'catalog.id = user_catalog.catalog_id')
                 ->leftJoin('user', 'user.id = catalog.user_id');
-        
-        if ($me->role_id == 1){
+
+        if ($me->role_id == 1) {
             if (array_key_exists('catalog_id', $params) && !empty($params['catalog_id'])) {
                 $models = $models->where(['or',
-                    ['IS NOT','catalog.supplier_id',null],
+                    ['IS NOT', 'catalog.supplier_id', null],
                     ['user.role_id' => 1]
                 ]);
-                
             } else {
-                $models = $models->where(['IS NOT','catalog.supplier_id',null]);
+                $models = $models->where(['IS NOT', 'catalog.supplier_id', null]);
             }
-           
         } else {
             $models = $models->where(['or',
-                    ['user_catalog.user_id' => $me->id],
-                    ['catalog.avlForAll' => 1],
-                    ['catalog.user_id' => $me->id]
-                ]);
+                ['user_catalog.user_id' => $me->id],
+                ['catalog.avlForAll' => 1],
+                ['catalog.user_id' => $me->id]
+            ]);
         }
-                
-        $models=$models->andWhere(['parent_id' => $id]);
-        
+
+        $models = $models->andWhere(['parent_id' => $id]);
+
         $isMyCatalog = 0;
         if (array_key_exists('catalog_id', $params) && !empty($params['catalog_id'])) {
             $models = $models->andWhere(['category.catalog_id' => $params['catalog_id']]);
             $catalog = \app\models\Catalog::find()->where(['id' => $params['catalog_id'], 'user_id' => $me->id])->one();
-            if ($catalog  || $me->role_id) {
+            if ($catalog || $me->role_id) {
                 $isMyCatalog = 1;
                 $models = $models->with(['categoryAttaches', 'categoryAttaches.attachedCategory']);
                 $models = $models->with(['productAttaches', 'productAttaches.attachedProduct']);
             }
         } else {
-            $models=$models->andWhere(['catalog.isOn' => 1]);
+            $models = $models->andWhere(['catalog.isOn' => 1]);
         }
 
         $models = $models->andWhere(['deleted' => 0]);
-        
-        return array('models' => $models,'lvlFolder' =>$lvlFolder, 'parentFolderId' =>$parentFolderId, 'hideNotAvl' =>$hideNotAvl, 'isMyCatalog' =>$isMyCatalog);
+
+        return array('models' => $models, 'lvlFolder' => $lvlFolder, 'parentFolderId' => $parentFolderId, 'hideNotAvl' => $hideNotAvl, 'isMyCatalog' => $isMyCatalog);
     }
-    
+
     public function actionSearch() {
         $params = \Yii::$app->request->get();
         if (!isset($params['text'])) {
@@ -289,7 +303,7 @@ class CategoryController extends ActiveController {
         }
 
         $data = $this->prepareRequest();
-        $data['models'] = $data['models']->where(['like', 'title', $params['text']])->orderBy('catalog_id ASC, title ASC')->limit(1000)->asArray()->all();
+        $data['models'] = $data['models']->andWhere(['like', 'title', $params['text']])->orderBy('catalog_id ASC, title ASC')->limit(1000)->asArray()->all();
         $result = $this->prepareData($data['models'], $data['lvlFolder'], $data['parentFolderId'], $data['hideNotAvl']);
         return JsonOutputHelper::getResult($result);
     }
@@ -404,7 +418,7 @@ class CategoryController extends ActiveController {
         if (!$catalog) {
             return JsonOutputHelper::getError('Категория  не найдена');
         }
-        
+
         if ($catalog->user_id != $me->id && $me->role_id != 1) {
             return JsonOutputHelper::getError('Категория  не принадлежит пользователю');
         }

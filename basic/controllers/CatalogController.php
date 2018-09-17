@@ -41,7 +41,7 @@ class CatalogController extends ActiveController {
             }
             $users = array();
             foreach ($model->users as $user) {
-                $users[] = (object) array('name' => $user->email, 'id' => $user->id);
+                $users[] = (object) array('email' => $user->email, 'id' => $user->id);
             }
 
             $item = array(

@@ -24,7 +24,8 @@
         "kartik-v/yii2-mpdf": "dev-master",
         "phpoffice/phpexcel": "*",
         "zircote/swagger-php": "3.*",
-        "yiisoft/yii2-imagine": "^2.1"
+        "yiisoft/yii2-imagine": "^2.1",
+        "sima-land/api-php-client": "~3"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

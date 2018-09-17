@@ -25,6 +25,13 @@ class HelloController extends Controller
      */
     public function actionIndex($message = 'hello world')
     {
-        echo $message . "\n";
+         $importer = \app\components\import\ImporterFactory::create('SimaImporter');
+         //echo 'importer';
+         $suppliers= \app\models\Supplier::find()->where(['id' => 7])->one();
+
+//         $model = \app\models\Category::find()->where(['title' => 'БУКВА-ЛЕНД', 'catalog_id' => 7])->one();
+//         print_r($model);
+         /* {"id":11748,"sid":"Р00010974","name":"БУКВА-ЛЕНД","description":"","slug":"bukva-lend","photo":"Bukva-lend.gif","is_exclusive":1} */
+         $importer->engine($suppliers);
     }
 }
