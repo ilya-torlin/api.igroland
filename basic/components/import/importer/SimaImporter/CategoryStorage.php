@@ -105,19 +105,19 @@ class CategoryStorage extends BaseObject implements \SimaLand\API\Parser\Storage
                if( ($record->data['id']) ){
                     $this->arrayCategory[] = $record->data['id'];
                }
-               /*
+
                $currentCategory = $this->findCategoryByExternalId($currentId, $this->supplierId);
                $findCategory = \app\models\Category::find()->where(['id' => $currentCategory])->one();
-               */
-               /*
+
+
                $parent_id = $this->findCategoryByExternalId($parentId, $this->supplierId);
                if($parent_id){
                     if(!empty($findCategory->parent_id)){
                          $findCategory->parent_id = $parent_id;
                          $findCategory->save();
                     }
-               } */
-               /**($parent_id) ? $newCategory['parent_id'] = $parent_id : $newCategory['parent_id'] = null;
+               }
+               ($parent_id) ? $newCategory['parent_id'] = $parent_id : $newCategory['parent_id'] = null;
                $category_id = $this->findCategoryByName($newCategory['title'], $this->supplierId);
                if(!$category_id){
                     echo print_r($record->data);
@@ -125,7 +125,7 @@ class CategoryStorage extends BaseObject implements \SimaLand\API\Parser\Storage
                     $newId = $this->saveCategory($newCategory);
                     $this->arrayCategory[$record->data['id']] = $newId;
                }
-                */
+
                //echo print_r($record->data);
                //echo print_r($newCategory);
                //return $this->getResult($newCategory);

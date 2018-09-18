@@ -211,8 +211,8 @@ class SimaImporter extends BaseImporter implements \app\components\import\Import
           $parser->reset();
           $parser->run();
           var_dump($itemStorage->GetArrayCatogories());
-          file_put_contents($currentPath . 'categories.txt', print_r($itemStorage->GetArrayCatogories()));
-          file_put_contents($currentPath . 'categories-ext.txt', print_r($this->engine1($itemStorage->GetArrayCatogories(),$supplier)));
+          file_put_contents($currentPath . 'categories.txt', json_encode($itemStorage->GetArrayCatogories()));
+          file_put_contents($currentPath . 'categories-ext.txt', json_encode($this->engine1($itemStorage->GetArrayCatogories(),$supplier->id)));
      }
 
      public function engine1($categories,$supplier)
