@@ -183,7 +183,7 @@ class ItemStorage extends BaseObject implements \SimaLand\API\Parser\StorageInte
                     }
                     var_dump($a);
                     echo 'Обрабатываем товар: ' . $a['import_title'];
-                    $this->saveProduct($a);
+                    //$this->saveProduct($a);
                }
                //return $this->getResult($newCategory);
           } catch (\Exception $e) {

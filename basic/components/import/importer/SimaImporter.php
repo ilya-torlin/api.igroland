@@ -210,18 +210,42 @@ class SimaImporter extends BaseImporter implements \app\components\import\Import
           // Запускаем процесс парсинга.
           $parser->reset();
           $parser->run();
-          //echo $itemStorage->GetArrayCatogories();
-          //return $this->getResult($parser);
+          var_dump($itemStorage->GetArrayCatogories());
+          file_put_contents($currentPath . 'categories.txt', print_r($itemStorage->GetArrayCatogories()));
+          file_put_contents($currentPath . 'categories-ext.txt', print_r($this->engine1($itemStorage->GetArrayCatogories(),$supplier)));
      }
 
-     public function engine1($supplier)
+     public function engine1($categories,$supplier)
      {
-          // базовый путь для импортера
-          $curl = curl_init('https://www.sima-land.ru/api/v3/item/');
-          curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-          curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-          $json = curl_exec($curl);
-          curl_close($curl);
-          var_dump($json);
+          $currentArrayCC = [];
+          foreach ($categories as $id){
+               // базовый путь для импортера
+               $curl = curl_init("https://www.sima-land.ru/api/v3/category/{$id}/");
+               curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/json'));
+               curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+               $json = curl_exec($curl);
+               curl_close($curl);
+
+               $record = json_decode($json);
+
+               $newCategory = array();
+               $newCategory['title'] = (string) $record->name;
+               $newCategory['supplier_id'] = (int) $supplier;
+               $newCategory['catalog_id'] = (int) $supplier;
+               $newCategory['external_id'] = (int) $record->id;
+               $parentArray = explode('.', (string) $record->path);
+               $currentId =(int) array_pop($parentArray);
+               $parentId =(int) array_pop($parentArray);
+
+               $parent_id = $this->findCategoryByExternalId((int) $parentId, $supplier);
+               ($parent_id) ? $newCategory['parent_id'] = $parent_id : $newCategory['parent_id'] = null;
+
+               $category_id = $this->findCategoryByName( (string) $record->name, $supplier);
+               if(!$category_id){
+                    //$category_id = $this->saveCategory($newCategory);
+               }
+               $currentArrayCC[$newCategory['external_id']] = $category_id;
+          }
+          return $currentArrayCC;
      }
 }

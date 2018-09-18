@@ -90,19 +90,19 @@ class CategoryStorage extends BaseObject implements \SimaLand\API\Parser\Storage
 
      public function save(Record $record) {
           try {
-               /*$newCategory = array();
+               $newCategory = array();
                $newCategory['title'] = (string) $record->data['name'];
                $newCategory['supplier_id'] = (int) $this->supplierId;
                $newCategory['catalog_id'] = (int) $this->supplierId;
                $newCategory['external_id'] = (int) $record->data['id'];
-               */
+
                //if (in_array('11748',$record->data['trademarks']))
                     //print_r($record->data);
                $parentArray = explode('.', (string) $record->data['path']);
                $currentId =(int) array_pop($parentArray);
                $parentId =(int) array_pop($parentArray);
                //$this->findCategoryByName('Букволенд', $this->supplierId);
-               if(in_array($record->data['id'],) ){
+               if( ($record->data['id']) ){
                     $this->arrayCategory[] = $record->data['id'];
                }
                /*
