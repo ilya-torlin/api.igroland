@@ -6,11 +6,20 @@ use SimaLand\API\Record;
 
 class ItemStorage extends BaseObject implements \SimaLand\API\Parser\StorageInterface {
      public $supplierId;
+     public $price_add;
      private $arrayCategoryProduct = array();
      private $arrayCatogories = array();
 
      public function GetArrayCatogories(){
           return $this->arrayCatogories;
+     }
+
+     public function calcPrice($product, $basePrice, $price_add) {
+          if (isset($product->price_add)) {
+               $price_add = $product->price_add;
+          }
+          $price = $basePrice + ($basePrice * ($price_add / 100));
+          return $price;
      }
 
      public function GetArrayCategoryProduct(){
@@ -141,13 +150,14 @@ class ItemStorage extends BaseObject implements \SimaLand\API\Parser\StorageInte
                     return;
 
                $trades = explode(',', $record->data['trademark_id']);
-               if(in_array(11748, $trades)){
+               if(in_array(11748, $trades) || in_array(733, $trades) || in_array(10940, $trades)){
                     $image_array = array();
                     $name = basename($record->data["img"]);
                     foreach( $record->data["photos"] as $image) {
                          $image_array[] = (string) $image['url_part'] . $name;
                     }
                     $a = [
+                         "price_add" => $this->price_add,
                          "supplier_id" => $this->supplierId,
                          "sid" => (string) $record->data['sid'],
                          "sku" => (string) $record->data["sid"],

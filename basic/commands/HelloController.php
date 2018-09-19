@@ -31,7 +31,10 @@ class HelloController extends Controller
 
 //         $model = \app\models\Category::find()->where(['title' => 'БУКВА-ЛЕНД', 'catalog_id' => 7])->one();
 //         print_r($model);
-         /* {"id":11748,"sid":"Р00010974","name":"БУКВА-ЛЕНД","description":"","slug":"bukva-lend","photo":"Bukva-lend.gif","is_exclusive":1} */
+         /* {"id":11748,"sid":"Р00010974","name":"БУКВА-ЛЕНД","description":"","slug":"bukva-lend","photo":"Bukva-lend.gif","is_exclusive":1}
+            {"id":733,"sid":"П00000235","name":"Забияка","description":"","slug":"zabiyaka","photo":"zabiyaka.gif","is_exclusive":1}
+            {"id":10940,"sid":"Р00010165","name":"Эврики","description":"","slug":"evriki","photo":"Evriki.gif","is_exclusive":1}
+          */
          $importer->engine($suppliers);
     }
 }

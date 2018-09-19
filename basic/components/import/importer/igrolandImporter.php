@@ -27,40 +27,31 @@ class IgrolandImporter extends BaseImporter implements \app\components\import\Im
         return $data;
     }
 
-    private function parseItem($item) {
+    private function parseItem($item){
         
     }
-
+    
     public function engine($supplier) {
         try {
             $csvFile = file($supplier->link);
             $data = $this->prepareDate($csvFile);
-            $count = 0;
-            $saved = 0;
             foreach ($data as $key => $item) {
-                $count++;
                 try {
                     $hit = 0;
                     if (array_key_exists(9, $item)) {
                         if ($item[9] != '0')
                             $hit = 1;
                     }
-
+                   
                     $category_id = $this->findCategoryByName($item[0], $supplier);
                     //Если категория не найдена
-                    if (!$category_id) {
-                        $newCategory = array();
-                        $newCategory['title'] = $item[0];
-                        $newCategory['supplier_id'] = (int) $supplier->id;
-                        $newCategory['catalog_id'] = (int) $supplier->id;
-                        $newCategory['parent_id'] = null;
-                        $newCategory['external_id'] = mt_rand();
-                        $category_id = $this->saveCategory($newCategory);
+                    if (!$category_id){
+                        continue;
                     }
-
-                    $fileImg = array('http://analyze-it.su/images/img_new/' . $item[1] . '.jpg', 'http://analyze-it.su/images/img_new/' . $item[1] . '.JPG');
-
-                    $a = [
+                    
+                      $fileImg = array('http://analyze-it.su/images/img_new/'.$item[1].'.jpg','http://analyze-it.su/images/img_new/'.$item[1].'.JPG');
+                    
+                    $a = [   
                         "price_add" => $supplier->price_add,
                         "supplier_id" => $supplier->id,
                         "sid" => $item[1],
@@ -72,7 +63,7 @@ class IgrolandImporter extends BaseImporter implements \app\components\import\Im
                         "import_title" => str_replace('/', '', $item[2]),
                         "images" => $fileImg,
                         "amount" => $item[3],
-                        "supplier_price" => $item[6] == '' ? $item[3] : $item[6],
+                        "supplier_price" => $item[6],
                         "pack" => $item[7] == 0 ? 1 : $item[7],
                         "brand" => "Игролэнд",
                         "barcode" => "",
@@ -86,27 +77,28 @@ class IgrolandImporter extends BaseImporter implements \app\components\import\Im
                         "description" => "",
                         "hit" => $hit
                     ];
-                    //var_dump($a);
-                    //die();
-
+                    var_dump($a);
+                    die();
+                
 
 
                     if (empty($a["sku"])) {
                         //Пустой артикул
                         continue;
                     }
-
-                    $saved += $this->saveProduct($a);
+                   
+                    $this->saveProduct($a);
                 } catch (\Exception $e) {
-
-                    return $this->getError('Ошибка при сохранении товара ' . $key . ' - ' . $e->getMessage() . ' line- ' . $e->getLine());
+                    
+                     return $this->getError('Ошибка при сохранении товара ' . $key . ' - ' . $e->getMessage().' line- '.$e->getLine());
+                  
                 }
             }
 
 
 
 
-            return 'Найдено товаров ' . $count . ' сохранено ' . $saved;
+            return $this->getResult($data[0]);
         } catch (\Exception $e) {
             return $this->getError('Ошибка при чтении файла импорта ' . $e->getMessage());
         }

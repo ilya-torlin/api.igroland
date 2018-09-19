@@ -130,6 +130,7 @@ class GalaImporter extends BaseImporter implements \app\components\import\Import
                }
 
                $a = [
+                   "price_add" => $supplier->price_add,
                    "supplier_id" => $supplier->id,
                    "sid" => $currentAttr["id"],
                    "sku" => $currentAttr["articul"],
