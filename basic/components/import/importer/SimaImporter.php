@@ -72,7 +72,7 @@ class SimaImporter extends BaseImporter implements \app\components\import\Import
           // $parser->run(false);
           $parser->reset();
           $parser->run();
-
+          // выгрузки товаров получаем массивы соответствия товров и категорий, и список категорий для выкачивания
           $parseCategoriesArray = array_unique($itemStorage->GetArrayCatogories());
           $linkProductCategoryArray = $itemStorage->GetArrayCategoryProduct();
           file_put_contents($currentPath . 'categories.txt', json_encode($parseCategoriesArray));
@@ -80,13 +80,13 @@ class SimaImporter extends BaseImporter implements \app\components\import\Import
 
 //          $parseCategoriesArray = array_unique(json_decode(file_get_contents($currentPath . 'categories.txt'), true));
 //          $linkProductCategoryArray = json_decode(file_get_contents($currentPath . 'categories-products.txt'), true);
-
+          // получаем категории по api - в базу сохраняем
           $linkCategoriesIdExternalId = $this->engineCategories($parseCategoriesArray, $supplier);
 
           file_put_contents($currentPath . 'categories-ext.txt', json_encode($linkCategoriesIdExternalId));
-
+          // создаем связи в таблицу ProductCategory
           $this->linkProductCategory($linkProductCategoryArray,$linkCategoriesIdExternalId);
-
+          // добавляем родителей категориям, если есть
           $this->linkCategoryParents($parseCategoriesArray,$linkCategoriesIdExternalId);
      }
 
