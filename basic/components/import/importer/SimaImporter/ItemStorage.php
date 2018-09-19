@@ -141,11 +141,7 @@ class ItemStorage extends BaseObject implements \SimaLand\API\Parser\StorageInte
                     return;
 
                $trades = explode(',', $record->data['trademark_id']);
-               //var_dump($trades);
                if(in_array(11748, $trades)){
-                    $this->arrayCatogories[] = $record->data['category_id'];
-                    $this->arrayCategoryProduct[] = array( 'product' => $record->data['id'], 'category' => $record->data['category_id'] );
-
                     $image_array = array();
                     $name = basename($record->data["img"]);
                     foreach( $record->data["photos"] as $image) {
@@ -177,18 +173,15 @@ class ItemStorage extends BaseObject implements \SimaLand\API\Parser\StorageInte
                          "hit" => (int) $record->data['is_hit']
                     ];
 
-                    if (empty($a["sku"])) {
-                         //Пустой артикул
+                    if (empty($a["sku"])) {  //Пустой артикул
                          return;
                     }
-                    var_dump($a);
-                    echo 'Обрабатываем товар: ' . $a['import_title'];
-                    //$this->saveProduct($a);
+                    $productId = $this->saveProduct($a);
+                    $this->arrayCatogories[] = $record->data['category_id'];
+                    $this->arrayCategoryProduct[] = array( 'productExt' => (int) $record->data['id'], 'product' => (int) $productId,  'category' => (int) $record->data['category_id'] );
                }
-               //return $this->getResult($newCategory);
           } catch (\Exception $e) {
                print_r($e->getMessage());
-               //return $this->getError('Ошибка при сохранении категории ' .  $record->data['name'] . ' - ' . $e->getMessage().' line- '.$e->getLine());
           }
 
      }
