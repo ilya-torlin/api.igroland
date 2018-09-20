@@ -99,6 +99,7 @@ class ExportController extends ActiveController {
                     'unit' => $product->unit,
                     'weight' => $product->weight,
                     'box' => $product->pack,
+                    'min' => $product->min_order,
                     'quantity' => $product->quantity,
                     'hit' => $product->hit,
                     'pack' => $product->pack,

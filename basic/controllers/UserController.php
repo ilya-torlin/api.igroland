@@ -399,6 +399,77 @@ class UserController extends ActiveController {
           \Yii::trace(json_encode($model->getErrors()), __METHOD__);
           $model->save();
      }
+     /**
+      * @OA\Put(
+      *     path="/user/{id}/password",
+      *     summary="Обновляет данные пароля пользователя",
+      *     tags={"user"},
+      *     description="Метод для обновления пароля пользоватлей",
+      *     security={{"bearerAuth":{}}},
+      *     @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="password",
+      *                     description="password",
+      *                     type="string",
+      *                 ),
+ *                      @OA\Property(
+      *                     property="newpassword",
+      *                     description="newpassword",
+      *                     type="string",
+      *                 ),
+      *             )
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *     @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     )
+      *
+      * )
+      */
+     public function actionChangepassword($id) {
+
+          $params = \Yii::$app->request->post();
+          $user = \Yii::$app->user->identity;
+          $model = \app\models\User::find()->where(['id' => $id])->one();
+
+          if ($user->role_id != 1)
+               throw new \yii\web\ForbiddenHttpException(sprintf('Недостатоно прав для редактирования'));
+
+          if (!array_key_exists('password', $params))
+               throw new \yii\web\ForbiddenHttpException(sprintf('Не указан пароль'));
+
+          if (strlen($params['password']) < 5)
+               throw new \yii\web\ForbiddenHttpException(sprintf('Пароль не может быть меньше 5 символов'));
+
+          if (strlen($params['newpassword']) < 5)
+               throw new \yii\web\ForbiddenHttpException(sprintf('Новый пароль не может быть меньше 5 символов'));
+
+          if (!\Yii::$app->getSecurity()->validatePassword($params['password'], $user->password))
+               return JsonOutputHelper::getError('Неправильно указан старый пароль!');
+
+          $model->password = \Yii::$app->getSecurity()->generatePasswordHash($params['newpassword']);
+          $model->save();
+          return JsonOutputHelper::getResult( true);
+
+     }
 
     public function actionView($id) {
         $model = \app\models\User::find()->where(['id' => $id])->with(['role'])->one();

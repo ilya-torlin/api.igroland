@@ -76,6 +76,7 @@ $config = [
                     'pluralize' => false,
                     'patterns' => [
                         'PUT,PATCH <id>' => 'update',
+                        'PUT,PATCH <id>/password' => 'changepassword',
                         'DELETE <id>' => 'delete',
                         'GET me' => 'me',
                         'GET search' => 'search',
@@ -85,7 +86,8 @@ $config = [
                         'POST <id>/saveimage' => 'saveimage',
                         'GET,HEAD' => 'index',
                         '<id>/setonoff' => 'options',
-                        '<id>/saveimage' => 'saveimage',
+                        '<id>/saveimage' => 'options',
+                        '<id>/password' => 'options',
                         '<id>' => 'options',
                         '' => 'options',
                     ],
