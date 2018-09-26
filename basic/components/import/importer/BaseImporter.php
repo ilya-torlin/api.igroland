@@ -36,8 +36,12 @@ class BaseImporter implements \app\components\import\ImporterInterface {
 
     public function findBrandByName($name) {
         $model = \app\models\Brand::find()->where(['title' => $name])->one();
-        if (!$model)
-            return false;
+        if (!$model){
+            $model = new  \app\models\Brand();
+            $model->title = $name;
+            $model->save();
+        }
+           
 
         return $model->id;
     }
@@ -75,7 +79,7 @@ class BaseImporter implements \app\components\import\ImporterInterface {
             if ($model->pre_deleted == 0) {
             var_dump($a);
             echo 'Товар уже обновляли';
-            die();
+           // die();
         }
         }
 
@@ -83,8 +87,13 @@ class BaseImporter implements \app\components\import\ImporterInterface {
             $model->title = $a['import_title'];
             $model->import_title = $a['import_title'];
         }
-
-        $model->price = $this->calcPrice($model, $a['supplier_price'], $a['price_add']);
+        if (isset($a['amount'])){
+            $model->price = $a['amount'];
+            unset($a['amount']);
+        } else {
+          $model->price = $this->calcPrice($model, $a['supplier_price'], $a['price_add']);  
+        }
+        
         unset($a['price_add']);
         $model->attributes = $a;
         $model->pre_deleted = 0;
@@ -117,6 +126,22 @@ class BaseImporter implements \app\components\import\ImporterInterface {
                     ->where(['product_image.product_id' => $model->id])
                     ->andWhere(['like', 'image.path', $imageName])
                     ->one();
+            
+            if ($productImage){
+                $filename = \Yii::$app->params['path']['basePath']. $productImage->image->path;               
+                if (!file_exists($filename)) $productImage = false;
+                 if (filesize($filename) < 1024)  { 
+                     //var_dump($productImage->image->id);
+                     $productImage->delete();
+                     $productImage = false;
+                 }
+                
+                
+                
+                
+            }
+            
+            
 
             if (!$productImage) {
                 
@@ -199,6 +224,8 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         }
 
         $newCategory->attributes = $category;
+        $newCategory->deleted = 0;
+        $newCategory->pre_deleted = 0;
         if ($newCategory->validate()) {
             $newCategory->save();
         } else {

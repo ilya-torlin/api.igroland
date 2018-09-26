@@ -124,7 +124,7 @@ class RCVostokImporter extends BaseImporter implements \app\components\import\Im
                         "images" => $image_array,
                         "supplier_price" => (int) $good->price,
                         "pack" => (int) $good->minparty,
-                        "brand" => ($brand_id) ? $brand_id : null,
+                        "brand_id" => ($brand_id) ? $brand_id : null,
                         "barcode" => "",
                         "code1c" => "",
                         "depth" => "",

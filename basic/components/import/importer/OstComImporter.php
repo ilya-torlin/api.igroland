@@ -95,9 +95,6 @@ class OstComImporter extends BaseImporter implements \app\components\import\Impo
                foreach ($good->param as $goodParam) {
                   $goodAttr = $goodParam->attributes();
                   foreach ($goodAttr as $key => $value) {                    
-                     if ((string) $value === 'brand') {
-                        $currentAttr['brand'] = (string) $goodParam;
-                     }
                      if ((string) $value === 'box') {
                         $currentAttr['pack'] = (int) $goodParam;
                      }
@@ -111,11 +108,7 @@ class OstComImporter extends BaseImporter implements \app\components\import\Impo
                         $currentAttr['weight'] = (string) $goodParam;
                          $currentAttr['weight'] = str_replace('.', ',',  $currentAttr['weight']);
                      }
-                     
-                    
                   }
-
-
                }
 
                // проходим по картинкам
@@ -124,8 +117,8 @@ class OstComImporter extends BaseImporter implements \app\components\import\Impo
                   $image_array[] = (string) $image;
                }
                $brand_id = 0;
-               if (isset($currentAttr['brand'])) {
-                  $brand_id = $this->findBrandByName($currentAttr['brand']);
+               if (isset($good->vendor)) {
+                  $brand_id = $this->findBrandByName((string) $good->vendor);
                }
 
                $a = [
@@ -141,7 +134,7 @@ class OstComImporter extends BaseImporter implements \app\components\import\Impo
                    "images" => $image_array,
                    "supplier_price" => (int)$good->price,
                    "pack" => $currentAttr['pack'],
-                   "brand" => ($brand_id) ? $brand_id : null,
+                   "brand_id" => ($brand_id) ? $brand_id : null,
                    "barcode" => "",
                    "code1c" => "",
                    "depth" => "",

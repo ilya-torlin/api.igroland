@@ -32,7 +32,7 @@ class CategoryController extends ActiveController {
 
 
 
-            $count = \app\models\Category::find()->where(['parent_id' => $model['id']])->count();
+            $count = \app\models\Category::find()->where(['parent_id' => $model['id'],'deleted' => 0])->count();
            
             $item = array(
                 'folderId' => $model['id'],
@@ -56,7 +56,7 @@ class CategoryController extends ActiveController {
                 $attachedCategories = array();
                 $attachedProducts = array();
                 foreach ($model['categoryAttaches'] as $ca) {
-                    $attachedCategories[] = array('id' => $ca['id'], 'attached_category_id' => $ca['attached_category_id'], 'attached_category_title' => $ca['attachedCategory']['title']);
+                    $attachedCategories[] = array('id' => $ca['id'], 'attached_category_id' => $ca['attached_category_id'], 'attached_category_title' => $ca['attachedCategory']['title'].'('.$ca['attachedCategory']['catalog']['name'].')');
                 }
                 foreach ($model['productAttaches'] as $pa) {
                     $attachedProducts[] = array('id' => $pa['id'], 'attached_product_id' => $pa['attached_product_id'], 'attached_product_title' => $pa['attachedProduct']['title']);
@@ -64,9 +64,6 @@ class CategoryController extends ActiveController {
                 $item['attachedCategories'] = $attachedCategories;
                 $item['attachedProducts'] = $attachedProducts;
             }
-            // $data['catalogFolders'][$parent_folder_id.'_'.$idx] = (object)$item; 
-            // $data['catalogFolders'][$parent_folder_id.'_'.$idx.'_'.$model['id']] = (object)$item;
-            // $data['catalogFoldersKeyArr'][] = $parent_folder_id.'_'.$idx.'_'.$model['id'];
 
             array_push($data['catalogFolders'], $item);
             $data['catalogFoldersKeyArr'][] = $parent_folder_id . '_' . $idx . '_' . $model['id'];
@@ -284,7 +281,7 @@ class CategoryController extends ActiveController {
             $catalog = \app\models\Catalog::find()->where(['id' => $params['catalog_id'], 'user_id' => $me->id])->one();
             if ($catalog || $me->role_id) {
                 $isMyCatalog = 1;
-                $models = $models->with(['categoryAttaches', 'categoryAttaches.attachedCategory']);
+                $models = $models->with(['categoryAttaches', 'categoryAttaches.attachedCategory', 'categoryAttaches.attachedCategory.catalog']);
                 $models = $models->with(['productAttaches', 'productAttaches.attachedProduct']);
             }
         } else {

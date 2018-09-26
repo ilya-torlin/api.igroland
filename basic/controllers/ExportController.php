@@ -12,6 +12,7 @@ class ExportController extends ActiveController {
     public $modelClass = 'app\models\Export';
     public $result = array('shop' => array('name' => 'Analyze-IT', 'url' => 'http://analyze-it.su'), 'categories' => array(), 'offers' => array());
     public $tmarray = array();
+    public $emptyImagesArray = array();
     public $productIds = array();
     public $export;
     
@@ -71,6 +72,11 @@ class ExportController extends ActiveController {
                         break;
                     }                        
                 }
+
+                if(empty($image)){
+                     $this->emptyImagesArray[] = $product->sku;
+                     continue;
+                }
                 
                 $price = $product->price;
                 if (array_key_exists($product->id, $this->tmarray)){
@@ -99,7 +105,7 @@ class ExportController extends ActiveController {
                     'unit' => $product->unit,
                     'weight' => $product->weight,
                     'box' => $product->pack,
-                    'min' => $product->min_order,
+                    'min' => $product->min_order?$product->min_order:1,
                     'quantity' => $product->quantity,
                     'hit' => $product->hit,
                     'pack' => $product->pack,
@@ -108,6 +114,7 @@ class ExportController extends ActiveController {
                     );
             }
         }
+
 
         $categories = \app\models\Category::find()->where(['parent_id' => $category->id])->all();
         foreach ($categories as $category) {
@@ -141,7 +148,11 @@ class ExportController extends ActiveController {
      * )
      */
     public function actionView($link) {
+
+         ini_set('memory_limit', '3072M');
         \Yii::$app->response->format = \yii\web\Response::FORMAT_XML;
+
+
 
         $this->export = \app\models\Export::find()->where(['link' => $link])->one();
         if (!$this->export) {
@@ -157,6 +168,10 @@ class ExportController extends ActiveController {
         foreach ($categories as $category) {
             $this->getInnerCategories($category);
         }
+
+         $filepath = dirname(dirname(__FILE__)) . DIRECTORY_SEPARATOR . 'assets/empty_images_' . time() . '.txt';
+         $this->emptyImagesArray[] = count($this->emptyImagesArray);
+         file_put_contents($filepath, json_encode($this->emptyImagesArray));
 
         return $this->result;
         $products = array();

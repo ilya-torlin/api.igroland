@@ -27,6 +27,9 @@ class ImageSaveHelper extends Component {
             return false;
         if ($http_code != 200)
             return false;
+        
+        if (!file_exists($file)) return false;
+        if (filesize($file) < 1024) return false;
         return true;
     }
 
@@ -90,9 +93,14 @@ class ImageSaveHelper extends Component {
     }
 
     public static function saveFromUrl($url) {
+        if (empty($url)) return false;
         // для каждого файла создаем директорию и сохраняем его в директорию, заносим запись в таблицу
         $path = parse_url($url, PHP_URL_PATH);
         $pathinfo = pathinfo($path);
+        
+        if (!is_array($pathinfo)) return false;
+        
+        if (!array_key_exists('extension', $pathinfo))  return false;
 
         if (!in_array($pathinfo['extension'], static::$extensions))
             return false;

@@ -175,6 +175,7 @@ class UtoysImporter extends BaseImporter implements \app\components\import\Impor
                // проходимся по параметрам товаров
                foreach ($good->param as $goodParam) {
                   $goodAttr = $goodParam->attributes();
+                  //var_dump($goodAttr);
                   foreach ($goodAttr as $key => $value) {                    
                      if ((string) $value === 'Бренд') {
                         $currentAttr['brand'] = (string) $goodParam;

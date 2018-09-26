@@ -16,7 +16,7 @@ class ImportController extends Controller
        
         foreach ($suppliers as $supplier){
             $minStartDate = date('Y-m-d h:i:s',(strtotime($supplier->importLastFinish) + $supplier->importDelayTime));            
-            if (date('Y-m-d h:i:s') > $minStartDate){
+            if (date('Y-m-d h:i:s') > $minStartDate || $id){
                 //$supplier->importIsRun = 1;
                 //$supplier->save();
                 \app\models\Product::updateAll(['pre_deleted' => 1], ['=', 'supplier_id', $supplier->id]);
