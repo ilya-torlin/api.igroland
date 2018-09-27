@@ -169,7 +169,7 @@ class ItemStorage extends BaseObject implements \SimaLand\API\Parser\StorageInte
                          "images" => $image_array,
                          "amount" => (string) $record->data['price'],
                          "supplier_price" => (string) $record->data['price'],
-                         "pack" => (int) $record->data['minimum_order_quantity'],
+                         "pack" => 1,//(int) $record->data['minimum_order_quantity'],
                          "brand" => null,
                          "barcode" => "",
                          "code1c" => "",

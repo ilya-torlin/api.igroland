@@ -142,7 +142,7 @@ class GalaImporter extends BaseImporter implements \app\components\import\Import
                    "amount" => $currentAttr['price_base'],
                    "supplier_price" => $currentAttr['price_base'],
                    "pack" => $currentAttr['pack'],
-                   "brand" => ($brand_id) ? $brand_id : null,
+                   "brand" => 1, //($brand_id) ? $brand_id : null,
                    "barcode" => "",
                    "code1c" => "",
                    "depth" => "",

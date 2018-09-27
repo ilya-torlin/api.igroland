@@ -140,7 +140,7 @@ class TDShowImporter extends BaseImporter implements \app\components\import\Impo
                         "import_title" => (string) $good->Наименование,
                         "images" => $image_array,
                         "supplier_price" => $offers[$id]['price'],
-                        "pack" => $attr['pack']?$attr['pack']:1,
+                        "pack" => 1, //$attr['pack']?$attr['pack']:1,
                          "min_order" => $attr['min_order']?$attr['min_order']:1,
                         "brand" => null,
                         "barcode" => (string) $good->Штрихкод,

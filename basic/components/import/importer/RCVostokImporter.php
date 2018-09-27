@@ -123,7 +123,7 @@ class RCVostokImporter extends BaseImporter implements \app\components\import\Im
                         "import_title" => (string) $good->name,
                         "images" => $image_array,
                         "supplier_price" => (int) $good->price,
-                        "pack" => (int) $good->minparty,
+                        "pack" => 1, //(int) $good->minparty,
                         "brand_id" => ($brand_id) ? $brand_id : null,
                         "barcode" => "",
                         "code1c" => "",

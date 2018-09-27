@@ -228,7 +228,7 @@ class UtoysImporter extends BaseImporter implements \app\components\import\Impor
                    "import_title" => (string) $good->name,
                    "images" => $image_array,
                    "supplier_price" => (float)$good->price,
-                   "pack" => $currentAttr['pack'],
+                   "pack" => 1, //$currentAttr['pack'],
                    "brand_id" => ($brand_id) ? $brand_id : null,
                    "barcode" => "",
                    "code1c" => "",
