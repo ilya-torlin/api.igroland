@@ -1,931 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/basic/controllers/ExportController.php" line="445" mnemonic="9" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5649035a-75cc-4eda-ad13-eb5b1a08b373" name="Default Changelist" comment="change UserController, User Model, config">
-      <change afterPath="$PROJECT_DIR$/.idea/api.igroland.ru.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1f8ca8ae/arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1f8ca8ae/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1f8ca8ae/maximize.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1f8ca8ae/timeline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1f8ca8ae/timeline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1f8ca8ae/toolbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1f8ca8ae/toolbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1fa68965/gii.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1fa68965/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/1fa68965/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/css/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/css/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/css/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/css/bootstrap-theme.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/25e2039e/js/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2950f4be/arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2950f4be/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2950f4be/maximize.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2950f4be/switch.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2950f4be/timeline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2950f4be/timeline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2950f4be/toolbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2950f4be/toolbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2950f4be/userswitch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2ba0aca3/bloodhound.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2ba0aca3/bloodhound.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2ba0aca3/typeahead.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2ba0aca3/typeahead.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2ba0aca3/typeahead.jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/2ba0aca3/typeahead.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/css/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/css/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/css/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/css/bootstrap-theme.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/3803fd4e/js/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/css/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/css/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/css/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/css/bootstrap-theme.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/386c4a4e/js/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/485915f5/arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/485915f5/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/485915f5/maximize.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/485915f5/timeline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/485915f5/timeline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/485915f5/toolbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/485915f5/toolbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/4eaa468/yii.activeForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/4eaa468/yii.captcha.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/4eaa468/yii.gridView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/4eaa468/yii.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/4eaa468/yii.validation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/5c03edc9/gii.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/5c03edc9/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/5c03edc9/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/5e5a6c2b/yii.activeForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/5e5a6c2b/yii.captcha.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/5e5a6c2b/yii.gridView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/5e5a6c2b/yii.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/5e5a6c2b/yii.validation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/629bb126/yii.activeForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/629bb126/yii.captcha.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/629bb126/yii.gridView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/629bb126/yii.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/629bb126/yii.validation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/8b4d83b/yii.activeForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/8b4d83b/yii.captcha.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/8b4d83b/yii.gridView.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/8b4d83b/yii.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/8b4d83b/yii.validation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/8d84f702/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/8d84f702/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/8d84f702/jquery.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/91503cf8/arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/91503cf8/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/91503cf8/maximize.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/91503cf8/switch.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/91503cf8/timeline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/91503cf8/timeline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/91503cf8/toolbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/91503cf8/toolbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/91503cf8/userswitch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/95acc0f8/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/95acc0f8/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/95acc0f8/jquery.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/9edac25a/bloodhound.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/9edac25a/bloodhound.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/9edac25a/typeahead.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/9edac25a/typeahead.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/9edac25a/typeahead.jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/9edac25a/typeahead.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/c0ead507/gii.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/c0ead507/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/c0ead507/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/c17df3d5/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/c17df3d5/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/c17df3d5/jquery.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/css/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/css/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/css/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/css/bootstrap-theme.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/cde5c5f6/js/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/d1f8f5f7/arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/d1f8f5f7/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/d1f8f5f7/maximize.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/d1f8f5f7/timeline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/d1f8f5f7/timeline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/d1f8f5f7/toolbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/d1f8f5f7/toolbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/dd670dc7/bloodhound.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/dd670dc7/bloodhound.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/dd670dc7/typeahead.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/dd670dc7/typeahead.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/dd670dc7/typeahead.jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/dd670dc7/typeahead.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/e50bdb94/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/e50bdb94/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/e50bdb94/jquery.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f4f28c7/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f4f28c7/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f4f28c7/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f4f28c7/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f4f28c7/jquery.pjax.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f4f28c7/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f91914b4/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f91914b4/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f91914b4/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f91914b4/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f91914b4/jquery.pjax.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/f91914b4/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/fc5cb11f/arrow.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/fc5cb11f/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/fc5cb11f/maximize.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/fc5cb11f/switch.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/fc5cb11f/timeline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/fc5cb11f/timeline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/fc5cb11f/toolbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/fc5cb11f/toolbar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/fc5cb11f/userswitch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/css/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/css/main.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/css/main_bck.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Black Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Black.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Bold Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Bold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Black Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Black.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Bold Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Bold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Extrabold Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Extrabold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Light Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Light.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Regular Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Regular.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Semibold Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Semibold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Thin Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Condensed Thin.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Black Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Black.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Bold Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Bold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Extrabold Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Extrabold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Light Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Light.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Regular Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Regular.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Semibold Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Semibold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Thin Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extra Condensed Thin.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extrabold Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Extrabold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Light Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Light.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Regular Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Semibold Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Semibold.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/Proxima Nova Thin Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Black.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Black.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Black.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Extrabld.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Extrabld.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Light.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Light.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Regular.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Thin.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNova-Thin.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNovaCond-Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNovaCond-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNovaCond-Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNovaCond-Regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNovaCond-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/ProximaNovaCond-Regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/Proxima Nova/banner-proximanova580x290.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/RobotoBold/RobotoBold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/RobotoBold/RobotoBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/RobotoBold/RobotoBold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/RobotoRegular/RobotoRegular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/RobotoRegular/RobotoRegular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/fonts/RobotoRegular/RobotoRegular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/ht.access" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/256px-Google_2015_logo.svg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/Yandex_logo_ru.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/ava.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/avatar/1-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/avatar/andrey_goto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/avatar/mahail_goto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/avatar/maya_goto.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/avatar/roman_gotovo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/avatar/sergei_goto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/avatar/tolayn_goto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/copyright.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/Thumbs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/android-chrome-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/apple-touch-icon-114x114.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/apple-touch-icon-72x72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/apple-touch-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/browserconfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/favicon-16x16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/favicon-32x32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/favicon/mstile-150x150.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/logotype.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/img/preview.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/index_old.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/js/common.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/js/common.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/js/jquery.maskedinput.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/js/scripts.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/Gruntfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/ROADMAP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/_config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/assets/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/assets/owl.carousel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/assets/owl.carousel.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/assets/owl.theme.default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/assets/owl.theme.default.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/assets/owl.theme.green.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/assets/owl.theme.green.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/assets/owl.video.play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/owl.carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/dist/owl.carousel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/css/docs.theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/bird_blue_32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/feature-drag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/feature-modern.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/feature-module.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/feature-options.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/feature-responsive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/feature-zombie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/owl-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/img/twitter_25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/js/foundation.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/assets/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/assets/owl.carousel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/assets/owl.carousel.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/assets/owl.theme.default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/assets/owl.theme.default.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/assets/owl.theme.green.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/assets/owl.theme.green.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/assets/owl.video.play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/owl.carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/owlcarousel/owl.carousel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/vendors/foundation.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/vendors/highlight.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/vendors/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/vendors/jquery.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/assets/vendors/jquery.mousewheel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/animate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/autoheight.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/autoplay.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/autowidth.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/basic.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/center.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/demos.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/events.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/lazyLoad.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/merge.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/mousewheel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/responsive.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/rtl.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/stagepadding.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/urlhashnav.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/demos/video.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/api-classes.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/api-events.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/api-options.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/dev-buildin-plugins.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/dev-external.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/dev-plugin-api.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/dev-styles.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/started-faq.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/started-installation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/started-welcome.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/support-changelog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/support-contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/docs/support-contributing.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/bird_blue_32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/feature-drag.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/feature-modern.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/feature-module.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/feature-options.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/feature-responsive.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/feature-zombie.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/owl-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/img/twitter_25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/js/foundation.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/scss/_settings.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/scss/custom.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/scss/demos.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/scss/docs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/scss/docs.theme.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/scss/highlight.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/vendors/foundation.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/vendors/highlight.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/vendors/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/vendors/jquery.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/assets/vendors/jquery.mousewheel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/data/classes.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/data/events.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/data/features.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/data/options.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/helpers/modulo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/helpers/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/layouts/demos.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/layouts/docs.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/layouts/home.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/animate.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/autoheight.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/autoplay.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/autowidth.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/basic.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/center.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/demos.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/events.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/lazyLoad.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/merge.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/mousewheel.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/responsive.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/rtl.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/stagepadding.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/test.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/urlhashnav.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/demos/video.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/api-classes.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/api-events.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/api-options.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/dev-buildin-plugins.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/dev-external.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/dev-plugin-api.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/dev-styles.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/started-faq.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/started-installation.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/started-welcome.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/support-changelog.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/support-contact.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/docs/support-contributing.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/pages/index.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/footer.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/head.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/header.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/home-carousel.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/home-features.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/home-hero.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/home-teaser-text.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/javascripts.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/releated-docs.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/sidenav-docs.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/title.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/docs_src/templates/partials/vendors.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/img/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/img/owl.video.play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/.jscsrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/.jshintrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.animate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.autoheight.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.autoplay.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.autorefresh.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.hash.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.lazyload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.support.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.support.modernizr.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/js/owl.video.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/_animate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/_autoheight.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/_lazyload.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/_theme.default.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/_theme.green.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/_theme.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/_video.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/owl.carousel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/owl.theme.default.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/src/scss/owl.theme.green.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/test/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/test/unit/core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/30-css-page-preload-animations.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/_css/Icomoon/icomoon.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/_css/Icomoon/icomoon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/_css/Icomoon/icomoon.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/_css/Icomoon/icomoon.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/_css/Icomoon/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/_css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/_css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/_scripts/jquery-2.0.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/_scripts/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo11.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo12.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo13.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo14.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo15.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo16.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo17.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo18.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo19.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo20.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo21.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo22.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo23.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo24.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo25.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo26.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo27.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo28.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo29.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo30.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/demo9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/PagePreload/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/bootstrap-grid/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/chart.js/Chart.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/dist/jquery.fancybox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/dist/jquery.fancybox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/dist/jquery.fancybox.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/dist/jquery.fancybox.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/docs/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/gulpfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/css/core.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/css/fullscreen.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/css/slideshow.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/css/thumbs.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/js/core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/js/fullscreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/js/guestures.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/js/hash.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/js/media.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/js/slideshow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/src/js/thumbs.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/animated.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/icons.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/larger.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/list.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/path.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/less/variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/.csscomb.dist.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/.npmignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/Gemfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/_base.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/hamburgers.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_3dx-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_3dx.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_3dy-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_3dy.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_arrow-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_arrow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_arrowalt-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_arrowalt.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_boring.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_collapse-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_collapse.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_elastic-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_elastic.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_emphatic-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_emphatic.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_slider-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_slider.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_spin-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_spin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_spring-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_spring.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_squeeze.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_stand-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_stand.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_vortex-r.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/_sass/hamburgers/types/_vortex.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/bs-config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/config.postcss.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/dist/example.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/dist/hamburgers.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/dist/hamburgers.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/eyeglass-exports.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/gulpfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/hamburgers.gemspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/lib/hamburgers.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/lib/hamburgers/version.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/jquery/dist/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/autoheight/jquery.mmenu.autoheight.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/autoheight/jquery.mmenu.autoheight.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/backbutton/jquery.mmenu.backbutton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/columns/jquery.mmenu.columns.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/columns/jquery.mmenu.columns.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/counters/jquery.mmenu.counters.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/counters/jquery.mmenu.counters.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/dividers/jquery.mmenu.dividers.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/dividers/jquery.mmenu.dividers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/drag/jquery.mmenu.drag.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/drag/jquery.mmenu.drag.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/dropdown/jquery.mmenu.dropdown.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/dropdown/jquery.mmenu.dropdown.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/fixedelements/jquery.mmenu.fixedelements.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/iconpanels/jquery.mmenu.iconpanels.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/iconpanels/jquery.mmenu.iconpanels.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/keyboardnavigation/jquery.mmenu.keyboardnavigation.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/keyboardnavigation/jquery.mmenu.keyboardnavigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/lazysubmenus/jquery.mmenu.lazysubmenus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/navbars/jquery.mmenu.navbars.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/navbars/jquery.mmenu.navbars.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/pagescroll/jquery.mmenu.pagescroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/rtl/jquery.mmenu.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/rtl/jquery.mmenu.rtl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/searchfield/jquery.mmenu.searchfield.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/searchfield/jquery.mmenu.searchfield.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/sectionindexer/jquery.mmenu.sectionindexer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/sectionindexer/jquery.mmenu.sectionindexer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/setselected/jquery.mmenu.setselected.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/setselected/jquery.mmenu.setselected.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/toggles/jquery.mmenu.toggles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/addons/toggles/jquery.mmenu.toggles.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/core/offcanvas/jquery.mmenu.offcanvas.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/core/offcanvas/jquery.mmenu.offcanvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/core/oncanvas/jquery.mmenu.oncanvas.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/core/oncanvas/jquery.mmenu.oncanvas.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/core/screenreader/jquery.mmenu.screenreader.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/core/screenreader/jquery.mmenu.screenreader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/core/scrollbugfix/jquery.mmenu.scrollbugfix.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/borderstyle/jquery.mmenu.borderstyle.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/effects/jquery.mmenu.effects.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/fullscreen/jquery.mmenu.fullscreen.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/iconbar/jquery.mmenu.iconbar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/listview/jquery.mmenu.listview.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/multiline/jquery.mmenu.multiline.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/pagedim/jquery.mmenu.pagedim.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/popup/jquery.mmenu.popup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/positioning/jquery.mmenu.positioning.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/shadows/jquery.mmenu.shadows.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/themes/jquery.mmenu.themes.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/tileview/jquery.mmenu.tileview.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/extensions/widescreen/jquery.mmenu.widescreen.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/jquery.mmenu.all.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/jquery.mmenu.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/jquery.mmenu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/jquery.mmenu.debugger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/jquery.mmenu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/translations/de/jquery.mmenu.de.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/translations/nl/jquery.mmenu.nl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/wrappers/angular/jquery.mmenu.angular.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/wrappers/bootstrap/jquery.mmenu.bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/wrappers/bootstrap/jquery.mmenu.bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/wrappers/jquerymobile/jquery.mmenu.jquerymobile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/wrappers/magento/jquery.mmenu.magento.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/wrappers/olark/jquery.mmenu.olark.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/wrappers/turbolinks/jquery.mmenu.turbolinks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/wrappers/turbolinks/jquery.mmenu.turbolinks.legacy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/mmenu/wrappers/wordpress/jquery.mmenu.wordpress.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/.eslintrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/bower.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/gulpfile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/imakewebthings-waypoints-latest-0-g34d9f6d.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/jquery.waypoints.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/jquery.waypoints.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/noframework.waypoints.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/noframework.waypoints.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/shortcuts/infinite.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/shortcuts/infinite.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/shortcuts/inview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/shortcuts/inview.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/shortcuts/sticky.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/shortcuts/sticky.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/waypoints.debug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/zepto.waypoints.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/lib/zepto.waypoints.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/licenses.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/adapters/jquery-zepto-fn-extension.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/adapters/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/adapters/noframework.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/adapters/zepto.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/context.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/debug.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/group.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/shortcuts/infinite.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/shortcuts/inview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/shortcuts/sticky.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/src/waypoint.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/adapter-fn-spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/context-spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/debug-spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/fixtures/infinite.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/fixtures/standard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/fixtures/sticky.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/group-spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/infinite-spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/inview-spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/lib/coffee-script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/lib/jasmine-html.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/lib/jasmine-jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/lib/jasmine.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/lib/jasmine.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/lib/require.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/lib/testloader.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/settings.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/sticky-spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/test/waypoint-spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/testem.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/sass/_fonts.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/sass/_libs.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/sass/_media.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/sass/_mixins/_font-face.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/sass/_vars.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public_html/assets/report/sass/main.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-mpdf/Pdf.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-mpdf/Pdf.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/serhatozles/yii2-arraysearch/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/dynamic-reference/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/dynamic-reference/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/dynamic-reference/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/dynamic-reference/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/dynamic-reference/api-spec.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/dynamic-reference/api-spec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/example-object/example-object.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/example-object/example-object.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/misc/misc-api.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/misc/misc-api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/PullRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/PullRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/RepositoriesControler.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/RepositoriesControler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/Repository.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/Repository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/openapi-spec/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/controllers/Pet.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/controllers/Pet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/controllers/Store.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/controllers/Store.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/controllers/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/controllers/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/ApiResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/ApiResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Pet.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Pet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/RequestBody.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/RequestBody.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/security.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore-3.0/security.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/ApiResponse.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/ApiResponse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/controllers/PetController.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/controllers/PetController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/controllers/StoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/controllers/StoreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Pet.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Pet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/security.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/security.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/swagger-v3.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/swagger-v3.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/tags.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/petstore.swagger.io/tags.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-simple/SimplePet.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-simple/SimplePet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-simple/SimplePetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-simple/SimplePetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-simple/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-simple/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/controllers/PetWithDocsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/controllers/PetWithDocsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/docs.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/docs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/models/ErrorModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/models/ErrorModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/models/Pet.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore-with-external-docs/models/Pet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore/Pet.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore/Pet.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore/PetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore/PetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/swagger-spec/petstore/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/using-refs/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/using-refs/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/using-refs/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/using-refs/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/using-refs/api-spec.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/Examples/using-refs/api-spec.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/bin/swagger" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/docs/Getting-started.md" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/docs/Getting-started.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/docs/Migrating-to-v3.md" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/docs/Migrating-to-v3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/docs/Related-projects.md" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/docs/Related-projects.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/phpunit.xml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Analyser.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Analyser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Analysis.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Analysis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/AbstractAnnotation.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/AbstractAnnotation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/AdditionalProperties.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/AdditionalProperties.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Components.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Components.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Delete.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Discriminator.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Discriminator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Examples.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Examples.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/ExternalDocumentation.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/ExternalDocumentation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Flow.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Flow.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Get.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Get.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Head.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Head.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Header.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Info.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Items.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Items.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/JsonContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/JsonContent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/License.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/License.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Link.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Link.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/MediaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/MediaType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/OpenApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/OpenApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Operation.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Operation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Options.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Options.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Parameter.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Parameter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Patch.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Patch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/PathItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/PathItem.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Property.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Property.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Put.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Put.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/RequestBody.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/RequestBody.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Response.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Response.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Schema.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Schema.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/SecurityScheme.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/SecurityScheme.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Server.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Server.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/ServerVariable.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/ServerVariable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Tag.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Tag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Trace.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Trace.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Xml.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/Xml.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/XmlContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Annotations/XmlContent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Context.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Context.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Logger.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Logger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/AugmentOperations.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/AugmentOperations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/AugmentParameters.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/AugmentParameters.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/AugmentProperties.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/AugmentProperties.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/AugmentSchemas.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/AugmentSchemas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/BuildPaths.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/BuildPaths.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/CleanUnmerged.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/CleanUnmerged.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/HandleReferences.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/HandleReferences.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/InheritProperties.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/InheritProperties.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/MergeIntoComponents.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/MergeIntoComponents.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/MergeIntoOpenApi.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/MergeIntoOpenApi.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/MergeJsonContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/MergeJsonContent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/MergeXmlContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/MergeXmlContent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/OperationId.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Processors/OperationId.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Serializer.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Serializer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/StaticAnalyser.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/StaticAnalyser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Util.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/Util.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/src/functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AbstractAnnotationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AbstractAnnotationTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AnalyserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AnalyserTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AnalysisTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AnalysisTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AugmentOperationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AugmentOperationTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AugmentParameterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AugmentParameterTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AugmentPropertiesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AugmentPropertiesTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AugmentSchemasTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/AugmentSchemasTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/BuildPathsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/BuildPathsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/CleanUnmergedTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/CleanUnmergedTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/CommandlineInterfaceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/CommandlineInterfaceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ConstantsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ConstantsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ContextTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ContextTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/dynamic-reference.json" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/dynamic-reference.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/example-object.json" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/example-object.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/misc.json" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/misc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore-simple.json" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore-simple.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore-with-external-docs.json" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore-with-external-docs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore.json" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore.swagger.io.json" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesOutput/petstore.swagger.io.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ExamplesTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/DynamicReference.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/DynamicReference.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/HelloTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/HelloTrait.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/NestedProperty.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/NestedProperty.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/ThirdPartyAnnotations.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/ThirdPartyAnnotations.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/UsingPhpDoc.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/UsingPhpDoc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/UsingRefs.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/UsingRefs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/UsingVar.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/UsingVar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/php7.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/php7.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/Fixtures/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/HandleReferencesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/HandleReferencesTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/InheritPropertiesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/InheritPropertiesTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ItemsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ItemsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/MergeIntoComponentsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/MergeIntoComponentsTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/MergeIntoOpenApiTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/MergeIntoOpenApiTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/MergeJsonContentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/MergeJsonContentTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/MergeXmlContentTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/MergeXmlContentTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/NestedPropertyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/NestedPropertyTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/RefTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/RefTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ResponseTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ResponseTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/SecuritySchemesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/SecuritySchemesTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/SerializerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/SerializerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/StaticAnalyserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/StaticAnalyserTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/UtilTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/UtilTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ValidateRelationsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/zircote/swagger-php/tests/ValidateRelationsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/components/import/importer/GalaImporter.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/components/import/importer/GalaImporter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/components/import/importer/RCVostokImporter.php" beforeDir="false" afterPath="$PROJECT_DIR$/basic/components/import/importer/RCVostokImporter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic/vendor/serhatozles/yii2-arraysearch/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/basic/vendor/serhatozles/yii2-arraysearch/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -940,104 +23,158 @@
     <session id="682643817">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="17" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.101" value="1" />
+          <entry key="project.open.time.131" value="1" />
           <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.41" value="1" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.34" value="1" />
+          <entry key="project.open.time.37" value="2" />
+          <entry key="project.open.time.41" value="2" />
           <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.45" value="1" />
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.open.time.66" value="1" />
           <entry key="project.open.time.69" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.71" value="1" />
+          <entry key="project.open.time.89" value="1" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gitignore" value="9" />
+          <entry key="gitignore" value="10" />
           <entry key="js" value="1" />
-          <entry key="php" value="21" />
+          <entry key="json" value="1" />
+          <entry key="php" value="140" />
           <entry key="url" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="JSON" value="1" />
           <entry key="JavaScript" value="1" />
-          <entry key="PHP" value="21" />
-          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="PHP" value="140" />
+          <entry key="PLAIN_TEXT" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="37" />
-          <entry key="php" value="858" />
-          <entry key="txt" value="155" />
+          <entry key="php" value="7271" />
+          <entry key="txt" value="907" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="858" />
-          <entry key="PLAIN_TEXT" value="192" />
+          <entry key="PHP" value="7271" />
+          <entry key="PLAIN_TEXT" value="944" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.new.class">
+        <counts>
+          <entry key="PHP Class.type" value="1" />
+          <entry key="PHP Interface.type" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/basic/controllers/UserController.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/basic/controllers/ExportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="466">
+              <caret line="106" column="43" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
               <folding>
-                <element signature="e#414#957#0#PHP" />
-                <element signature="e#962#1134#0#PHP" />
-                <element signature="e#1140#1348#0#PHP" />
-                <element signature="e#1354#1716#0#PHP" />
-                <element signature="e#1723#2353#0#PHP" />
-                <element signature="e#2357#2880#0#PHP" />
-                <element signature="e#2885#3584#0#PHP" />
-                <element signature="e#3579#4102#0#PHP" />
-                <element signature="e#4107#4796#0#PHP" />
-                <element signature="e#3323#3953#0#PHP" />
-                <element signature="e#3958#4329#0#PHP" />
-                <element signature="e#4334#5571#0#PHP" />
-                <element signature="e#5777#6464#0#PHP" />
-                <element signature="e#6269#8744#0#PHP" />
-                <element signature="e#8749#9271#0#PHP" />
-                <element signature="e#9277#9586#0#PHP" />
-                <element signature="e#9592#10701#0#PHP" />
-                <element signature="e#10707#11442#0#PHP" />
+                <element signature="e#4885#5548#0#PHP" />
+                <marker date="1537941581000" expanded="true" signature="6407:6657" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/basic/config/web.php">
+        <entry file="file://$PROJECT_DIR$/basic/commands/ImportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="80" column="11" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
+            <state relative-caret-position="414">
+              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/basic/controllers/CategoryController.php">
+        <entry file="file://$PROJECT_DIR$/basic/components/import/importer/GalaImporter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="215" selection-start-line="215" selection-end-line="215" />
+            <state relative-caret-position="318">
+              <caret line="143" column="32" selection-start-line="143" selection-start-column="32" selection-end-line="143" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/basic/components/import/importer/igrolandImporter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="78" column="29" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/basic/components/import/importer/OstComImporter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="135" column="32" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/basic/components/import/importer/RCVostokImporter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="125" column="34" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/basic/components/import/importer/SimaImporter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2806">
+              <caret line="11" column="104" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="104" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/basic/components/import/importer/SimaImporter/ItemStorage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="171" column="39" selection-start-line="171" selection-start-column="39" selection-end-line="171" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/basic/components/import/importer/TDShowImporter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/basic/components/import/importer/UtoysImporter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="547">
+              <caret line="230" column="34" selection-start-line="230" selection-start-column="34" selection-end-line="230" selection-end-column="34" />
               <folding>
-                <element signature="e#338#3116#0#PHP" />
-                <element signature="e#3122#3204#0#PHP" />
-                <element signature="e#3210#4890#0#PHP" />
-                <element signature="e#4895#5268#0#PHP" />
-                <element signature="e#7195#10064#0#PHP" />
-                <element signature="e#10662#12087#0#PHP" />
-                <element signature="e#12092#13507#0#PHP" />
-                <element signature="e#13513#14231#0#PHP" />
-                <element signature="e#14236#14998#0#PHP" />
-                <element signature="e#15004#15726#0#PHP" />
-                <element signature="e#15731#16461#0#PHP" />
-                <element signature="e#16467#16675#0#PHP" />
-                <element signature="e#16681#17416#0#PHP" />
+                <element signature="e#3751#4965#0#PHP" />
               </folding>
             </state>
           </provider>
@@ -1048,6 +185,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>trace</find>
+      <find>price_addUndefined</find>
+      <find>extension</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1057,12 +196,29 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/basic/models/User.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/basic/controllers/CatalogController.php" />
         <option value="$PROJECT_DIR$/basic/controllers/LoginController.php" />
+        <option value="$PROJECT_DIR$/basic/models/Supplier.php" />
+        <option value="$PROJECT_DIR$/basic/controllers/SupplierController.php" />
+        <option value="$PROJECT_DIR$/basic/models/Export.php" />
+        <option value="$PROJECT_DIR$/basic/components/ImageSaveHelper.php" />
+        <option value="$PROJECT_DIR$/basic/models/User.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/SimaImporter/SaverInterface.php" />
+        <option value="$PROJECT_DIR$/basic/controllers/CatalogController.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/SimaImporter/CategoryStorage.php" />
+        <option value="$PROJECT_DIR$/basic/commands/HelloController.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/SimaImporter.php" />
         <option value="$PROJECT_DIR$/basic/config/web.php" />
         <option value="$PROJECT_DIR$/basic/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/basic/commands/ImportController.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/BaseImporter.php" />
+        <option value="$PROJECT_DIR$/basic/controllers/ExportController.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/OstComImporter.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/SimaImporter/ItemStorage.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/TDShowImporter.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/UtoysImporter.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/GalaImporter.php" />
+        <option value="$PROJECT_DIR$/basic/components/import/importer/RCVostokImporter.php" />
       </list>
     </option>
   </component>
@@ -1075,12 +231,6 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/basic/web/assets/f91914b4/package.json" />
-      <path value="$PROJECT_DIR$/public_html/assets/f4f28c7/package.json" />
-      <path value="$PROJECT_DIR$/public_html/assets/f91914b4/package.json" />
-      <path value="$PROJECT_DIR$/public_html/assets/report/libs/OwlCarousel2-2.2.1/package.json" />
-      <path value="$PROJECT_DIR$/public_html/assets/report/libs/fancybox-master/package.json" />
-      <path value="$PROJECT_DIR$/public_html/assets/report/libs/hamburgers-master/package.json" />
-      <path value="$PROJECT_DIR$/public_html/assets/report/libs/waypoint/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
@@ -1209,6 +359,45 @@
               <item name="api.igroland.ru" type="462c0819:PsiDirectoryNode" />
               <item name="basic" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="api.igroland.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api.igroland.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="basic" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api.igroland.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api.igroland.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="basic" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api.igroland.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api.igroland.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="basic" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api.igroland.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api.igroland.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="basic" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="import" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api.igroland.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api.igroland.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="basic" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="import" type="462c0819:PsiDirectoryNode" />
+              <item name="importer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="api.igroland.ru" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api.igroland.ru" type="462c0819:PsiDirectoryNode" />
+              <item name="basic" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -1220,7 +409,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1248,7 +437,20 @@
       <workItem from="1536318979440" duration="4358000" />
       <workItem from="1536549791203" duration="1308000" />
       <workItem from="1536554270607" duration="1300000" />
-      <workItem from="1536642173184" duration="5956000" />
+      <workItem from="1536642173184" duration="9528000" />
+      <workItem from="1536729837714" duration="5213000" />
+      <workItem from="1536740305672" duration="12017000" />
+      <workItem from="1536811698564" duration="15348000" />
+      <workItem from="1536895127803" duration="20750000" />
+      <workItem from="1537160470184" duration="18866000" />
+      <workItem from="1537251387830" duration="6780000" />
+      <workItem from="1537331779710" duration="10151000" />
+      <workItem from="1537415077179" duration="3761000" />
+      <workItem from="1537516830492" duration="2871000" />
+      <workItem from="1537769179870" duration="1371000" />
+      <workItem from="1537873874381" duration="8479000" />
+      <workItem from="1537939633118" duration="4574000" />
+      <workItem from="1538040858033" duration="825000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1536225884225</created>
@@ -1306,11 +508,165 @@
       <option name="project" value="LOCAL" />
       <updated>1536649955082</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="поправил UserController, web config">
+      <created>1536650466517</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1536650466517</updated>
+    </task>
+    <task id="LOCAL-00010" summary="обновил модели">
+      <created>1536655734539</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1536655734539</updated>
+    </task>
+    <task id="LOCAL-00011" summary="добавил методы для поставщиков">
+      <created>1536657132076</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1536657132076</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add files">
+      <created>1536732784943</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1536732784943</updated>
+    </task>
+    <task id="LOCAL-00013" summary="modify">
+      <created>1536732851350</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1536732851350</updated>
+    </task>
+    <task id="LOCAL-00014" summary="добавил поля в Export">
+      <created>1536733564101</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1536733564101</updated>
+    </task>
+    <task id="LOCAL-00015" summary="change UserController, User Model, config">
+      <created>1536733628897</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1536733628897</updated>
+    </task>
+    <task id="LOCAL-00016" summary="добавил методы для вывода списка приложений">
+      <created>1536741422346</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1536741422346</updated>
+    </task>
+    <task id="LOCAL-00017" summary="добваид данные для вывода списка, удаление, добавление, вкл/выкл приложения">
+      <created>1536752702945</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1536752702945</updated>
+    </task>
+    <task id="LOCAL-00018" summary="обновил приложения">
+      <created>1536758321734</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1536758321735</updated>
+    </task>
+    <task id="LOCAL-00019" summary="добавил API для приложений">
+      <created>1536819619826</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1536819619826</updated>
+    </task>
+    <task id="LOCAL-00020" summary="загрузка изображений">
+      <created>1536840180973</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1536840180973</updated>
+    </task>
+    <task id="LOCAL-00021" summary="поправил вывод фото">
+      <created>1536896960636</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1536896960637</updated>
+    </task>
+    <task id="LOCAL-00022" summary="change UserController, User Model, config">
+      <created>1536904689691</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1536904689691</updated>
+    </task>
+    <task id="LOCAL-00023" summary="импорт simaland">
+      <created>1537189564683</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1537189564683</updated>
+    </task>
+    <task id="LOCAL-00024" summary="поправил прасинг товаров и категорий (тестовый)">
+      <created>1537265763811</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1537265763811</updated>
+    </task>
+    <task id="LOCAL-00025" summary="поправил передацу параметров">
+      <created>1537272084690</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1537272084690</updated>
+    </task>
+    <task id="LOCAL-00026" summary="доделал вигрузку сималанд">
+      <created>1537348989854</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1537348989854</updated>
+    </task>
+    <task id="LOCAL-00027" summary="доделал вигрузку сималанд">
+      <created>1537349336084</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1537349336084</updated>
+    </task>
+    <task id="LOCAL-00028" summary="добавил обновление паролей для пользователя">
+      <created>1537420182462</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1537420182462</updated>
+    </task>
+    <task id="LOCAL-00029" summary="изменения новые">
+      <created>1537941671823</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1537941671823</updated>
+    </task>
+    <task id="LOCAL-00030" summary="обновили параметр мнимальное количество товаров к заказу">
+      <created>1538041586462</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1538041586462</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22264000" />
+    <option name="totallyTimeSpent" value="136842000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1323,8 +679,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1544196" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16453674" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -1338,8 +695,8 @@
       <window_info anchor="bottom" id="File Transfer" order="8" weight="0.32894737" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32894737" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32894737" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.3223684" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32894737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1350,6 +707,32 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -1357,33 +740,42 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="first commit" />
     <MESSAGE value="change UserController, update from server" />
-    <MESSAGE value="change UserController, User Model, config" />
     <MESSAGE value="обновление с сервера" />
     <MESSAGE value="поправил UserController, web config" />
-    <option name="LAST_COMMIT_MESSAGE" value="поправил UserController, web config" />
+    <MESSAGE value="обновил модели" />
+    <MESSAGE value="добавил методы для поставщиков" />
+    <MESSAGE value="Add files" />
+    <MESSAGE value="modify" />
+    <MESSAGE value="добавил поля в Export" />
+    <MESSAGE value="добавил методы для вывода списка приложений" />
+    <MESSAGE value="добваид данные для вывода списка, удаление, добавление, вкл/выкл приложения" />
+    <MESSAGE value="обновил приложения" />
+    <MESSAGE value="добавил API для приложений" />
+    <MESSAGE value="загрузка изображений" />
+    <MESSAGE value="поправил вывод фото" />
+    <MESSAGE value="change UserController, User Model, config" />
+    <MESSAGE value="импорт simaland" />
+    <MESSAGE value="поправил прасинг товаров и категорий (тестовый)" />
+    <MESSAGE value="поправил передацу параметров" />
+    <MESSAGE value="дописал импорт Сималанд для одного бренда - прокерить нужно" />
+    <MESSAGE value="доделал вигрузку сималанд" />
+    <MESSAGE value="добавил обновление паролей для пользователя" />
+    <MESSAGE value="изменения новые" />
+    <MESSAGE value="обновили параметр мнимальное количество товаров к заказу" />
+    <option name="LAST_COMMIT_MESSAGE" value="обновили параметр мнимальное количество товаров к заказу" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/basic/controllers/UserController.php</url>
+          <line>387</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/filter/filter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="274" column="9" selection-start-line="274" selection-start-column="9" selection-end-line="274" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basic/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basic/models/UserRole.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/basic/models/UserCatalog.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-809" />
@@ -1392,13 +784,6 @@
     <entry file="file://$PROJECT_DIR$/basic/models/Brand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-625" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basic/controllers/ProductController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="497" column="13" selection-start-line="490" selection-start-column="11" selection-end-line="497" selection-end-column="13" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/basic/vendor/phpunit/phpunit/tests/Util/TestTest.php">
@@ -1415,106 +800,326 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/basic/controllers/LoginController.php">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/[#19183] Не поджимается картинка на мотовилихинском (в группе СтройПанельКомплект).url" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="304" column="57" lean-forward="true" selection-start-line="304" selection-start-column="57" selection-end-line="304" selection-end-column="57" />
+        <state relative-caret-position="46">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/[#19183] Не поджимается картинка на мотовилихинском (в группе СтройПанельКомплект).url" />
-    <entry file="file://$PROJECT_DIR$/basic/controllers/CatalogController.php">
+    <entry file="file://$PROJECT_DIR$/basic/controllers/SupplierController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="173" column="35" selection-start-line="173" selection-start-column="35" selection-end-line="173" selection-end-column="35" />
-          <folding>
-            <element signature="e#1915#2123#0#PHP" />
-            <element signature="e#2129#2681#0#PHP" />
-            <element signature="e#2686#3515#0#PHP" />
-            <element signature="e#3523#4239#0#PHP" />
-            <element signature="e#4244#4791#0#PHP" />
-            <element signature="e#4801#5331#0#PHP" />
-            <element signature="e#5336#5936#0#PHP" />
-            <element signature="e#5942#6967#0#PHP" />
-            <element signature="e#6972#7332#0#PHP" />
-            <element signature="e#7338#9795#0#PHP" />
-            <element signature="e#9800#11686#0#PHP" />
-            <element signature="e#11692#12757#0#PHP" />
-            <element signature="e#12766#13411#0#PHP" />
-            <element signature="e#13422#14137#0#PHP" />
-            <element signature="e#14142#14587#0#PHP" />
-            <element signature="e#14593#15328#0#PHP" />
-          </folding>
+        <state relative-caret-position="368">
+          <caret line="54" column="7" lean-forward="true" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/models/Supplier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/vendor/yiisoft/yii2/web/UploadedFile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="124" column="27" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/models/Export.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-257">
+          <caret line="38" column="47" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/controllers/FileController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="62" column="52" selection-start-line="62" selection-start-column="52" selection-end-line="62" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/controllers/UserroleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/controllers/UtilController.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/controllers/ProductattachController.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/basic/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="58" column="36" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="36" />
+        <state relative-caret-position="341">
+          <caret line="104" column="39" lean-forward="true" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/basic/config/web.php">
+    <entry file="file://$PROJECT_DIR$/basic/controllers/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="80" column="11" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="11" />
+        <state relative-caret-position="621">
+          <caret line="573" column="35" selection-start-line="573" selection-start-column="8" selection-end-line="573" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/basic/controllers/CategoryController.php">
+    <entry file="file://$PROJECT_DIR$/basic/components/HTMLHelper.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="215" selection-start-line="215" selection-end-line="215" />
-          <folding>
-            <element signature="e#338#3116#0#PHP" />
-            <element signature="e#3122#3204#0#PHP" />
-            <element signature="e#3210#4890#0#PHP" />
-            <element signature="e#4895#5268#0#PHP" />
-            <element signature="e#7195#10064#0#PHP" />
-            <element signature="e#10662#12087#0#PHP" />
-            <element signature="e#12092#13507#0#PHP" />
-            <element signature="e#13513#14231#0#PHP" />
-            <element signature="e#14236#14998#0#PHP" />
-            <element signature="e#15004#15726#0#PHP" />
-            <element signature="e#15731#16461#0#PHP" />
-            <element signature="e#16467#16675#0#PHP" />
-            <element signature="e#16681#17416#0#PHP" />
-          </folding>
+        <state relative-caret-position="-146">
+          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/basic/components/ExcelHelper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
-          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/EmailSender.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/web/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/config/params.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/ImporterInterface.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/ImporterFactory.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/SimaImporter/SaverInterface.php" />
+    <entry file="file://$PROJECT_DIR$/basic/models/Catalog.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-759" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/controllers/CatalogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/models/ProductCategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/models/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/SimaImporter/CategoryStorage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/commands/HelloController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/basic/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="226">
+          <caret line="446" column="48" lean-forward="true" selection-start-line="446" selection-start-column="48" selection-end-line="446" selection-end-column="48" />
           <folding>
-            <element signature="e#414#957#0#PHP" />
-            <element signature="e#962#1134#0#PHP" />
-            <element signature="e#1140#1348#0#PHP" />
-            <element signature="e#1354#1716#0#PHP" />
-            <element signature="e#1723#2353#0#PHP" />
-            <element signature="e#2357#2880#0#PHP" />
-            <element signature="e#2885#3584#0#PHP" />
-            <element signature="e#3579#4102#0#PHP" />
-            <element signature="e#4107#4796#0#PHP" />
-            <element signature="e#3323#3953#0#PHP" />
-            <element signature="e#3958#4329#0#PHP" />
-            <element signature="e#4334#5571#0#PHP" />
-            <element signature="e#5777#6464#0#PHP" />
-            <element signature="e#6269#8744#0#PHP" />
-            <element signature="e#8749#9271#0#PHP" />
-            <element signature="e#9277#9586#0#PHP" />
-            <element signature="e#9592#10701#0#PHP" />
-            <element signature="e#10707#11442#0#PHP" />
+            <element signature="e#1498#2756#0#PHP" />
+            <element signature="e#2761#3734#0#PHP" />
+            <element signature="e#3134#3605#0#PHP" />
+            <element signature="e#3740#4378#0#PHP" />
+            <element signature="e#4384#5099#0#PHP" />
+            <element signature="e#5104#5822#0#PHP" />
+            <element signature="e#5828#6791#0#PHP" />
+            <element signature="e#6796#7772#0#PHP" />
+            <element signature="e#7774#8404#0#PHP" />
+            <element signature="e#8409#8780#0#PHP" />
+            <element signature="e#8785#10022#0#PHP" />
+            <element signature="e#10027#10714#0#PHP" />
+            <element signature="e#10720#13195#0#PHP" />
+            <element signature="e#13200#13722#0#PHP" />
+            <element signature="e#13728#16203#0#PHP" />
+            <element signature="e#13728#13914#0#PHP" />
+            <element signature="e#16364#17473#0#PHP" />
+            <element signature="e#15035#15770#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/JsonOutputHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/controllers/LoginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="227" column="76" lean-forward="true" selection-start-line="227" selection-start-column="10" selection-end-line="227" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/controllers/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="149" column="27" selection-start-line="149" selection-start-column="27" selection-end-line="149" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/models/TradeMarkup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/models/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-874">
+          <caret line="154" column="36" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/controllers/CronController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="220" selection-start-line="220" selection-end-line="220" />
+          <folding>
+            <element signature="e#149#2127#0#PHP" />
+            <element signature="e#2138#4033#0#PHP" />
+            <element signature="e#4039#6849#0#PHP" />
+            <element signature="e#6855#8176#0#PHP" />
+            <element signature="e#8182#9052#0#PHP" />
+            <element signature="e#9058#12172#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/config/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3473">
+          <caret line="151" column="50" selection-start-line="151" selection-start-column="46" selection-end-line="151" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/BaseImporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1449">
+          <caret line="129" column="31" lean-forward="true" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
+          <folding>
+            <element signature="e#443#556#0#PHP" />
+            <element signature="e#562#675#0#PHP" />
+            <element signature="e#1019#1325#0#PHP" />
+            <element signature="e#1331#1671#0#PHP" />
+            <element signature="e#1677#2022#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/ImageSaveHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-303">
+          <caret line="85" column="56" selection-start-line="85" selection-start-column="56" selection-end-line="85" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/igrolandImporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="78" column="29" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/commands/ImportController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/UtoysImporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="230" column="34" selection-start-line="230" selection-start-column="34" selection-end-line="230" selection-end-column="34" />
+          <folding>
+            <element signature="e#3751#4965#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/OstComImporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="135" column="32" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/SimaImporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2806">
+          <caret line="11" column="104" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/SimaImporter/ItemStorage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="171" column="39" selection-start-line="171" selection-start-column="39" selection-end-line="171" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/TDShowImporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/GalaImporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="143" column="32" selection-start-line="143" selection-start-column="32" selection-end-line="143" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/controllers/ExportController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="106" column="43" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
+          <folding>
+            <element signature="e#4885#5548#0#PHP" />
+            <marker date="1537941581000" expanded="true" signature="6407:6657" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basic/components/import/importer/RCVostokImporter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="125" column="34" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
         </state>
       </provider>
     </entry>
