@@ -30,16 +30,21 @@ class UtoysImporter extends BaseImporter implements \app\components\import\Impor
 
     private function prepareDate($xmlFile) {
         $date = date('dmY');
-        $link = 'http://analyze-it.su/utoy/' . $date . '.zip';
+        $link = \Yii::$app->params['serviceUrl'] .'/utoy/' . $date . '.zip';
         $fileName = \Yii::$app->params['path']['tmpPath'] . '/utoys.zip';
         if (file_exists($fileName))         unlink($fileName);
-        if (!$this->curl_download($link, $fileName)) {
-            if (file_exists($fileName))         unlink($fileName);
-            $date = date('dmY', time() - 24 * 60 * 60);
-            $link = 'http://analyze-it.su/utoy/' . $date . '.zip';
-            echo $link;
-            $this->curl_download($link, $fileName);
-        }
+        $i = 1;
+        do{
+            $result = $this->curl_download($link, $fileName);
+            if (!$result){
+                   $date = date('dmY', time() - $i*24 * 60 * 60);
+                   $link = \Yii::$app->params['serviceUrl'] .'/utoy/'  . $date . '.zip';
+                   $i++;
+            } 
+        } while(!$result);
+        
+        
+        
 
         $zip = new \ZipArchive;
         if ($zip->open($fileName) === TRUE) {
@@ -228,7 +233,7 @@ class UtoysImporter extends BaseImporter implements \app\components\import\Impor
                    "import_title" => (string) $good->name,
                    "images" => $image_array,
                    "supplier_price" => (float)$good->price,
-                   "pack" => 1, //$currentAttr['pack'],
+                   "pack" => 1,
                    "brand_id" => ($brand_id) ? $brand_id : null,
                    "barcode" => "",
                    "code1c" => "",
@@ -267,7 +272,7 @@ class UtoysImporter extends BaseImporter implements \app\components\import\Impor
             
             
 
-           return 'Найдено товаров ' . $count . ' сохранено ' . $saved;
+           return  $this->getResult('Найдено товаров ' . $count . ' сохранено ' . $saved);
         } catch (\Exception $e) {
             return $this->getError('Ошибка при чтении файла импорта ' . $e->getMessage().' line- '.$e->getLine());
         }

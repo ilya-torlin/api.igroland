@@ -36,12 +36,12 @@ class BaseImporter implements \app\components\import\ImporterInterface {
 
     public function findBrandByName($name) {
         $model = \app\models\Brand::find()->where(['title' => $name])->one();
-        if (!$model){
-            $model = new  \app\models\Brand();
+        if (!$model) {
+            $model = new \app\models\Brand();
             $model->title = $name;
             $model->save();
         }
-           
+
 
         return $model->id;
     }
@@ -55,7 +55,8 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         $model->save();
         return $model->id;
     }
-     public function findCategoryByExternal1cId($id, $supplier) {
+
+    public function findCategoryByExternal1cId($id, $supplier) {
         $model = \app\models\Category::find()->where(['external_1c_id' => $id, 'catalog_id' => $supplier->id])->one();
         if (!$model)
             return false;
@@ -71,35 +72,38 @@ class BaseImporter implements \app\components\import\ImporterInterface {
         ini_set('display_errors', 'On');
         error_reporting(E_ALL);
         $model = \app\models\Product::find()->where(['sid' => $a['sid'], 'supplier_id' => $a['supplier_id']])->one();
-        
+
         if (!$model) {
             $model = new \app\models\Product();
             $model->title = $a['import_title'];
         } else {
             if ($model->pre_deleted == 0) {
-            var_dump($a);
-            echo 'Товар уже обновляли';
-           // die();
-        }
+                echo 'Товар уже обновляли';
+                // die();
+            }
         }
 
         if ($model->title == $model->import_title) {
             $model->title = $a['import_title'];
             $model->import_title = $a['import_title'];
         }
-        if (isset($a['amount'])){
+        if (isset($a['amount'])) {
             $model->price = $a['amount'];
             unset($a['amount']);
         } else {
-          $model->price = $this->calcPrice($model, $a['supplier_price'], $a['price_add']);  
+            $model->price = $this->calcPrice($model, $a['supplier_price'], $a['price_add']);
+        }
+
+        unset($a['price_add']);
+        if (!isset($a['quantity']) ||  $a['quantity']<0){
+            $a['quantity'] = 0;
         }
         
-        unset($a['price_add']);
         $model->attributes = $a;
         $model->pre_deleted = 0;
         $model->deleted = 0;
 
-        $model->updated_at = date('Y-m-d h:i:s');
+        $model->updated_at = date('Y-m-d H:i:s');
         if ($model->validate()) {
             if (!$model->save()) {
                 var_dump($a);
@@ -126,25 +130,21 @@ class BaseImporter implements \app\components\import\ImporterInterface {
                     ->where(['product_image.product_id' => $model->id])
                     ->andWhere(['like', 'image.path', $imageName])
                     ->one();
-            
-            if ($productImage){
-                $filename = \Yii::$app->params['path']['basePath']. $productImage->image->path;               
-                if (!file_exists($filename)) $productImage = false;
-                 if (filesize($filename) < 1024)  { 
-                     //var_dump($productImage->image->id);
-                     $productImage->delete();
-                     $productImage = false;
-                 }
-                
-                
-                
-                
+
+            if ($productImage) {
+                $filename = \Yii::$app->params['path']['basePath'] . $productImage->image->path;
+                if (!file_exists($filename))
+                    $productImage = false;
+                if (filesize($filename) < 1024) {
+                    $productImage->delete();
+                    $productImage = false;
+                }
             }
-            
-            
+
+
 
             if (!$productImage) {
-                
+
                 $image_params = \app\components\ImageSaveHelper::saveFromAutoDetect($image);
                 if (!$image_params)
                     continue;
@@ -152,13 +152,23 @@ class BaseImporter implements \app\components\import\ImporterInterface {
 
                 $imageObj = new \app\models\Image();
                 $imageObj->path = $image_params['link'];
+                if (!$imageObj->validate()) {
+                    var_dump($imageObj->errors);
+                    die();
+                }
                 $imageObj->save();
+
 
 
                 $productImage = new \app\models\ProductImage();
                 $productImage->product_id = $model->id;
                 $productImage->image_id = $imageObj->id;
+                if (!$productImage->validate()) {
+                    var_dump($productImage->errors);
+                    die();
+                }
                 $productImage->save();
+               
                 //var_dump($image);
                 //die();
             }
@@ -176,12 +186,12 @@ class BaseImporter implements \app\components\import\ImporterInterface {
             ':attribute_2' => $model->id
         ]);
 
-        if (isset($a['category_ids'])){
-             $parentIds = $a['category_ids'];
+        if (isset($a['category_ids'])) {
+            $parentIds = $a['category_ids'];
         } else {
-             $parentIds = array($a['category_id']);
+            $parentIds = array($a['category_id']);
         }
-       
+
 
         \app\models\ProductCategory::deleteAll([
             'AND', 'product_id = :attribute_2', [
@@ -213,12 +223,12 @@ class BaseImporter implements \app\components\import\ImporterInterface {
     // $category->external_id;   // id категории старая
     // $category->title;   // название категории
     public function saveCategory($category) {
-        if (array_key_exists('external_id', $category)){
-             $newCategory = \app\models\Category::find()->where(['external_id' => $category['external_id'], 'catalog_id' => $category['supplier_id']])->one();
-        } elseif (array_key_exists('external_1c_id', $category)){ 
+        if (array_key_exists('external_id', $category)) {
+            $newCategory = \app\models\Category::find()->where(['external_id' => $category['external_id'], 'catalog_id' => $category['supplier_id']])->one();
+        } elseif (array_key_exists('external_1c_id', $category)) {
             $newCategory = \app\models\Category::find()->where(['external_1c_id' => $category['external_1c_id'], 'catalog_id' => $category['supplier_id']])->one();
         }
-       
+
         if (!$newCategory) {
             $newCategory = new \app\models\Category();
         }

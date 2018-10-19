@@ -25,11 +25,20 @@ class ImageSaveHelper extends Component {
         fclose($dest_file);
         if (!$result)
             return false;
-        if ($http_code != 200)
+        if ($http_code != 200) {
+            if (file_exists($file)) {
+                unlink($file);
+            }
             return false;
-        
-        if (!file_exists($file)) return false;
-        if (filesize($file) < 1024) return false;
+        }
+
+
+        if (!file_exists($file))
+            return false;
+        if (filesize($file) < 10 * 1024) {
+            unlink($file);
+            return false;
+        }
         return true;
     }
 
@@ -59,10 +68,10 @@ class ImageSaveHelper extends Component {
         $file->saveAs($data['baseDirName'] . '/' . $data['dirname'] . '/' . $data['longdirname'] . '/' . $filename, true);
         return ['name' => $filename, 'path' => $data['baseDirName'] . '/' . $data['dirname'] . '/' . $data['longdirname'] . '/' . $filename, 'link' => $data['baseDirUrl'] . '/' . $data['dirname'] . '/' . $data['longdirname'] . '/' . $filename];
     }
-    
+
     public static function saveFromFilePath($link) {
-        
-        $file= new \SplFileInfo($link);
+
+        $file = new \SplFileInfo($link);
         if (!in_array($file->getExtension(), static::$extensions))
             return false;
 
@@ -93,14 +102,17 @@ class ImageSaveHelper extends Component {
     }
 
     public static function saveFromUrl($url) {
-        if (empty($url)) return false;
+        if (empty($url))
+            return false;
         // для каждого файла создаем директорию и сохраняем его в директорию, заносим запись в таблицу
         $path = parse_url($url, PHP_URL_PATH);
         $pathinfo = pathinfo($path);
-        
-        if (!is_array($pathinfo)) return false;
-        
-        if (!array_key_exists('extension', $pathinfo))  return false;
+
+        if (!is_array($pathinfo))
+            return false;
+
+        if (!array_key_exists('extension', $pathinfo))
+            return false;
 
         if (!in_array($pathinfo['extension'], static::$extensions))
             return false;

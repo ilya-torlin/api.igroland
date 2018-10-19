@@ -33,11 +33,13 @@ class IgrolandImporter extends BaseImporter implements \app\components\import\Im
 
     public function engine($supplier) {
         try {
-             $brand_id = $this->findBrandByName("Игролэнд");
+            $brand_id = $this->findBrandByName("Игролэнд");
             $csvFile = file($supplier->link);
+            var_dump($supplier->link);
             $data = $this->prepareDate($csvFile);
             $count = 0;
             $saved = 0;
+            
             foreach ($data as $key => $item) {
                 $count++;
                 try {
@@ -58,11 +60,8 @@ class IgrolandImporter extends BaseImporter implements \app\components\import\Im
                         $newCategory['external_id'] = mt_rand();
                         $category_id = $this->saveCategory($newCategory);
                     }
-
-                    $fileImg = array('http://analyze-it.su/images/img_new/' . $item[1] . '.jpg', 'http://analyze-it.su/images/img_new/' . $item[1] . '.JPG');
-                   
-                     
-                  
+                 
+                    $fileImg = array('http://igroland-api.praweb.ru/data/img_new/' . $item[1] . '.jpg', 'http://igroland-api.praweb.ru/data/img_new/' . $item[1] . '.JPG');
                     $a = [
                         "price_add" => $supplier->price_add,
                         "supplier_id" => $supplier->id,
@@ -100,16 +99,47 @@ class IgrolandImporter extends BaseImporter implements \app\components\import\Im
                     }
 
                     $saved += $this->saveProduct($a);
+
+                    //Формируем noimages
+                    $product = \app\models\Product::find()->where(['sku' => $a['sku'], 'supplier_id' => 5])->one();
+                    if ($product) {
+                        //Картинки у товара есть
+                        if (count($product->productImages) > 0) {
+                            \app\models\Noimages::deleteAll(['articul' => $a['sku']]);
+                        } else {
+                            $noimageCount = \app\models\Noimages::find()->where(['articul' => $a['sku']])->count();
+                            if (!$noimageCount) {
+                                $noimage = new \app\models\Noimages();
+                                $noimage->articul = $a['sku'];
+                                $noimage->save();
+                            }
+                        }
+                    }
                 } catch (\Exception $e) {
 
                     return $this->getError('Ошибка при сохранении товара ' . $key . ' - ' . $e->getMessage() . ' line- ' . $e->getLine());
                 }
             }
+            //Создаем файл noimages
 
 
 
+            $filename = \Yii::$app->params['path']['noimagePath'] . 'noimages-' . date('ymd', time() - 24 * 60 * 60) . '.csv';
+             
+            if (!file_exists($filename)) {
+                $targetDate = date('Y-m-d 00:00:00', time() - 2 * 24 * 60 * 60);
+                $items = \app\models\Noimages::find();
+                $items = $items->where(['<','date',  $targetDate]);
+                $items = $items->select('articul')->asArray()->column();
+                $data = implode(PHP_EOL, $items);
+                file_put_contents($filename, $data);
+            }
+            
+            if ($saved < 1000){
+                 return $this->getError('Что то пошло не так, сохранено слишком мало товаров' );
+            }
 
-            return 'Найдено товаров ' . $count . ' сохранено ' . $saved;
+            return  $this->getResult('Найдено товаров ' . $count . ' сохранено ' . $saved);
         } catch (\Exception $e) {
             return $this->getError('Ошибка при чтении файла импорта ' . $e->getMessage());
         }

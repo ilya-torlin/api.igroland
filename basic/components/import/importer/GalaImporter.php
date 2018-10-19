@@ -167,7 +167,7 @@ class GalaImporter extends BaseImporter implements \app\components\import\Import
             }
          }
 
-         return $this->getResult($data->xml_catalog->shop);
+        return  $this->getResult('Done');
       } catch (\Exception $e) {
          return $this->getError('Ошибка при чтении файла импорта ' . $e->getMessage());
       }

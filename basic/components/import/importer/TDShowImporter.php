@@ -168,7 +168,7 @@ class TDShowImporter extends BaseImporter implements \app\components\import\Impo
                 }
             }
 
-            return 'Найдено товаров ' . $count . ' сохранено ' . $saved;
+            return  $this->getResult('Найдено товаров ' . $count . ' сохранено ' . $saved);
         } catch (\Exception $e) {
             return $this->getError('Ошибка при чтении файла импорта ' . $e->getMessage());
         }
