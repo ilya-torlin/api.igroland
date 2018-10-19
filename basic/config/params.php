@@ -10,6 +10,7 @@ return [
     ],
     'path' => [  
            'basePath' => '/home/admin/web/igroland-api.praweb.ru/public_html',
+           'noimagePath' => '/home/admin/web/igroland-api.praweb.ru/public_html/data/rests/',
            'saveImagePath' => '/home/admin/web/igroland-api.praweb.ru/public_html/data/images',
            'tmpPath' => '/home/admin/web/igroland-api.praweb.ru/tmp',
            'saveImageUrl' => '/data/images'
