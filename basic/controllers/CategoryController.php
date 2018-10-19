@@ -50,6 +50,7 @@ class CategoryController extends ActiveController {
                 'wasDeleted' => false,
                 // 'key' => $parent_folder_id.'_'.$idx, 
                 'key' => $parent_folder_id . '_' . $idx . '_' . $model['id'],
+                'isFixPrice' =>  (boolean) $model['isFixPrice'],
             );
 
             if ($isMyCatalog) {
@@ -466,6 +467,76 @@ class CategoryController extends ActiveController {
         $data = $this->prepareData($models, 0, 0, false, true);
         return JsonOutputHelper::getResult($data['catalogFolders'][0]);
     }
+
+     /**
+      * @OA\Put(
+      *     path="/category/{id}",
+      *     summary="Обновляет категорию по id",
+      *     tags={"category"},
+      *     security={{"bearerAuth":{}}},
+      *     description="Обновляет имя и параметры категории",
+      *     @OA\Parameter(
+      *         name="id",
+      *         in="path",
+      *         required=false,
+      *         @OA\Schema(
+      *             type="integer",
+      *         )
+      *     ),
+      *     @OA\RequestBody(
+      *         description="Input data format",
+      *         @OA\MediaType(
+      *             mediaType="application/x-www-form-urlencoded",
+      *             @OA\Schema(
+      *                 type="object",
+      *                 @OA\Property(
+      *                     property="categoryName",
+      *                     description="categoryName",
+      *                     type="string",
+      *                 ),
+      *                @OA\Property(
+      *                     property="isFixPrice",
+      *                     description="isFixPrice",
+      *                     type="boolean",
+      *                 ),
+      *             )
+      *         )
+      *     ),
+      *     @OA\Response(
+      *         response=200,
+      *         description="successful operation"
+      *     ),
+      *  @OA\Response(
+      *         response=401,
+      *         description="Необходимо отправить авторизационный токен"
+      *     ),
+
+
+      * )
+      */
+     public function actionUpdate($id) {
+          $me = \Yii::$app->user->identity;
+          $params = \Yii::$app->request->post();
+          $category = \app\models\Category::find()->where(['id' => $id])->one();
+          if (!$category ){
+               return JsonOutputHelper::getError('Категория не найдена');
+          }
+
+          $category->title = $params['categoryName'];
+          $boolval = filter_var($params['isFixPrice'], FILTER_VALIDATE_BOOLEAN);
+          if ($boolval) {
+               $category->isFixPrice = 1;
+          } else {
+               $category->isFixPrice = 0;
+          }
+
+          $category->save();
+
+          $category = \app\models\Category::find()->where(['id' => $id])->one();
+          $models = array($category);
+          $data = $this->prepareData($models, 0, 0, false, true);
+          return JsonOutputHelper::getResult($data['catalogFolders'][0]);
+     }
 
     public function actions() {
         $actions = parent::actions();
