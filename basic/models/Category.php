@@ -18,6 +18,7 @@ use Yii;
  * @property int $internal_id
  * @property int $pre_deleted
  * @property int $deleted
+ * @property int $isFixPrice
  *
  * @property Catalog $catalog
  * @property Category $parent
@@ -46,7 +47,7 @@ class Category extends \yii\db\ActiveRecord {
     public function rules() {
         return [
             [['timestap'], 'safe'],
-            [['parent_id', 'supplier_id', 'catalog_id', 'external_id', 'internal_id', 'pre_deleted', 'deleted'], 'integer'],
+            [['parent_id', 'supplier_id', 'catalog_id', 'external_id', 'internal_id', 'pre_deleted', 'deleted', 'isFixPrice'], 'integer'],
             [['title'], 'required'],
             [['title'], 'string', 'max' => 128],
             [['external_1c_id'], 'string', 'max' => 255],             
@@ -72,6 +73,7 @@ class Category extends \yii\db\ActiveRecord {
             'internal_id' => 'Internal ID',
             'pre_deleted' => 'Pre Deleted',
             'deleted' => 'Deleted',
+            'isFixPrice' => 'Is Fix Price',
         ];
     }
 
@@ -220,6 +222,9 @@ class Category extends \yii\db\ActiveRecord {
         $models = $models->innerJoin('product_attach', 'product.id = product_attach.attached_product_id');
         $models = $models->andWhere(['IN', 'product_attach.category_id', $categoryIds]);
         $modelIds = array_merge($modelIds, $models->select('product.id')->asArray()->column());
+       
+        
+
         //var_dump($modelIds);
 
         return \app\models\Product::find()->where(['IN', 'id', $modelIds])->andWhere(['deleted' => 0]);
